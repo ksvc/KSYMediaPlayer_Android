@@ -6,6 +6,7 @@
 ## 1.产品概述
 
 金山云播放内核涵盖Android、iOS、Flash和浏览器插件四个平台，基于FFmpeg自主研发音视频媒体播放内核，作为一款全平台兼容的软件播放方案，金山云播放内核提供了跨终端平台的播放器SDK，以及开放的音视频播放、控制接口和完整的开源调用示例，不仅极大降低开发门槛，同时支持客户快速在多个平台发布产品。
+
 KSY MediaPlayer Android SDK是金山云播放内核官方推出的Android平台上使用的软件开发工具包(SDK)，为Android开发者提供简单、快捷的接口，帮助开发者实现Android平台上的多媒体播放应用。
 
 ## 2.KSYMediaPlayer SDK 功能说明
@@ -26,7 +27,12 @@ KSY MediaPlayer Android SDK可运行于手机移动端、平板电脑、电视�
 ## 4.下载并使用SDK
 
 ### 4.1 Step1 下载SDK
-KSYMediaPlayer 请使用金山云账户邮件向 taochuntang@kingsoft.com索取, 解压缩后包含 demo、doc、README.md 四个部分, 解压后的目录结构如下所示:
+KSYMediaPlayer下载方式：
+
+* 请使用金山云账户邮件向 taochuntang@kingsoft.com索取;
+* 从github下载：https://github.com/ksvc/KSYMediaPlayer_Android.git;
+
+解压缩后包含 demo、doc、README.md 四个部分, 解压后的目录结构如下所示:
 * domo/ 目录存放KSYPlayerDemo，用于帮助开发都快速了解如何使用SDK。
 * doc/ 目录存放接口参考文档。
 * domo/libs 目录存放了包括一个Jar包和一个so库，该库支持armv5/armv7a/arm64/x86四种体系结构。其中，Jar包主要包含了一个基于Android系统播放器 MediaPlayer实现的播放器KSYMediaPlayer，供外界调用。而so库则包含了底层网络协议，文件格式解析及相应的解码库的实现。
@@ -178,10 +184,10 @@ ksyMediaPlayer.seTimeout()
 ```
 
 ## 特性说明
-当前下载版本为轻量级播放sdk，该版本有如下特性:
-1. 支持h.264/h.265/aac/mp3编码格式;
-2. 支持rtmp/hls/http-flv直播;
-3. 支持hls和http点播，封装格式为mp4/flv/ts；
+当前下载版本为轻量级播放sdk，该版本有如下特性:  
+1. 支持h.264/h.265/aac/mp3编码格式;  
+2. 支持rtmp/hls/http-flv直播;  
+3. 支持hls和http点播，封装格式为mp4/flv/ts；  
 
 如有其他编码和封装格式，请直接联系金山云客服获取其他版本。
 ## 接口说明
