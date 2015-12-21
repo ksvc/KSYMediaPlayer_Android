@@ -178,9 +178,9 @@ ksyMediaPlayer.seTimeout()
 ```
 
 ## 特性说明
-当前下载版本为轻量级播放sdk，该版本有如下特性：
-1. 支持h.264/h.265/aac/mp3编码格式；
-2. 支持rtmp/hls/http-flv直播；
+当前下载版本为轻量级播放sdk，该版本有如下特性:
+1. 支持h.264/h.265/aac/mp3编码格式;
+2. 支持rtmp/hls/http-flv直播;
 3. 支持hls和http点播，封装格式为mp4/flv/ts；
 
 如有其他编码和封装格式，请直接联系金山云客服获取其他版本。
