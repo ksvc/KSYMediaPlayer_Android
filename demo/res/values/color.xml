@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="player_black">#000000</color>
+    <color name="player_white">#FFFFFF</color>
+    <color name="player_panel">#696969</color>
+    <color name="player_red">#FF0033</color>
+    <color name="player_blue">#333399</color>
+    <color name="player_green">#99CC33</color>
+    <color name="player_grey">#CCCCCC</color>
+    <color name="player_yellow">#FFCC00</color>
+    <color name="player_purple">#996699</color>
+    <color name="player_blue2">#0099cc</color>
+</resources>

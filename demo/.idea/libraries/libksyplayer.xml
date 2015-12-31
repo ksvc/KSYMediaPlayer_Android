@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libksyplayer">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/libksyplayer.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
