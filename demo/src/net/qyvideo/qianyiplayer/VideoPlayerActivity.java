@@ -222,7 +222,7 @@ public class VideoPlayerActivity extends Activity{
 
         String mrl = getIntent().getStringExtra("path");
 
-        ksyMediaPlayer = new KSYMediaPlayer();
+        ksyMediaPlayer = new KSYMediaPlayer.Builder(mContext).build();
         ksyMediaPlayer.setOnBufferingUpdateListener(mOnBufferingUpdateListener);
         ksyMediaPlayer.setOnCompletionListener(mOnCompletionListener);
         ksyMediaPlayer.setOnPreparedListener(mOnPreparedListener);
