@@ -231,6 +231,7 @@ public class VideoPlayerActivity extends Activity{
         ksyMediaPlayer.setOnErrorListener(mOnErrorListener);
         ksyMediaPlayer.setOnSeekCompleteListener(mOnSeekCompletedListener);
         ksyMediaPlayer.setScreenOnWhilePlaying(true);
+        ksyMediaPlayer.setBufferTimeMax(5);
 
         // set cache dir
         // enable http local cache
