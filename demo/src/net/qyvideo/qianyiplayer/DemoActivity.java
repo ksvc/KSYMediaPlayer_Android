@@ -43,7 +43,6 @@ public class DemoActivity extends Activity implements AsyncCallback{
     private RelativeLayout mLoadingLayout;
     private ListView mListView;
     private ListView mHistoryListView;
-    private Button mButton;
     private Button mLocalPlayButton;
     private Button mInputUrlButton;
     private EditText mEditText;
@@ -81,12 +80,10 @@ public class DemoActivity extends Activity implements AsyncCallback{
         mLoadingLayout = (RelativeLayout) findViewById(R.id.demo_lo);
         mListView = (ListView) findViewById(R.id.demo_list);
         mHistoryListView = (ListView) findViewById(R.id.play_history);
-        mButton = (Button) findViewById(R.id.demo_refresh);
         mLocalPlayButton = (Button) findViewById(R.id.demo_localplay);
         mInputUrlButton = (Button) findViewById(R.id.demo_writein);
         mEditText = (EditText) findViewById(R.id.network_url);
 
-        mButton.setOnClickListener(mOnClickListener);
         mLocalPlayButton.setOnClickListener(mOnLocalClickListener);
         mInputUrlButton.setOnClickListener(mOnInputClickListener);
         mListView.setAdapter(mDemoAdapter);
@@ -280,21 +277,6 @@ public class DemoActivity extends Activity implements AsyncCallback{
             initLocalPlayList();
             mListView.setVisibility(View.VISIBLE);
             mEditText.setVisibility(View.GONE);
-        }
-    };
-
-    private View.OnClickListener mOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            if(!mIsLoading) {
-                mPlayType = 2;
-                mIsLocalPlayback = false;
-                mIsLoading = true;
-                mLoadingLayout.setVisibility(View.VISIBLE);
-                mListView.setVisibility(View.VISIBLE);
-                mEditText.setVisibility(View.GONE);
-                executeHttpRequest();
-            }
         }
     };
 
