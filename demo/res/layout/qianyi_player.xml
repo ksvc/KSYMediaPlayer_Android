@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/player_black">
 
-    <SurfaceView
+    <net.qyvideo.qianyiplayer.VideoSurfaceView
         android:id="@+id/player_surface"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

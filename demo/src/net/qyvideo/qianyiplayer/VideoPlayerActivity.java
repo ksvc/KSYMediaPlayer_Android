@@ -56,7 +56,7 @@ public class VideoPlayerActivity extends Activity{
     private QosThread mQosThread;
 
     private Surface mSurface = null;
-    private SurfaceView mVideoSurfaceView = null;
+    private VideoSurfaceView mVideoSurfaceView = null;
     private SurfaceHolder mSurfaceHolder = null;
 
     private Handler mHandler;
@@ -85,8 +85,15 @@ public class VideoPlayerActivity extends Activity{
     private IMediaPlayer.OnPreparedListener mOnPreparedListener = new IMediaPlayer.OnPreparedListener() {
         @Override
         public void onPrepared(IMediaPlayer mp) {
-            if (ksyMediaPlayer != null)
+            if (ksyMediaPlayer != null) {
+                if(mVideoSurfaceView != null)
+                {
+                    mVideoSurfaceView.setVideoDimension(ksyMediaPlayer.getVideoWidth(), ksyMediaPlayer.getVideoHeight());
+                    mVideoSurfaceView.requestLayout();
+                }
+
                 ksyMediaPlayer.start();
+            }
             setVideoProgress(0);
             if (mQosThread != null)
                 mQosThread.start();
@@ -121,7 +128,7 @@ public class VideoPlayerActivity extends Activity{
             } // end of for loop
 
             mStartTime = System.currentTimeMillis();
-            scaleVideoView();
+
         }
     };
 
@@ -205,12 +212,11 @@ public class VideoPlayerActivity extends Activity{
         mPlayerSeekbar.setOnSeekBarChangeListener(mSeekBarListener);
         mPlayerSeekbar.setEnabled(true);
 
-        mVideoSurfaceView = (SurfaceView) findViewById(R.id.player_surface);
+        mVideoSurfaceView = (VideoSurfaceView) findViewById(R.id.player_surface);
         mSurfaceHolder = mVideoSurfaceView.getHolder();
         mSurfaceHolder.addCallback(mSurfaceCallback);
         mVideoSurfaceView.setOnTouchListener(mTouchListener);
         mVideoSurfaceView.setKeepScreenOn(true);
-        // mVideoSurfaceView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         mLoadText.setVisibility(View.VISIBLE);
 
         this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
@@ -283,7 +289,6 @@ public class VideoPlayerActivity extends Activity{
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-        scaleVideoView();
         super.onConfigurationChanged(newConfig);
     }
 
