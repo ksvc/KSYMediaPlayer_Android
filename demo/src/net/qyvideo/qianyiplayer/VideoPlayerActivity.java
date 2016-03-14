@@ -438,12 +438,12 @@ public class VideoPlayerActivity extends Activity{
         }
     };
 
+    private int mVideoProgress = 0;
     private SeekBar.OnSeekBarChangeListener mSeekBarListener = new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             if(fromUser) {
-                ksyMediaPlayer.seekTo(progress);
-                setVideoProgress(progress);
+                mVideoProgress = progress;
             }
         }
 
@@ -454,7 +454,8 @@ public class VideoPlayerActivity extends Activity{
 
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
-
+            ksyMediaPlayer.seekTo(mVideoProgress);
+            setVideoProgress(mVideoProgress);
         }
     };
 
