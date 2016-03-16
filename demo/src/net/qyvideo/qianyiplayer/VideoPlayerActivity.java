@@ -82,10 +82,16 @@ public class VideoPlayerActivity extends Activity{
     private long mPauseStartTime = 0;
     private long mPausedTime = 0;
 
+    private int mVideoWidth = 0;
+    private int mVideoHeight = 0;
+
     private IMediaPlayer.OnPreparedListener mOnPreparedListener = new IMediaPlayer.OnPreparedListener() {
         @Override
         public void onPrepared(IMediaPlayer mp) {
             if (ksyMediaPlayer != null) {
+                mVideoWidth = ksyMediaPlayer.getVideoWidth();
+                mVideoHeight = ksyMediaPlayer.getVideoHeight();
+
                 if(mVideoSurfaceView != null)
                 {
                     mVideoSurfaceView.setVideoDimension(ksyMediaPlayer.getVideoWidth(), ksyMediaPlayer.getVideoHeight());
@@ -144,7 +150,19 @@ public class VideoPlayerActivity extends Activity{
     private IMediaPlayer.OnVideoSizeChangedListener mOnVideoSizeChangeListener = new IMediaPlayer.OnVideoSizeChangedListener() {
         @Override
         public void onVideoSizeChanged(IMediaPlayer mp, int width, int height, int sarNum, int sarDen) {
+            if(mVideoWidth > 0 && mVideoHeight > 0) {
+                if(width != mVideoWidth || height != mVideoHeight) {
+                    mVideoWidth = mp.getVideoWidth();
+                    mVideoHeight = mp.getVideoHeight();
 
+                    // maybe we could call scaleVideoView here.
+                    if(mVideoSurfaceView != null)
+                    {
+                        mVideoSurfaceView.setVideoDimension(mVideoWidth, mVideoHeight);
+                        mVideoSurfaceView.requestLayout();
+                    }
+                }
+            }
         }
     };
 
@@ -300,8 +318,8 @@ public class VideoPlayerActivity extends Activity{
         WindowManager wm = this.getWindowManager();
         int sw = wm.getDefaultDisplay().getWidth();
         int sh = wm.getDefaultDisplay().getHeight();
-        int videoWidth = ksyMediaPlayer.getVideoWidth();
-        int videoHeight = ksyMediaPlayer.getVideoHeight();
+        int videoWidth = mVideoWidth;
+        int videoHeight = mVideoHeight;
         int visibleWidth = 0;
         int visibleHeight = 0;
 
