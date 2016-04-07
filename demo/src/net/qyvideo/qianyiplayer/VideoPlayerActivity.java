@@ -25,6 +25,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 
 import com.ksyun.media.player.IMediaPlayer;
+import com.ksyun.media.player.KSYMediaMeta;
 import com.ksyun.media.player.KSYMediaPlayer;
 import com.ksyun.media.player.misc.IMediaFormat;
 import com.ksyun.media.player.misc.ITrackInfo;
@@ -74,6 +75,9 @@ public class VideoPlayerActivity extends Activity{
     private TextView mFrameRate;
     private TextView mCodecType;
     private TextView mServerIp;
+    private TextView mSdkVersion;
+    private TextView mDNSTime;
+    private TextView mHttpConnectionTime;
 
     private boolean mPlayerPanelShow = false;
     private boolean mPause = false;
@@ -88,26 +92,51 @@ public class VideoPlayerActivity extends Activity{
     private IMediaPlayer.OnPreparedListener mOnPreparedListener = new IMediaPlayer.OnPreparedListener() {
         @Override
         public void onPrepared(IMediaPlayer mp) {
-            if (ksyMediaPlayer != null) {
-                mVideoWidth = ksyMediaPlayer.getVideoWidth();
-                mVideoHeight = ksyMediaPlayer.getVideoHeight();
 
-                if(mVideoSurfaceView != null)
-                {
-                    mVideoSurfaceView.setVideoDimension(ksyMediaPlayer.getVideoWidth(), ksyMediaPlayer.getVideoHeight());
-                    mVideoSurfaceView.requestLayout();
-                }
+            mVideoWidth = ksyMediaPlayer.getVideoWidth();
+            mVideoHeight = ksyMediaPlayer.getVideoHeight();
 
-                ksyMediaPlayer.start();
+            //set surface view
+            if(mVideoSurfaceView != null)
+            {
+                mVideoSurfaceView.setVideoDimension(ksyMediaPlayer.getVideoWidth(), ksyMediaPlayer.getVideoHeight());
+                mVideoSurfaceView.requestLayout();
             }
+
+            //start player
+            ksyMediaPlayer.start();
+
+            //set progress
             setVideoProgress(0);
+
+            //start hardware info thread
             if (mQosThread != null)
                 mQosThread.start();
+
+            //update UI
             mCpu.setVisibility(View.VISIBLE);
             mMemInfo.setVisibility(View.VISIBLE);
 
             if(ksyMediaPlayer.getServerAddress() != null)
                 mServerIp.setText("ServerIP: "+ ksyMediaPlayer.getServerAddress());
+
+            //  get meta data
+            Bundle bundle = ksyMediaPlayer.getMediaMeta();
+            KSYMediaMeta meta = KSYMediaMeta.parse(bundle);
+            if (meta != null)
+            {
+                if (meta.mHttpConnectTime != null) {
+                    double http_connection_time = Double.valueOf(meta.mHttpConnectTime);
+                    mHttpConnectionTime.setText("HTTP Connection Time: " + (int)http_connection_time);
+                }
+
+                int dns_time = meta.mAnalyzeDnsTime;
+                if (dns_time >= 0) {
+                    mDNSTime.setText("DNS time: " + dns_time);
+                }
+            }
+
+            mSdkVersion.setText("SDK version: " + ksyMediaPlayer.getVersion());
 
             mVideoResolution.setText("Resolution:" + ksyMediaPlayer.getVideoWidth() + "x" + ksyMediaPlayer.getVideoHeight());
             mVideoResolution.setVisibility(View.VISIBLE);
@@ -225,6 +254,9 @@ public class VideoPlayerActivity extends Activity{
         mFrameRate = (TextView) findViewById(R.id.player_fr);
         mCodecType = (TextView) findViewById(R.id.player_codec);
         mServerIp = (TextView) findViewById(R.id.player_ip);
+        mSdkVersion = (TextView) findViewById(R.id.player_sdk_version);
+        mDNSTime = (TextView) findViewById(R.id.player_dns_time);
+        mHttpConnectionTime = (TextView) findViewById(R.id.player_http_connection_time);
 
         mPlayerStartBtn.setOnClickListener(mStartBtnListener);
         mPlayerSeekbar.setOnSeekBarChangeListener(mSeekBarListener);
@@ -256,6 +288,8 @@ public class VideoPlayerActivity extends Activity{
         ksyMediaPlayer.setOnSeekCompleteListener(mOnSeekCompletedListener);
         ksyMediaPlayer.setScreenOnWhilePlaying(true);
         ksyMediaPlayer.setBufferTimeMax(5);
+
+
 
         // set cache dir
         // enable http local cache

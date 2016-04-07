@@ -80,6 +80,30 @@
             android:textColor="@color/player_yellow"
             android:textSize="10dp"/>
 
+        <TextView
+            android:id="@+id/player_sdk_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_ip"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp"/>
+
+        <TextView
+            android:id="@+id/player_dns_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_sdk_version"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp"/>
+
+        <TextView
+            android:id="@+id/player_http_connection_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_dns_time"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp"/>
+
     </RelativeLayout>
 
     <LinearLayout
