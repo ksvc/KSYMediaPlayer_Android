@@ -125,13 +125,13 @@ public class VideoPlayerActivity extends Activity{
             KSYMediaMeta meta = KSYMediaMeta.parse(bundle);
             if (meta != null)
             {
-                if (meta.mHttpConnectTime != null) {
+                if (meta.mHttpConnectTime > 0) {
                     double http_connection_time = Double.valueOf(meta.mHttpConnectTime);
                     mHttpConnectionTime.setText("HTTP Connection Time: " + (int)http_connection_time);
                 }
 
                 int dns_time = meta.mAnalyzeDnsTime;
-                if (dns_time >= 0) {
+                if (dns_time > 0) {
                     mDNSTime.setText("DNS time: " + dns_time);
                 }
             }
