@@ -222,6 +222,8 @@ public class VideoPlayerActivity extends Activity{
                     Log.e(TAG, "OnErrorListener, Error:" + what + ",extra:" + extra);
             }
 
+            videoPlayEnd();
+
             return false;
         }
     };

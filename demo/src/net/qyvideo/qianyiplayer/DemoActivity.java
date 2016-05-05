@@ -21,9 +21,6 @@ import android.util.Log;
 
 import net.qyvideo.qianyiplayer.util.Extensions;
 import net.qyvideo.qianyiplayer.util.AsyncCallback;
-import net.qyvideo.qianyiplayer.util.HttpRequest;
-import net.qyvideo.qianyiplayer.util.JObject;
-import net.qyvideo.qianyiplayer.util.ParseJson;
 import net.qyvideo.qianyiplayer.util.PlayerPopupWindow;
 import net.qyvideo.qianyiplayer.util.QyDataBase;
 
@@ -47,10 +44,8 @@ public class DemoActivity extends Activity implements AsyncCallback{
     private Button mInputUrlButton;
     private EditText mEditText;
 
-    private DemoAdapter mDemoAdapter;
     private ListAdapter mListAdapter;
     private HistoryAdapter mHistoryAdapter;
-    private HttpRequest mRequest;
     private PlayerPopupWindow mPlayerPopupWin;
     private UIHandler mHandler;
     private boolean mIsLoading;
@@ -66,7 +61,6 @@ public class DemoActivity extends Activity implements AsyncCallback{
         super.onCreate(savedInstanceState);
 
         mContext = this.getApplicationContext();
-        mDemoAdapter = new DemoAdapter(this.getApplicationContext());
         mListAdapter = new ListAdapter(mContext);
         mHistoryAdapter = new HistoryAdapter(mContext);
         mDatabase = new QyDataBase(mContext);
@@ -86,7 +80,6 @@ public class DemoActivity extends Activity implements AsyncCallback{
 
         mLocalPlayButton.setOnClickListener(mOnLocalClickListener);
         mInputUrlButton.setOnClickListener(mOnInputClickListener);
-        mListView.setAdapter(mDemoAdapter);
         mListView.setOnItemClickListener(mItemListener);
         mHistoryListView.setOnItemClickListener(mItemListener);
         mEditText.setOnKeyListener(mKeyListerner);
@@ -128,7 +121,6 @@ public class DemoActivity extends Activity implements AsyncCallback{
         if(mListView.getAdapter() != null)
         {
             mListAdapter.clearFileList();
-            mDemoAdapter.clearFileList();
         }
 
         mListAdapter.setFileList(getVideoFiles(path));
@@ -174,13 +166,6 @@ public class DemoActivity extends Activity implements AsyncCallback{
         if(mListView.getAdapter() != null)
         {
             mListAdapter.clearFileList();
-            mDemoAdapter.clearFileList();
-        }
-
-        if(data != null) {
-            ArrayList<JObject> list = ParseJson.getPlayUrl(data);
-            mDemoAdapter.setSourceUrls(list);
-            mListView.setAdapter(mDemoAdapter);
         }
     }
 
@@ -192,19 +177,7 @@ public class DemoActivity extends Activity implements AsyncCallback{
 
             intent.putExtra("path", path);
         }else if(mPlayType == 2) {
-            JObject obj = (JObject) mDemoAdapter.getItem(mPlayerposition);
 
-            if(codec == 0) {
-                intent.putExtra("path", obj.url264);
-                intent.putExtra("resolution", obj.resolution264);
-                intent.putExtra("framerate", obj.framerate264);
-                intent.putExtra("bitrate", obj.bitrate264);
-            }else{
-                intent.putExtra("path", obj.url265);
-                intent.putExtra("resolution", obj.resolution265);
-                intent.putExtra("framerate", obj.framerate265);
-                intent.putExtra("bitrate", obj.bitrate265);
-            }
         } else if(mPlayType == 3) {
             String path = (String) mHistoryAdapter.getItem(mPlayerposition);
 
@@ -221,11 +194,6 @@ public class DemoActivity extends Activity implements AsyncCallback{
             if(mPlayerPopupWin != null)
                 mPlayerPopupWin.showPopWindow(mListView);
         }
-    }
-
-    private void executeHttpRequest() {
-        mRequest = new HttpRequest(this);
-        mRequest.start();
     }
 
     View.OnKeyListener mKeyListerner = new View.OnKeyListener() {
@@ -288,7 +256,6 @@ public class DemoActivity extends Activity implements AsyncCallback{
             if(mListView.getAdapter() != null)
             {
                 mListAdapter.clearFileList();
-                mDemoAdapter.clearFileList();
             }
 
             if(mHistoryListView.getAdapter() != null)
