@@ -15,6 +15,7 @@ import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
@@ -57,7 +58,7 @@ public class VideoPlayerActivity extends Activity{
     private QosThread mQosThread;
 
     private Surface mSurface = null;
-    private VideoSurfaceView mVideoSurfaceView = null;
+    private SurfaceView mVideoSurfaceView = null;
     private SurfaceHolder mSurfaceHolder = null;
 
     private Handler mHandler;
@@ -79,6 +80,8 @@ public class VideoPlayerActivity extends Activity{
     private TextView mDNSTime;
     private TextView mHttpConnectionTime;
 
+    private Button mPlayerScaleVideo;
+
     private boolean mPlayerPanelShow = false;
     private boolean mPause = false;
 
@@ -89,6 +92,8 @@ public class VideoPlayerActivity extends Activity{
     private int mVideoWidth = 0;
     private int mVideoHeight = 0;
 
+    private int mVideoScaleIndex = 0;
+
     private IMediaPlayer.OnPreparedListener mOnPreparedListener = new IMediaPlayer.OnPreparedListener() {
         @Override
         public void onPrepared(IMediaPlayer mp) {
@@ -96,12 +101,8 @@ public class VideoPlayerActivity extends Activity{
             mVideoWidth = ksyMediaPlayer.getVideoWidth();
             mVideoHeight = ksyMediaPlayer.getVideoHeight();
 
-            //set surface view
-            if(mVideoSurfaceView != null)
-            {
-                mVideoSurfaceView.setVideoDimension(ksyMediaPlayer.getVideoWidth(), ksyMediaPlayer.getVideoHeight());
-                mVideoSurfaceView.requestLayout();
-            }
+            // Set Video Scaling Mode
+            ksyMediaPlayer.setVideoScalingMode(KSYMediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING);
 
             //start player
             ksyMediaPlayer.start();
@@ -184,12 +185,8 @@ public class VideoPlayerActivity extends Activity{
                     mVideoWidth = mp.getVideoWidth();
                     mVideoHeight = mp.getVideoHeight();
 
-                    // maybe we could call scaleVideoView here.
-                    if(mVideoSurfaceView != null)
-                    {
-                        mVideoSurfaceView.setVideoDimension(mVideoWidth, mVideoHeight);
-                        mVideoSurfaceView.requestLayout();
-                    }
+                    if(ksyMediaPlayer != null)
+                        ksyMediaPlayer.setVideoScalingMode(KSYMediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING);
                 }
             }
         }
@@ -236,6 +233,21 @@ public class VideoPlayerActivity extends Activity{
         }
     };
 
+    private View.OnClickListener mVideoScaleButton = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            int mode = mVideoScaleIndex % 2;
+            mVideoScaleIndex++;
+
+            if(ksyMediaPlayer != null) {
+                if(mode == 1)
+                    ksyMediaPlayer.setVideoScalingMode(KSYMediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING);
+                else
+                    ksyMediaPlayer.setVideoScalingMode(KSYMediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT);
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -260,11 +272,14 @@ public class VideoPlayerActivity extends Activity{
         mDNSTime = (TextView) findViewById(R.id.player_dns_time);
         mHttpConnectionTime = (TextView) findViewById(R.id.player_http_connection_time);
 
+        mPlayerScaleVideo = (Button) findViewById(R.id.player_scale);
+        mPlayerScaleVideo.setOnClickListener(mVideoScaleButton);
+
         mPlayerStartBtn.setOnClickListener(mStartBtnListener);
         mPlayerSeekbar.setOnSeekBarChangeListener(mSeekBarListener);
         mPlayerSeekbar.setEnabled(true);
 
-        mVideoSurfaceView = (VideoSurfaceView) findViewById(R.id.player_surface);
+        mVideoSurfaceView = (SurfaceView) findViewById(R.id.player_surface);
         mSurfaceHolder = mVideoSurfaceView.getHolder();
         mSurfaceHolder.addCallback(mSurfaceCallback);
         mVideoSurfaceView.setOnTouchListener(mTouchListener);
@@ -290,12 +305,6 @@ public class VideoPlayerActivity extends Activity{
         ksyMediaPlayer.setOnSeekCompleteListener(mOnSeekCompletedListener);
         ksyMediaPlayer.setScreenOnWhilePlaying(true);
         ksyMediaPlayer.setBufferTimeMax(5);
-
-
-
-        // set cache dir
-        // enable http local cache
-//        ksyMediaPlayer.setCachedDir("/mnt/sdcard/");
 
         try {
             ksyMediaPlayer.setDataSource(mrl);
@@ -524,26 +533,21 @@ public class VideoPlayerActivity extends Activity{
     private final SurfaceHolder.Callback mSurfaceCallback = new Callback() {
         @Override
         public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-            if(ksyMediaPlayer != null) {
-                final Surface newSurface = holder.getSurface();
-                ksyMediaPlayer.setDisplay(holder);
-                ksyMediaPlayer.setScreenOnWhilePlaying(true);
-                if (mSurface != newSurface) {
-                    mSurface = newSurface;
-                    ksyMediaPlayer.setSurface(mSurface);
-                }
-            }
+            if(ksyMediaPlayer != null && ksyMediaPlayer.isPlaying())
+                ksyMediaPlayer.setVideoScalingMode(KSYMediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING);
         }
 
         @Override
         public void surfaceCreated(SurfaceHolder holder) {
+            if(ksyMediaPlayer != null)
+                ksyMediaPlayer.setDisplay(holder);
         }
 
         @Override
         public void surfaceDestroyed(SurfaceHolder holder) {
             Log.d(TAG, "surfaceDestroyed");
             if(ksyMediaPlayer != null) {
-                mSurface = null;
+                ksyMediaPlayer.setDisplay(null);
             }
         }
     };
