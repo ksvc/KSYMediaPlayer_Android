@@ -182,6 +182,28 @@ ksyMediaPlayer.setBufferSize()
 ```java
 ksyMediaPlayer.seTimeout()
 ```
+*得到裸数据RGB32
+```java
+((KSYMediaPlayer)mMediaPlayer).setOption(KSYMediaPlayer.OPT_CATEGORY_PLAYER, "overlay-format", KSYMediaPlayer.SDL_FCC_RV32);		//make sure it is called before "prepareAsync"
+
+ByteBuffer rawBuffer[] = new ByteBuffer[5];		//5 buffers is just an example
+for(int index=0; index<rawBuffer.length; index++)
+{
+	rawBuffer[index] = ByteBuffer.allocate(1280*720*4);     //make sure it is big enougth, not smaller than the maximum video resolution
+       	((KSYMediaPlayer)mMediaPlayer).addVideoRawBuffer(rawBuffer[index].array());
+}
+
+((KSYMediaPlayer)mMediaPlayer).setVideoRawDataListener(new KSYMediaPlayer.OnVideoRawDataListener() {
+	@Override
+	public void onVideoRawDataAvailable(IMediaPlayer mp, byte[] buf, int size, int width, int height, int format) {
+		//todo: handle rgb raw data. 
+		//You can handle it in another thread, but never forget calling addVideoRawBuffer after it is done
+		//....
+		
+		((KSYMediaPlayer)mMediaPlayer).addVideoRawBuffer(buf);		//MUST call it after the buf is handled
+	}
+}
+```
 
 ## 特性说明
 当前下载版本为轻量级播放sdk，该版本有如下特性:  
