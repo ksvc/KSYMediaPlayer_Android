@@ -27,22 +27,22 @@ KSYMediaPlayer下载方式：
 * README.md 即本文档。
 
 ### 3.2 注意事项
-[集成SDK注意事项](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/%E9%A1%B9%E7%9B%AE%E9%9B%86%E6%88%90%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9)
+[集成SDK注意事项](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/SDKIntegration)
 
 ### 3.3 KSYMediaPlayer的使用方法
 在上述步骤之后，SDK已经集成至开发工程中，下面将给出`KSYMediaPlayer`的基本调用示例   
-[KSYMediaPlayer基本调用示例](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/KSYMediaPlayer%E5%9F%BA%E6%9C%AC%E8%B0%83%E7%94%A8%E7%A4%BA%E4%BE%8B)
+[KSYMediaPlayer基本调用示例](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/KSYMediaPlayerBasicExample)
 
 
-## 接口说明
+## 4.接口说明
 请见doc目录下的详细接口说明
 
-## 其他文档
+## 5.其他文档
 用户如果有疑问，可访问此链接   
 [GitHub WiKi](https://github.com/ksvc/KSYMediaPlayer_Android/wiki)   
-[重置播放器&重新播放](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/%E9%87%8D%E7%BD%AE%E6%92%AD%E6%94%BE%E5%99%A8&%E9%87%8D%E6%96%B0%E6%92%AD%E6%94%BE)   
-[画面拉伸](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/Android%E5%85%A8%E5%B1%8F%E6%92%AD%E6%94%BE%E7%94%BB%E9%9D%A2%E6%8B%89%E4%BC%B8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95)
+[重置播放器&重新播放](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/reconnectAndRestart)   
+[画面拉伸](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/scaleVideo)
 
-##反馈与建议
+## 6.反馈与建议
 - 主页：[金山云](http://www.ksyun.com/)
 - 邮箱：<linsong2@kingsoft.com>
