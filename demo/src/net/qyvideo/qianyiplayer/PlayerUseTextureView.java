@@ -345,7 +345,9 @@ public class PlayerUseTextureView extends Activity implements  TextureView.Surfa
     @Override
     protected void onDestroy(){
         super.onDestroy();
-        Log.d("KSYMediaPlayer","onDestroy");
+        if(mSurfaceTexture != null)
+            mSurfaceTexture.release();
+
         mVideoTextureView = null;
         mSurfaceTexture = null;
 
@@ -353,7 +355,6 @@ public class PlayerUseTextureView extends Activity implements  TextureView.Surfa
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d("KSYMediaPlayer","onPause");
         if(ksyMediaPlayer != null)
         {
             ksyMediaPlayer.pause();
@@ -365,7 +366,6 @@ public class PlayerUseTextureView extends Activity implements  TextureView.Surfa
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d("KSYMediaPlayer","onResume");
         reinitTextureView((TextureView) findViewById(R.id.player_surface));
         if(ksyMediaPlayer != null)
         {
@@ -375,7 +375,6 @@ public class PlayerUseTextureView extends Activity implements  TextureView.Surfa
     }
     //android <=4.4 后台切回后不会再触发onSurfaceTextureAvailable，所以在此处调用setSurfaceTexture
     public void reinitTextureView(TextureView view) {
-        Log.d("KSYMediaPlayer", "reinitTextureView ");
         mVideoTextureView = view;
         mVideoTextureView.setSurfaceTextureListener(this);
         //需要检测Texture是否是available，否则在某些设备上会引起崩溃
@@ -541,7 +540,6 @@ public class PlayerUseTextureView extends Activity implements  TextureView.Surfa
 
     @Override
     public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
-        Log.d("KSYMediaPlayer","onSurfaceTextureAvailable1");
         if(mSurfaceTexture == null) {
             mSurfaceTexture = surface;
         }
@@ -556,13 +554,11 @@ public class PlayerUseTextureView extends Activity implements  TextureView.Surfa
 
     @Override
     public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {
-        Log.d("KSYMediaPlayer","onSurfaceTextureSizeChanged1");
 
     }
 
     @Override
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
-        Log.d("KSYMediaPlayer","onSurfaceTextureDestroyed1");
         return  false;
     }
 
