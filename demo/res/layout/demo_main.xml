@@ -24,11 +24,69 @@
            android:text="@string/str_input"/>
    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/display_select"
+        android:layout_below="@id/demo_li"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textColor="#ff000000"
+            android:text="显示"/>
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/choose_surface"
+            android:orientation="horizontal">
+            <RadioButton android:id="@+id/use_surfaceview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="SurfaceView" />
+            <RadioButton android:id="@+id/use_textureview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextureView" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/codec_select"
+        android:layout_below="@id/display_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textColor="#ff000000"
+            android:text="解码"/>
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/choose_codec"
+            android:orientation="horizontal">
+            <RadioButton android:id="@+id/use_sw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="软解" />
+            <RadioButton android:id="@+id/use_hw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="硬解" />
+        </RadioGroup>
+    </LinearLayout>
+
     <ListView
         android:id="@+id/demo_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/demo_li">
+        android:layout_below="@+id/codec_select">
 
     </ListView>
 
@@ -36,7 +94,7 @@
         android:id="@+id/network_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/demo_li"
+        android:layout_below="@+id/codec_select"
         android:text="http://120.132.75.127:8091/demo/obs.flv"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:inputType="textUri"

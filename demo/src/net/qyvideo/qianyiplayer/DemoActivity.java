@@ -13,6 +13,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -56,6 +57,12 @@ public class DemoActivity extends Activity implements AsyncCallback{
     private QyDataBase mDatabase;
     private List<String> mPlayHistory;
 
+    private RadioGroup mChooseSurface;
+    private RadioGroup mChooseCodec;
+
+    private boolean useHwCodec = false;
+    private boolean useSurfaceView = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +84,8 @@ public class DemoActivity extends Activity implements AsyncCallback{
         mLocalPlayButton = (Button) findViewById(R.id.demo_localplay);
         mInputUrlButton = (Button) findViewById(R.id.demo_writein);
         mEditText = (EditText) findViewById(R.id.network_url);
+        mChooseSurface = (RadioGroup) findViewById(R.id.choose_surface);
+        mChooseCodec = (RadioGroup) findViewById(R.id.choose_codec);
 
         mLocalPlayButton.setOnClickListener(mOnLocalClickListener);
         mInputUrlButton.setOnClickListener(mOnInputClickListener);
@@ -84,7 +93,11 @@ public class DemoActivity extends Activity implements AsyncCallback{
         mHistoryListView.setOnItemClickListener(mItemListener);
         mEditText.setOnKeyListener(mKeyListerner);
         mEditText.setOnEditorActionListener(mOnEditorListener);
+        mChooseSurface.setOnCheckedChangeListener(mCheckedChangeListener);
+        mChooseCodec.setOnCheckedChangeListener(mCheckedChangeListener);
+
         mPlayerPopupWin.init();
+        initPlayConfig();
     }
 
     @Override
@@ -129,6 +142,25 @@ public class DemoActivity extends Activity implements AsyncCallback{
         mLoadingLayout.setVisibility(View.GONE);
     }
 
+    private void initPlayConfig()
+    {
+        int default_codec  = mChooseCodec.getCheckedRadioButtonId();
+        if (default_codec == R.id.use_hw) {
+            useHwCodec = true;
+        }
+        else{
+            useHwCodec = false;
+        }
+
+        int default_surface = mChooseSurface.getCheckedRadioButtonId();
+        if (default_surface == R.id.use_surfaceview){
+            useSurfaceView = true;
+        }
+        else {
+            useSurfaceView = true;
+        }
+    }
+
     private ArrayList<String> getVideoFiles(String root) {
         if(root == null || root == "")
             return null;
@@ -170,7 +202,13 @@ public class DemoActivity extends Activity implements AsyncCallback{
     }
 
     private void startPlayerActivity(int codec) {
-        Intent intent = new Intent(mContext, VideoPlayerActivity.class);
+        Intent intent;
+        if (useSurfaceView) {
+            intent = new Intent(mContext, VideoPlayerActivity.class);
+        }
+        else {
+            intent = new Intent(mContext, PlayerUseTextureView.class);
+        }
 
         if(mPlayType == 1) {
             String path = (String) mListAdapter.getItem(mPlayerposition);
@@ -184,6 +222,7 @@ public class DemoActivity extends Activity implements AsyncCallback{
             intent.putExtra("path", path);
         }
 
+        intent.putExtra("HWCodec",useHwCodec);
         startActivity(intent);
     }
 
@@ -219,9 +258,16 @@ public class DemoActivity extends Activity implements AsyncCallback{
                     mHistoryAdapter.clearFileList();
                     mHistoryAdapter.setFileList(mPlayHistory);
                 }
-
-                Intent intent = new Intent(mContext, VideoPlayerActivity.class);
+                Intent intent;
+                if (useSurfaceView) {
+                    intent = new Intent(mContext, VideoPlayerActivity.class);
+                }
+                else {
+                    intent = new Intent(mContext, PlayerUseTextureView.class);
+                }
                 intent.putExtra("path", uri);
+                intent.putExtra("HWCodec",useHwCodec);
+
                 startActivity(intent);
             }
             return false;
@@ -282,6 +328,26 @@ public class DemoActivity extends Activity implements AsyncCallback{
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             mPlayerposition = position;
             dealItemClick();
+        }
+    };
+
+    RadioGroup.OnCheckedChangeListener mCheckedChangeListener = new RadioGroup.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(RadioGroup group, int checkedId) {
+            switch (checkedId){
+                case R.id.use_surfaceview:
+                    useSurfaceView = true;
+                    break;
+                case R.id.use_textureview:
+                    useSurfaceView = false;
+                    break;
+                case R.id.use_hw:
+                    useHwCodec = true;
+                    break;
+                case  R.id.use_sw:
+                    useHwCodec = false;
+                    break;
+            }
         }
     };
 
