@@ -93,6 +93,7 @@ public class VideoPlayerActivity extends Activity{
     private int mVideoHeight = 0;
 
     private int mVideoScaleIndex = 0;
+    boolean     useHwCodec = false;
 
     private IMediaPlayer.OnPreparedListener mOnPreparedListener = new IMediaPlayer.OnPreparedListener() {
         @Override
@@ -253,6 +254,7 @@ public class VideoPlayerActivity extends Activity{
         super.onCreate(savedInstanceState);
 
         mContext = this.getApplicationContext();
+        useHwCodec = getIntent().getBooleanExtra("HWCodec",false);
 
         setContentView(R.layout.qianyi_player);
 
@@ -306,6 +308,10 @@ public class VideoPlayerActivity extends Activity{
         ksyMediaPlayer.setScreenOnWhilePlaying(true);
         ksyMediaPlayer.setBufferTimeMax(5);
 
+        if (useHwCodec) {
+            //硬解264&265
+            ksyMediaPlayer.setCodecFlag(KSYMediaPlayer.KSY_USE_MEDIACODEC_ALL);
+        }
         try {
             ksyMediaPlayer.setDataSource(mrl);
             ksyMediaPlayer.prepareAsync();
