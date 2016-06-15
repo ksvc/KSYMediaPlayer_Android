@@ -345,12 +345,9 @@ public class PlayerUseTextureView extends Activity implements  TextureView.Surfa
     @Override
     protected void onDestroy(){
         super.onDestroy();
-        if(mSurfaceTexture != null)
-            mSurfaceTexture.release();
 
         mVideoTextureView = null;
         mSurfaceTexture = null;
-
     }
     @Override
     protected void onPause() {
@@ -488,6 +485,7 @@ public class PlayerUseTextureView extends Activity implements  TextureView.Surfa
         }
 
         mHandler = null;
+        mSurfaceTexture = null;
 
         finish();
     }
@@ -559,7 +557,7 @@ public class PlayerUseTextureView extends Activity implements  TextureView.Surfa
 
     @Override
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
-        return  false;
+        return (mSurfaceTexture == null);
     }
 
     @Override
