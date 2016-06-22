@@ -95,6 +95,8 @@ public class VideoPlayerActivity extends Activity{
     private int mVideoScaleIndex = 0;
     boolean     useHwCodec = false;
 
+    private String mDataSource;
+
     private IMediaPlayer.OnPreparedListener mOnPreparedListener = new IMediaPlayer.OnPreparedListener() {
         @Override
         public void onPrepared(IMediaPlayer mp) {
@@ -229,7 +231,25 @@ public class VideoPlayerActivity extends Activity{
     public IMediaPlayer.OnInfoListener mOnInfoListener = new IMediaPlayer.OnInfoListener() {
         @Override
         public boolean onInfo(IMediaPlayer iMediaPlayer, int i, int i1) {
-            Log.d(TAG, "onInfo, what:"+i+",extra:"+i1);
+            switch (i) {
+                case KSYMediaPlayer.MEDIA_INFO_BUFFERING_START:
+                    Log.d(TAG, "Buffering Start.");
+                    break;
+                case KSYMediaPlayer.MEDIA_INFO_BUFFERING_END:
+                    Log.d(TAG, "Buffering End.");
+                    break;
+                case KSYMediaPlayer.MEDIA_INFO_AUDIO_RENDERING_START:
+                    Toast.makeText(mContext, "Audio Rendering Start", Toast.LENGTH_SHORT).show();
+                    break;
+                case KSYMediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START:
+                    Toast.makeText(mContext, "Video Rendering Start", Toast.LENGTH_SHORT).show();
+                    break;
+                case KSYMediaPlayer.MEDIA_INFO_SUGGEST_RELOAD:
+                    // Player find a new stream(video or audio), and we could reload the video.
+                    if(ksyMediaPlayer != null)
+                        ksyMediaPlayer.reload(mDataSource, false);
+                    break;
+            }
             return false;
         }
     };
@@ -295,7 +315,7 @@ public class VideoPlayerActivity extends Activity{
 
         mQosThread = new QosThread(activityManager, mHandler);
 
-        String mrl = getIntent().getStringExtra("path");
+        mDataSource = getIntent().getStringExtra("path");
 
         ksyMediaPlayer = new KSYMediaPlayer.Builder(mContext).build();
         ksyMediaPlayer.setOnBufferingUpdateListener(mOnBufferingUpdateListener);
@@ -313,7 +333,7 @@ public class VideoPlayerActivity extends Activity{
             ksyMediaPlayer.setCodecFlag(KSYMediaPlayer.KSY_USE_MEDIACODEC_ALL);
         }
         try {
-            ksyMediaPlayer.setDataSource(mrl);
+            ksyMediaPlayer.setDataSource(mDataSource);
             ksyMediaPlayer.prepareAsync();
         } catch (IOException e) {
             e.printStackTrace();
