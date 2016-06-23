@@ -65,7 +65,7 @@
             android:textSize="10dp"/>
 
         <TextView
-            android:id="@+id/player_codec"
+            android:id="@+id/player_video_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/player_fr"
@@ -73,10 +73,18 @@
             android:textSize="10dp"/>
 
         <TextView
+            android:id="@+id/player_audio_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_video_time"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp"/>
+
+        <TextView
             android:id="@+id/player_ip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/player_codec"
+            android:layout_below="@+id/player_audio_time"
             android:textColor="@color/player_yellow"
             android:textSize="10dp"/>
 
@@ -103,15 +111,21 @@
             android:layout_below="@+id/player_dns_time"
             android:textColor="@color/player_yellow"
             android:textSize="10dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true">
 
         <Button
             android:id="@+id/player_scale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ScaleVideo"
-            android:textSize="15dp"
-            android:textColor="@color/player_yellow"
-            android:layout_below="@+id/player_http_connection_time"/>
+            android:textSize="10dp"
+            android:textColor="@color/player_yellow" />
 
     </RelativeLayout>
 
