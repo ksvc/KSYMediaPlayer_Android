@@ -31,10 +31,13 @@ import com.ksyun.media.player.KSYMediaPlayer;
 import com.ksyun.media.player.misc.IMediaFormat;
 import com.ksyun.media.player.misc.ITrackInfo;
 import com.ksyun.media.player.misc.KSYMediaFormat;
+import com.ksyun.media.player.misc.KSYQosInfo;
 
 
 import net.qyvideo.qianyiplayer.util.QosObject;
 import net.qyvideo.qianyiplayer.util.QosThread;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.security.MessageDigest;  
@@ -74,7 +77,8 @@ public class VideoPlayerActivity extends Activity{
     private TextView mVideoResolution;
     private TextView mVideoBitrate;
     private TextView mFrameRate;
-    private TextView mCodecType;
+    private TextView mVideoBufferTime;
+    private TextView mAudioBufferTime;
     private TextView mServerIp;
     private TextView mSdkVersion;
     private TextView mDNSTime;
@@ -146,25 +150,6 @@ public class VideoPlayerActivity extends Activity{
             mVideoResolution.setVisibility(View.VISIBLE);
             mFrameRate.setVisibility(View.VISIBLE);
             mVideoBitrate.setVisibility(View.VISIBLE);
-            mCodecType.setVisibility(View.VISIBLE);
-
-            ITrackInfo trackInfos[] = ksyMediaPlayer.getTrackInfo();
-            if(trackInfos != null) {
-                for(ITrackInfo infos : trackInfos)
-                {
-                    if(infos.getTrackType() == ITrackInfo.MEDIA_TRACK_TYPE_VIDEO)
-                    {
-                        IMediaFormat mediaFormat = infos.getFormat();
-                        String codecType = mediaFormat.getString(KSYMediaFormat.KEY_IJK_CODEC_LONG_NAME_UI);
-                        mFrameRate.setText("FrameRate: " + mediaFormat.getString(KSYMediaFormat.KEY_IJK_FRAME_RATE_UI));
-
-                        if(codecType.equals("hevc"))
-                            mCodecType.setText("Codec: H.265/HEVC");
-                        else if(codecType.equals("h264"))
-                            mCodecType.setText("Codec: H.264/AVC");
-                    }
-                }
-            } // end of for loop
 
             mStartTime = System.currentTimeMillis();
 
@@ -288,7 +273,8 @@ public class VideoPlayerActivity extends Activity{
         mVideoResolution = (TextView) findViewById(R.id.player_re);
         mVideoBitrate = (TextView) findViewById(R.id.player_br);
         mFrameRate = (TextView) findViewById(R.id.player_fr);
-        mCodecType = (TextView) findViewById(R.id.player_codec);
+        mVideoBufferTime = (TextView) findViewById(R.id.player_video_time);
+        mAudioBufferTime = (TextView) findViewById(R.id.player_audio_time);
         mServerIp = (TextView) findViewById(R.id.player_ip);
         mSdkVersion = (TextView) findViewById(R.id.player_sdk_version);
         mDNSTime = (TextView) findViewById(R.id.player_dns_time);
@@ -471,6 +457,11 @@ public class VideoPlayerActivity extends Activity{
         {
             long bits = ksyMediaPlayer.getDecodedDataSize() * 8 / (mPause ? mPauseStartTime - mPausedTime - mStartTime : System.currentTimeMillis() - mPausedTime - mStartTime);
             mVideoBitrate.setText("Bitrate: " + bits + " kb/s");
+            mFrameRate.setText("VideoOutputFrameRate:" + ksyMediaPlayer.getVideoOutputFramesPerSecond());
+            KSYQosInfo info = ksyMediaPlayer.getStreamQosInfo();
+
+            mVideoBufferTime.setText("VideoBufferTime:"+info.videoBufferTimeLength+"(ms)");
+            mAudioBufferTime.setText("AudioBufferTime:"+info.audioBufferTimeLength+"(ms)");
         }
 
     }
