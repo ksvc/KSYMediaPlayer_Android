@@ -95,7 +95,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/codec_select"
-        android:text="http://120.132.75.127:8091/demo/obs.flv"
+        android:text="rtmp://live.hkstv.hk.lxdns.com/live/hks"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:inputType="textUri"
         android:maxLines="2"
