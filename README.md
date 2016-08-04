@@ -29,6 +29,7 @@ KSYMediaPlayer下载方式：
 
 #### oschina下载
 * 从oschina下载：[http://git.oschina.net/ksvc/KSYMediaPlayer_Android](http://git.oschina.net/ksvc/KSYMediaPlayer_Android)
+
 对于部分地方访问github比较慢的情况，可以从oschina clone，获取的库内容和github一致。
 
 ```
