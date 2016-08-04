@@ -18,6 +18,7 @@
 ### 3.1 下载SDK
 KSYMediaPlayer下载方式：
 
+#### github下载
 * 从github下载：[https://github.com/ksvc/KSYMediaPlayer_Android.git](https://github.com/ksvc/KSYMediaPlayer_Android.git)
 
 解压缩后包含 demo、doc、README.md 四个部分, 解压后的目录结构如下所示:
@@ -25,6 +26,14 @@ KSYMediaPlayer下载方式：
 * doc/ 目录存放接口参考文档。
 * libs/ 目录存放了包括jar包和so库，现提供了对armv7a/arm64体系结构的支持。
 * README.md 即本文档。
+
+#### oschina下载
+* 从oschina下载：[http://git.oschina.net/ksvc/KSYMediaPlayer_Android](http://git.oschina.net/ksvc/KSYMediaPlayer_Android)
+对于部分地方访问github比较慢的情况，可以从oschina clone，获取的库内容和github一致。
+
+```
+$ git clone https://git.oschina.net/ksvc/KSYMediaPlayer_Android.git
+```
 
 ### 3.2 注意事项
 [集成SDK注意事项](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/SDKIntegration)
