@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/media_network"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:text="@string/network"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true" />
+
+
+    <Button
+        android:id="@+id/media_setting"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:text="@string/setting"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"/>
+    <Button
+        android:id="@+id/media_history"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:text="@string/history"
+        android:layout_toLeftOf="@+id/media_setting"
+        android:layout_centerVertical="true"/>
+
+
+
+</RelativeLayout>

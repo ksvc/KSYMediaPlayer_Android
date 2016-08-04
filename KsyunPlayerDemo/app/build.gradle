@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.0"
+
+    defaultConfig {
+        applicationId "com.ksyun.player.demo"
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets.main {
+        jniLibs.srcDirs 'src/main/libs'
+        jni.srcDirs = [] // This prevents the auto generation of Android.mk
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: '*/so', dir: 'libs/armeabi-v7a')
+    compile fileTree(include: '*/so', dir: 'libs/arm64-v8a')
+    compile fileTree(include: '*/so', dir: 'libs/x86')
+    compile files('src/main/libs/libksyplayer.jar')
+    compile files('src/main/libs/libksystat.jar')
+    compile files('src/main/libs/zxing.jar')
+    compile files('src/main/libs/bugly_crash_release.jar')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.0.0'
+    compile 'com.android.support:design:24.0.0'
+}

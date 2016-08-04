@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".activity.SettingActivity">
+
+    <TextView
+        android:id="@+id/text_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/player_black"
+        android:text="@string/set_setting"
+        android:textSize="32dp"/>
+    <TextView
+        android:id="@+id/txt_set_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:layout_below="@+id/text_setting"
+        android:text="@string/debugchange"/>
+
+    <Switch
+        android:id="@+id/switch_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/text_setting"
+        android:layout_toRightOf="@+id/txt_set_switch"
+        android:layout_marginLeft="30dp"
+        android:textOff="@string/debugoff"
+        android:textOn="@string/debugon"/>
+
+    <LinearLayout
+        android:id="@+id/linear_set_st"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switch_set"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_set_st"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_st"
+            android:textSize="20dp"/>
+        <RadioGroup
+            android:id="@+id/choose_surface"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+            <RadioButton android:id="@+id/use_surfaceview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/set_surface" />
+            <RadioButton android:id="@+id/use_textureview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/set_texture" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_set_st"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/set_hwc"
+            android:textSize="20dp"/>
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/choose_codec"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+            <RadioButton android:id="@+id/use_sw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/set_soft" />
+            <RadioButton android:id="@+id/use_hw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/set_hard" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
