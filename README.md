@@ -13,6 +13,10 @@
 * 业内一流的H.265解码；
 * 支持画面旋转、截图
 
+### 文档
+
+[详情请见wiki](https://github.com/ksvc/KSYMediaPlayer_Android/wiki)
+
 ## 3.下载并使用SDK
 
 ### 3.1 下载SDK
