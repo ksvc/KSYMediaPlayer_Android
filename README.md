@@ -12,7 +12,13 @@
 * 支持广泛的流式视频格式 HLS, RTMP, HTTP-FLV等；
 * 业内一流的H.265解码；
 * 支持画面旋转、截图
-
+* 支持的文件封装格式和音视频编码标准如下所示：
+|            |          直播         |
+|:----------:|:---------------------:|
+|   流协议    | HLS, RTMP, HTTP, FILE |
+|   封装格式  | FLV, TS, MPEG, MOV, M4V, MP3, AAC, GIF, ASF, RM |
+| 视频编码格式 | H263, H264, H265, MPEG1, MPEG2, MPEG4, AVS, MJPEG, JPEG2000, GIF |
+| 音频编码格式 | AAC, MP3, NELLYMOSER, AMRNB, AMRWB, WMV1, WMV2, WMV3|
 ### 文档
 
 [详情请见wiki](https://github.com/ksvc/KSYMediaPlayer_Android/wiki)
