@@ -24,7 +24,6 @@ public class JieVideoListViewAdapter extends BaseAdapter {
     private LayoutInflater mLayoutInflater;
     private MyVideoThumbLoader mVideoThumbLoader;
 
-
     public JieVideoListViewAdapter(Context context, List<Video> listVideos){
         mLayoutInflater = LayoutInflater.from(context);
         this.listVideos.addAll(listVideos);
