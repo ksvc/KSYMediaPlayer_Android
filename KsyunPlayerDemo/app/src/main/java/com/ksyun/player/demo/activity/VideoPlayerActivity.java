@@ -148,7 +148,7 @@ public class VideoPlayerActivity extends Activity implements TextureView.Surface
             //set progress
             setVideoProgress(0);
 
-            if (mQosThread != null)
+            if (mQosThread != null && !mQosThread.isAlive())
                 mQosThread.start();
 
 
