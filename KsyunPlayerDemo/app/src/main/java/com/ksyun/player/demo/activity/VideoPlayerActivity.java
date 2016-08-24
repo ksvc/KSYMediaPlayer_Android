@@ -441,8 +441,8 @@ public class VideoPlayerActivity extends Activity implements TextureView.Surface
         ksyMediaPlayer.setOnErrorListener(mOnErrorListener);
         ksyMediaPlayer.setOnSeekCompleteListener(mOnSeekCompletedListener);
         ksyMediaPlayer.setScreenOnWhilePlaying(true);
-        ksyMediaPlayer.setBufferTimeMax(5);
-        ksyMediaPlayer.setTimeout(20, 100);
+        ksyMediaPlayer.setBufferTimeMax(3);
+        ksyMediaPlayer.setTimeout(5, 30);
 
 
         settings = getSharedPreferences("SETTINGS",Context.MODE_PRIVATE);
