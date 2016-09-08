@@ -37,7 +37,8 @@ KSYMediaPlayer下载方式：
 解压缩后包含 demo、doc、README.md 四个部分, 解压后的目录结构如下所示:
 * demo/ 目录存放KSYPlayerDemo，用于帮助开发都快速了解如何使用SDK。
 * doc/ 目录存放接口参考文档。
-* libs/ 目录存放了包括jar包和so库，现提供了对armv7a/arm64体系结构的支持。
+* libs_live/ 目录包括**直播**so库，现提供了Android全部体系结构的支持。
+* libs_vod/ 目录包括**点播**so库，现提供了Android全部体系结构的支持。
 * README.md 即本文档。
 
 #### oschina下载
