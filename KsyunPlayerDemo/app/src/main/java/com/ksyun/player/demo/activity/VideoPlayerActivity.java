@@ -465,7 +465,7 @@ public class VideoPlayerActivity extends Activity implements TextureView.Surface
         if (useHwCodec) {
             //硬解264&265
             Log.e(TAG, "Hardware !!!!!!!!");
-            ksyMediaPlayer.setCodecFlag(KSYMediaPlayer.KSY_USE_MEDIACODEC_ALL);
+            ksyMediaPlayer.setDecodeMode(KSYMediaPlayer.KSYDecodeMode.KSY_DECODE_MODE_AUTO);
         }
         try {
             ksyMediaPlayer.setDataSource(mDataSource);
