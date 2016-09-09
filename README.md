@@ -41,6 +41,8 @@ KSYMediaPlayer下载方式：
 * libs_vod/ 目录包括**点播**so库，现提供了Android全部体系结构的支持。
 * README.md 即本文档。
 
+> 直播库与点播库的区别可见链接: [https://github.com/ksvc/KSYMediaPlayer_Android/wiki/LiveAndVod](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/LiveAndVod)
+
 #### oschina下载
 * 从oschina下载：[http://git.oschina.net/ksvc/KSYMediaPlayer_Android](http://git.oschina.net/ksvc/KSYMediaPlayer_Android)
 
