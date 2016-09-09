@@ -43,18 +43,18 @@ public class MyVideoThumbLoader {
 
         if(getVideoThumbToCache(path) == null){
             //异步加载
-            new MyBobAsynctack(imgview, path).execute(path);
+            new MyBobAsyncTask(imgview, path).execute(path);
         }else{
             imgview.setImageBitmap(getVideoThumbToCache(path));
         }
 
     }
 
-    class MyBobAsynctack extends AsyncTask<String, Void, Bitmap> {
+    class MyBobAsyncTask extends AsyncTask<String, Void, Bitmap> {
         private ImageView imgView;
         private String path;
 
-        public MyBobAsynctack(ImageView imageView,String path) {
+        public MyBobAsyncTask(ImageView imageView, String path) {
             this.imgView = imageView;
             this.path = path;
         }
