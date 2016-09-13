@@ -3,6 +3,7 @@
 ### Android ###
 # Built application files
 *.ap_
+.idea/
 
 # Files for the Dalvik VM
 *.dex
