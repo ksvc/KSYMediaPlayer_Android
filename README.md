@@ -41,7 +41,8 @@ KSYMediaPlayer下载方式：
 * libs_vod/ 目录包括**点播**so库，现提供了Android全部体系结构的支持。
 * README.md 即本文档。
 
-> 需要注意的是：KsyunPlayerDemo/playerlib/libs 目录下只有 armeabi-v7a 的直播库，便于用户快速使用KsyunPlayerDemo，用户可根据自身需要将对应平台的动态库放至该目录下即可
+需要注意的是：KsyunPlayerDemo/playerlib/libs 目录下只有 **armeabi-v7a** 的直播库，便于用户快速使用KsyunPlayerDemo，用户可根据自身需要将对应平台的动态库放至该目录下即可
+
 > 直播库与点播库的区别可见链接: [https://github.com/ksvc/KSYMediaPlayer_Android/wiki/LiveAndVod](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/LiveAndVod)
 
 #### oschina下载
