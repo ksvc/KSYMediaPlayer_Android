@@ -35,12 +35,13 @@ KSYMediaPlayer下载方式：
 * 从github下载：[https://github.com/ksvc/KSYMediaPlayer_Android.git](https://github.com/ksvc/KSYMediaPlayer_Android.git)
 
 解压缩后包含 demo、doc、README.md 四个部分, 解压后的目录结构如下所示:
-* demo/ 目录存放KSYPlayerDemo，用于帮助开发都快速了解如何使用SDK。
+* KsyunPlayerDemo/ 目录存放KSY Android Player Demo，用于帮助开发都快速了解如何使用SDK。
 * doc/ 目录存放接口参考文档。
 * libs_live/ 目录包括**直播**so库，现提供了Android全部体系结构的支持。
 * libs_vod/ 目录包括**点播**so库，现提供了Android全部体系结构的支持。
 * README.md 即本文档。
 
+> 需要注意的是：KsyunPlayerDemo/playerlib/libs 目录下只有 armeabi-v7a 的直播库，便于用户快速使用KsyunPlayerDemo，用户可根据自身需要将对应平台的动态库放至该目录下即可
 > 直播库与点播库的区别可见链接: [https://github.com/ksvc/KSYMediaPlayer_Android/wiki/LiveAndVod](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/LiveAndVod)
 
 #### oschina下载
