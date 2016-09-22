@@ -68,6 +68,8 @@ $ git clone https://git.oschina.net/ksvc/KSYMediaPlayer_Android.git
 ## 5.其他文档
 用户如果有疑问，可访问此链接   
 [GitHub WiKi](https://github.com/ksvc/KSYMediaPlayer_Android/wiki)   
+[直播延迟相关设置](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/bufferTimeMax)   
+[本地视频缩略图](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/androidProbeMediaInfo)   
 [重置播放器&重新播放](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/reconnectAndRestart)   
 [画面拉伸](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/scaleVideo)
 
