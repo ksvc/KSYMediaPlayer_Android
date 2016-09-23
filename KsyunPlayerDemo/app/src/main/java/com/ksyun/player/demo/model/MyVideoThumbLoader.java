@@ -7,6 +7,8 @@ import android.os.AsyncTask;
 import android.support.v4.util.LruCache;
 import android.widget.ImageView;
 
+import com.ksyun.media.player.misc.KSYProbeMediaInfo;
+
 /**
  * Created by liubohua on 16/7/15.
  */
@@ -62,7 +64,7 @@ public class MyVideoThumbLoader {
 
         @Override
         protected Bitmap doInBackground(String... strings) {
-            Bitmap bitmap = getVideoThumbnail(strings[0]);
+            Bitmap bitmap = getKSYVideoThumbnail(strings[0]);
             return bitmap;
         }
 
@@ -95,6 +97,15 @@ public class MyVideoThumbLoader {
                 e.printStackTrace();
             }
         }
+        return bitmap;
+    }
+
+    public Bitmap getKSYVideoThumbnail(String filePath)
+    {
+        Bitmap bitmap = null;
+        KSYProbeMediaInfo mediaInfo = new KSYProbeMediaInfo();
+        bitmap = mediaInfo.getVideoThumbnailAtTime(filePath, 5*1000, 352, 0);
+
         return bitmap;
     }
 
