@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SurfaceView
+        android:id="@+id/player_surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"/>
+
+    <TextView
+        android:id="@+id/loading_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/player_yellow"/>
+
+    <RelativeLayout
+        android:id="@+id/player_qos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true">
+
+        <TextView
+            android:id="@+id/player_cpu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:textColor="@color/player_yellow"/>
+
+        <TextView
+            android:id="@+id/player_mem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:layout_below="@+id/player_cpu"
+            android:textColor="@color/player_yellow"/>
+
+        <TextView
+            android:id="@+id/player_re"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_mem"
+            android:textSize="10dp"
+            android:textColor="@color/player_yellow"/>
+
+        <TextView
+            android:id="@+id/player_br"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/player_yellow"
+            android:layout_below="@+id/player_re"
+            android:textSize="10dp"/>
+
+        <TextView
+            android:id="@+id/player_fr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_br"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp"/>
+
+        <TextView
+            android:id="@+id/player_video_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_fr"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp"/>
+
+        <TextView
+            android:id="@+id/player_audio_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_video_time"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp"/>
+
+        <TextView
+            android:id="@+id/player_ip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_audio_time"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp"/>
+
+        <TextView
+            android:id="@+id/player_sdk_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_ip"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp"/>
+
+        <TextView
+            android:id="@+id/player_dns_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_sdk_version"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp"/>
+
+        <TextView
+            android:id="@+id/player_http_connection_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_dns_time"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/topPanel_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_alignParentTop="true">
+
+
+        <Button
+            android:id="@+id/player_scale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:text="ScaleVideo"
+            android:textSize="10dp"
+            android:textColor="@color/player_black" />
+
+        <Button
+            android:id="@+id/player_reload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="reload"
+            android:layout_toRightOf="@+id/player_scale"
+            android:textColor="@color/player_black" />
+
+        <Button
+            android:id="@+id/btn_rotate_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:textSize="10dp"
+            android:textColor="@color/player_black"
+            android:text="旋转"/>
+
+        <Button
+            android:id="@+id/btn_screen_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/btn_rotate_player"
+            android:textColor="@color/player_black"
+            android:textSize="10dp"
+            android:text="截屏"/>
+
+        <Button
+            android:id="@+id/btn_mute_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/player_scale"
+            android:textColor="@color/player_black"
+            android:textSize="10dp"
+            android:text="静音"/>
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/player_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/player_start"
+            android:layout_width="@dimen/player_panel_start_btn"
+            android:layout_height="@dimen/player_panel_start_btn"
+            android:background="@drawable/qyvideo_start_btn"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/player_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00/00:00"
+                android:layout_alignParentLeft="true"/>
+
+            <SeekBar
+                android:id="@+id/player_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/player_time"
+                android:focusable="true"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

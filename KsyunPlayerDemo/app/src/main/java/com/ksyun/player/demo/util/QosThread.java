@@ -1,11 +1,10 @@
 package com.ksyun.player.demo.util;
 
-import android.content.ComponentCallbacks;
 import android.content.Context;
 import android.os.Debug;
 import android.os.Handler;
 
-import com.ksyun.player.demo.activity.VideoPlayerActivity;
+import com.ksyun.player.demo.activity.TextureVideoActivity;
 
 
 /**
@@ -44,7 +43,7 @@ public class QosThread extends Thread {
                 mQosObject.cpuUsage = mCpuStats.getProcessCpuUsage();
                 mQosObject.pss = mi.getTotalPss();
                 mQosObject.vss = mi.getTotalPrivateDirty();
-                mHandler.obtainMessage(VideoPlayerActivity.UPDATE_QOSMESS, mQosObject).sendToTarget();
+                mHandler.obtainMessage(TextureVideoActivity.UPDATE_QOSMESS, mQosObject).sendToTarget();
             }
             try {
                 sleep(3);

@@ -1,6 +1,7 @@
 package com.ksyun.player.demo.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -14,8 +15,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.ksyun.player.demo.R;
-import com.ksyun.player.demo.util.Video;
 import com.ksyun.player.demo.model.GetList;
+import com.ksyun.player.demo.util.Settings;
+import com.ksyun.player.demo.util.Video;
 
 import java.util.ArrayList;
 
@@ -30,6 +32,7 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
     public static Handler mHandler;
     private GetList getList;
     private boolean updateok = false;
+    private SharedPreferences settings;
 
     public LocalFragment() {
         // Required empty public constructor
@@ -78,6 +81,7 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
                 }
             }
         };
+
         View view = inflater.inflate(R.layout.fragment_local, container, false);
 
         swipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_container);
@@ -87,9 +91,18 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Video v = showlistVideos.get(position);
-                Intent intent = new Intent(getActivity(),VideoPlayerActivity.class);
-                intent.putExtra("path", v.getPath());
-                startActivity(intent);
+
+                String chooseview;
+                chooseview = settings.getString("choose_view","undefind");
+               if(chooseview.equals(Settings.USEKSYTEXTURE)){
+                    Intent intent = new Intent(getActivity(),TextureVideoActivity.class);
+                    intent.putExtra("path",v.getPath());
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(getActivity(), SurfaceActivity.class);
+                    intent.putExtra("path",v.getPath());
+                    startActivity(intent);
+                }
             }
         });
 
@@ -99,6 +112,10 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
     public void updatelist(){
         madapter = new JieVideoListViewAdapter(getActivity(),showlistVideos);
         listView.setAdapter(madapter);
+    }
+
+    public void setSettings( SharedPreferences set){
+        settings = set;
     }
 
     @Override

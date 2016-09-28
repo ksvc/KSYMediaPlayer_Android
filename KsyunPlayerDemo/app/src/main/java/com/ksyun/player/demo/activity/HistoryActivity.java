@@ -1,7 +1,9 @@
 package com.ksyun.player.demo.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.ListView;
 
 import com.ksyun.player.demo.R;
 import com.ksyun.player.demo.model.NetDbAdapter;
+import com.ksyun.player.demo.util.Settings;
 
 import java.util.ArrayList;
 
@@ -23,6 +26,7 @@ public class HistoryActivity extends Activity{
     private Cursor cursor;
     private NetDbAdapter NetDb;
 
+    private SharedPreferences settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +52,21 @@ public class HistoryActivity extends Activity{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String path = listurl.get(i);
-                Intent intent = new Intent(HistoryActivity.this,VideoPlayerActivity.class);
-                intent.putExtra("path",path);
-                startActivity(intent);
+
+                String chooseview;
+                settings = getSharedPreferences("SETTINGS", Context.MODE_PRIVATE);
+                chooseview = settings.getString("choose_view","undefind");
+
+                if(chooseview.equals(Settings.USEKSYTEXTURE)){
+                    Intent intent = new Intent(HistoryActivity.this,TextureVideoActivity.class);
+                    intent.putExtra("path",path);
+                    startActivity(intent);
+
+                }else{
+                    Intent intent = new Intent(HistoryActivity.this,SurfaceActivity.class);
+                    intent.putExtra("path",path);
+                    startActivity(intent);
+                }
             }
         });
 
