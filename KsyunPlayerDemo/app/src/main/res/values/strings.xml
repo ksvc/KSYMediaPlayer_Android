@@ -25,4 +25,5 @@
     <string name="debugoff">Debug关</string>
     <string name="debugon">Debug开</string>
     <string name="debugchange">Debubg开关</string>
+    <string name="set_ksytexture">KSYTexTureView</string>
 </resources>

@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FragmentManager fm = this.getFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
         localFragment = new LocalFragment();
+        localFragment.setSettings(getSharedPreferences("SETTINGS", Context.MODE_PRIVATE));
         transaction.replace(R.id.contentFrame,localFragment);
         transaction.commit();
     }
