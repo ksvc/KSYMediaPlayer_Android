@@ -30,7 +30,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.NetMediaActivty" />
-        <activity android:name=".activity.VideoPlayerActivity"
+        <activity android:name=".activity.TextureVideoActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            />
+        <activity android:name=".activity.SurfaceActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:configChanges="orientation|keyboardHidden|screenSize"
             />
