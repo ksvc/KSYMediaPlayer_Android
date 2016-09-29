@@ -171,6 +171,16 @@
             android:textSize="10dp"
             android:text="静音"/>
 
+        <Button
+            android:id="@+id/btn_replay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/player_reload"
+            android:layout_toRightOf="@+id/btn_mute_player"
+            android:textColor="@color/player_black"
+            android:textSize="10dp"
+            android:text="重置播放器"/>
 
     </RelativeLayout>
 

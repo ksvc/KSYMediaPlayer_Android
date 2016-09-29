@@ -87,7 +87,7 @@ public class TextureVideoActivity extends Activity implements View.OnClickListen
     private Button screen;
     private Button rotate;
     private Button mute;
-
+    private Button mReplay;
     private Button mPlayerScaleVideo;
 
     private boolean mPlayerPanelShow = false;
@@ -117,7 +117,7 @@ public class TextureVideoActivity extends Activity implements View.OnClickListen
     private IMediaPlayer.OnPreparedListener mOnPreparedListener = new IMediaPlayer.OnPreparedListener() {
         @Override
         public void onPrepared(IMediaPlayer mp) {
-
+            Log.d("VideoPlayer", "OnPrepared");
             mVideoWidth = mVideoView.getVideoWidth();
             mVideoHeight = mVideoView.getVideoHeight();
 
@@ -324,10 +324,12 @@ public class TextureVideoActivity extends Activity implements View.OnClickListen
         rotate = (Button) findViewById(R.id.btn_rotate_player);
         screen = (Button) findViewById(R.id.btn_screen_player);
         mute = (Button) findViewById(R.id.btn_mute_player);
+        mReplay = (Button) findViewById(R.id.btn_replay);
         reload.setOnClickListener(this);
         rotate.setOnClickListener(this);
         screen.setOnClickListener(this);
         mute.setOnClickListener(this);
+        mReplay.setOnClickListener(this);
 
 
         mPlayerScaleVideo = (Button) findViewById(R.id.player_scale);
@@ -422,7 +424,11 @@ public class TextureVideoActivity extends Activity implements View.OnClickListen
             mVideoView.setDecodeMode(KSYMediaPlayer.KSYDecodeMode.KSY_DECODE_MODE_AUTO);
         }
 
-        mVideoView.setDataSource(mDataSource);
+        try {
+            mVideoView.setDataSource(mDataSource);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         mVideoView.prepareAsync();
     }
 
@@ -524,7 +530,6 @@ public class TextureVideoActivity extends Activity implements View.OnClickListen
             info = mVideoView.getStreamQosInfo();
 
         }
-
     }
 
     private void updateQosView() {
@@ -668,6 +673,23 @@ public class TextureVideoActivity extends Activity implements View.OnClickListen
                         mmute = false;
                     }
                 }
+                break;
+            case R.id.btn_replay:
+                if (mVideoView != null){
+                    mVideoView.stop();
+                    mVideoView.reset();
+                    if (useHwCodec) {
+                        mVideoView.setDecodeMode(KSYMediaPlayer.KSYDecodeMode.KSY_DECODE_MODE_AUTO);
+                    }
+                    //other settings.....
+                    try {
+                        mVideoView.setDataSource("rtmp://live.hkstv.hk.lxdns.com/live/hks");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    mVideoView.prepareAsync();
+                }
+                break;
             default:
                 break;
         }
