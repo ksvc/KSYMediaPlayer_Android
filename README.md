@@ -6,13 +6,23 @@
 
 ## 2.KSYMediaPlayer SDK 功能说明
 
-* 特有的快速开播策略，为用户带来更快捷优质的播放体验；
-* 特有的直播低延迟技术，提供更实时直播体验；
-* 与系统播放器MediaPlayer接口一致，可以无缝快速切换至KSYMediaPlayer；
-* 支持广泛的流式视频格式 HLS, RTMP, HTTP-FLV等；
-* 业内一流的H.265解码；
-* 支持画面旋转、截图
-* 支持的文件封装格式和音视频编码标准如下所示：   
+- [x] 接口定义与Android系统播放器[MediaPlayer](https://developer.android.com/reference/android/media/MediaPlayer.html)保持一致
+- [x] 提供[KSYTextureView](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/KSYTextureView)控件
+- [x] 支持直播秒开
+- [x] 支持[直播追赶](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/bufferTimeMax)，降低主播和观众的延迟
+- [x] 支持**RTMP**和**HTTP+FLV**直播方式
+- [x] [点播库](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/LiveAndVod)支持多种格式(RMVB、AVI、MKV)
+- [x] 支持软解和[MediaCodec硬解](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/hardwareDecode)
+- [x] 支持[视频旋转(0/90/180/270度)](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/rotate)
+- [x] 支持[播放截图](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/screenShot)
+- [x] 支持[视频画面缩放模式](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/scaleVideo)
+- [x] 支持获取本地[视频信息与视频缩略图](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/androidProbeMediaInfo)
+- [x] 支持获取[视频原始数据](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/rawVideoData)
+- [x] 支持音量调节，可静音播放
+- [x] 支持后台播放
+- [x] 支持H.265/HEVC播放
+
+支持的文件封装格式和音视频编码标准如下所示：   
 
 
 |      信息   |          直播         |             点播            |
