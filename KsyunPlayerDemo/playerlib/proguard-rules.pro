@@ -15,3 +15,19 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontpreverify
+-verbose
+-dontshrink
+-dontoptimize
+
+-keepattributes Exceptions,InnerClasses,Signature,InnerInterface
+-keepattributes *Annotation*
+-keepattributes SourceFile,LineNumberTable
+-keepattributes EnclosingMethod
+
+-keep class com.ksy.statlibrary.** { *; }
+-keep class com.ksyun.media.** { *; }
