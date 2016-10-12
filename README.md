@@ -21,6 +21,7 @@
 - [x] 支持音量调节，可静音播放
 - [x] 支持后台播放
 - [x] 支持H.265/HEVC播放
+- [x] [支持在线查看文档](https://ksvc.github.io/KSYMediaPlayer_Android/docs/reference/packages.html)
 
 支持的文件封装格式和音视频编码标准如下所示：   
 
