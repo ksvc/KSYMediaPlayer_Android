@@ -87,5 +87,5 @@ $ git clone https://git.oschina.net/ksvc/KSYMediaPlayer_Android.git
 ## 6.反馈与建议
 - 主页：[金山云](http://www.ksyun.com/)
 - 邮箱：<zengfanping@kingsoft.com>
-- QQ讨论群：574179720
+- QQ讨论群：574179720 [视频云技术交流群] 
 - Issues：<https://github.com/ksvc/KSYMediaPlayer_Android/issues>
