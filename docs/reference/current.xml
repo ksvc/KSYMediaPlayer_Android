@@ -3882,6 +3882,19 @@
 <parameter name="looping" type="boolean">
 </parameter>
 </method>
+<method name="setMirror"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="mirror" type="boolean">
+</parameter>
+</method>
 <method name="setOnAudioPCMAvailableListener"
  return="void"
  abstract="false"
@@ -4661,8 +4674,19 @@
  visibility="public"
 >
 </method>
+<method name="getClientIP"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
 <method name="getCurrentPosition"
- return="int"
+ return="long"
  abstract="false"
  native="false"
  synchronized="false"
@@ -4717,7 +4741,18 @@
 >
 </method>
 <method name="getDuration"
- return="int"
+ return="long"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getLocalDnsIP"
+ return="java.lang.String"
  abstract="false"
  native="false"
  synchronized="false"
@@ -4942,6 +4977,17 @@
 </method>
 <method name="getVideoWidth"
  return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="isComeBackFromShare"
+ return="boolean"
  abstract="false"
  native="false"
  synchronized="false"
@@ -5237,6 +5283,19 @@
 <parameter name="timeSecond" type="float">
 </parameter>
 </method>
+<method name="setComeBackFromShare"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="comeBackFromShare" type="boolean">
+</parameter>
+</method>
 <method name="setDataSource"
  return="void"
  abstract="false"
@@ -5342,6 +5401,19 @@
 <parameter name="looping" type="boolean">
 </parameter>
 </method>
+<method name="setMirror"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="mirror" type="boolean">
+</parameter>
+</method>
 <method name="setOnAudioPCMAvailableListener"
  return="void"
  abstract="false"
@@ -5405,6 +5477,19 @@
  visibility="public"
 >
 <parameter name="l" type="com.ksyun.media.player.IMediaPlayer.OnInfoListener">
+</parameter>
+</method>
+<method name="setOnLogEventListener"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="l" type="com.ksyun.media.player.IMediaPlayer.OnLogEventListener">
 </parameter>
 </method>
 <method name="setOnPreparedListener"
