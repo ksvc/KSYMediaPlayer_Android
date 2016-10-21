@@ -24,6 +24,7 @@
 - [x] 支持纯音频播放
 - [x] 支持H.265/HEVC播放
 - [x] [支持在线查看文档](https://ksvc.github.io/KSYMediaPlayer_Android/docs/reference/packages.html)
+- [x] 支持[反交错功能](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/VodSurppotDeinterlace)
 
 支持的文件封装格式和音视频编码标准如下所示：   
 
