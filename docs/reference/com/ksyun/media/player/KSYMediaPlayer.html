@@ -509,7 +509,7 @@
     <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#VIDEO_SCALING_MODE_SCALE_TO_FIT">VIDEO_SCALING_MODE_SCALE_TO_FIT</a></td>
-        <td class="jd-descrcol" width="100%">视频缩放模式,填充模式,可能留有黑边,具体接口<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setVideoScalingMode(int)">setVideoScalingMode(int)</a></code> </td>
+        <td class="jd-descrcol" width="100%">视频缩放模式,填充模式,在视频宽高比例与手机宽高比例不一致时,播放可能留有黑边,具体接口<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setVideoScalingMode(int)">setVideoScalingMode(int)</a></code> </td>
     </tr>
     
     
@@ -1835,6 +1835,25 @@
             void
         </td>
         <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setVideoOffset(float, float)">setVideoOffset</a></span>(float horizontal, float vertical)
+        
+        <div class="jd-descrdiv">设置视频的水平和垂直方向的平移量。以手机屏幕中心为原点建立坐标轴,横纵轴坐标各自平行于手机屏幕边缘。归一化处理后,手机屏幕的坐标取值范围为[-1.0, 1.0]
+ 仅在<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#VIDEO_SCALING_MODE_SCALE_TO_FIT">VIDEO_SCALING_MODE_SCALE_TO_FIT</a></code>模式下本接口方可生效</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setVideoRawDataListener(com.ksyun.media.player.KSYMediaPlayer.OnVideoRawDataListener)">setVideoRawDataListener</a></span>(<a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnVideoRawDataListener.html">KSYMediaPlayer.OnVideoRawDataListener</a> listener)
         
         <div class="jd-descrdiv">设置获取原始视频数据的监听器</div>
@@ -1843,7 +1862,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1861,7 +1880,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1879,7 +1898,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1897,7 +1916,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1913,7 +1932,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1932,7 +1951,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1951,7 +1970,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1969,7 +1988,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -2483,7 +2502,7 @@
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>视频缩放模式,填充模式,可能留有黑边,具体接口<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setVideoScalingMode(int)">setVideoScalingMode(int)</a></code> </p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>视频缩放模式,填充模式,在视频宽高比例与手机宽高比例不一致时,播放可能留有黑边,具体接口<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setVideoScalingMode(int)">setVideoScalingMode(int)</a></code> </p></div>
 
     
         <div class="jd-tagdata">
@@ -5015,10 +5034,14 @@
       <table class="jd-tagtable">
         <tr>
           <th>mirror</th>
-          <td>true和false分别指镜像显示和正常显示
-</td>
+          <td>true和false分别指镜像显示和正常显示</td>
         </tr>
       </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>true和false分别指设置镜像成功或失败
+</li></ul>
   </div>
 
     </div>
@@ -5377,6 +5400,52 @@
         <tr>
           <th>readTimeout</th>
           <td>读数据超时阈值
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="setVideoOffset(float, float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setVideoOffset</span>
+      <span class="normal">(float horizontal, float vertical)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>设置视频的水平和垂直方向的平移量。以手机屏幕中心为原点建立坐标轴,横纵轴坐标各自平行于手机屏幕边缘。归一化处理后,手机屏幕的坐标取值范围为[-1.0, 1.0]
+ 仅在<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#VIDEO_SCALING_MODE_SCALE_TO_FIT">VIDEO_SCALING_MODE_SCALE_TO_FIT</a></code>模式下本接口方可生效</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>horizontal</th>
+          <td>水平方向的平移量,范围为 -1.0至1.0,大于0表示水平向右移动,反之则水平向左移动</td>
+        </tr>
+        <tr>
+          <th>vertical</th>
+          <td>垂直方向的平移量,范围为 -1.0至1.0,大于0表示垂直向上移动,反之则垂直向下移动
 </td>
         </tr>
       </table>

@@ -4014,6 +4014,21 @@
 <parameter name="readTimeout" type="int">
 </parameter>
 </method>
+<method name="setVideoOffset"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="horizontal" type="float">
+</parameter>
+<parameter name="vertical" type="float">
+</parameter>
+</method>
 <method name="setVideoRawDataListener"
  return="void"
  abstract="false"
@@ -5596,6 +5611,21 @@
 <parameter name="prepareTimeout" type="int">
 </parameter>
 <parameter name="readTimeout" type="int">
+</parameter>
+</method>
+<method name="setVideoOffset"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="horizontal" type="float">
+</parameter>
+<parameter name="vertical" type="float">
 </parameter>
 </method>
 <method name="setVideoRawDataListener"
