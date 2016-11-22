@@ -34,7 +34,7 @@
 
 |      信息   |          直播         |             点播            |
 |:----------:|:---------------------:|:--------------------------:|
-|   流协议    | HLS, RTMP, HTTP, FILE |   HLS, RTMP, RTSP, HTTP, FILE |
+|   流协议    | HLS, RTMP, HTTP, FILE |   HLS, RTMP, RTSP, HTTP, HTTPS, FILE |
 |   封装格式  | FLV, TS, MPEG, MOV, M4V, MP3, AAC, GIF, ASF, RM | FLV, TS, MPEG, MOV, M4V, MP3, AAC, GIF, ASF, RM, MKV, AVI, WEBM |
 | 视频编码格式 | H263, H264, H265, MPEG1, MPEG2, MPEG4, AVS, MJPEG, JPEG2000, GIF | H263, H264, H265, MPEG1, MPEG2, MPEG4, MJPEG, VC-1, WMV, RV40, PNG, JPEG, YUV, WEBP, TIFF, VP* |
 | 音频编码格式 | AAC, MP3, NELLYMOSER, AMRNB, AMRWB, WMV1, WMV2, WMV3| AAC, MP3, NELLYMOSER, AMRNB, AMRWB, WMV1, WMV2, WMV3, OGG, FLAC, DTS, COOK |
