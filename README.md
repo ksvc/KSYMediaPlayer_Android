@@ -19,6 +19,7 @@
 - [x] 支持[镜像播放](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/PlayerMirror)
 - [x] 支持获取本地[视频信息与视频缩略图](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/androidProbeMediaInfo)
 - [x] 支持获取[视频原始数据](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/rawVideoData)
+- [x] KSYMediaPlayer支持多实例
 - [x] 支持音量调节，可静音播放
 - [x] 支持后台播放
 - [x] 支持纯音频播放
