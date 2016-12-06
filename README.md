@@ -9,6 +9,7 @@
 - [x] 接口定义与Android系统播放器[MediaPlayer](https://developer.android.com/reference/android/media/MediaPlayer.html)保持一致
 - [x] 提供[KSYTextureView](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/KSYTextureView)控件
 - [x] 支持首屏秒开
+- [x] 可设置播放器直播场景下[最大缓存时长](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/bufferTimeMax)
 - [x] 支持[直播追赶(RTMP和HTTP+FLV)](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/bufferTimeMax)，降低主播和观众的延迟
 - [x] 支持**RTMP**和**HTTP+FLV**直播方式
 - [x] [点播库](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/LiveAndVod)支持多种格式(RMVB、AVI、MKV)
