@@ -280,7 +280,7 @@ public class SurfaceActivity extends Activity implements View.OnClickListener{
                 case KSYMediaPlayer.MEDIA_INFO_SUGGEST_RELOAD:
                     // Player find a new stream(video or audio), and we could reload the video.
                     if(ksyMediaPlayer != null)
-                        ksyMediaPlayer.reload(mDataSource, false);
+                        ksyMediaPlayer.reload(mDataSource, false, KSYMediaPlayer.KSYReloadMode.KSY_RELOAD_MODE_ACCURATE);
                     break;
                 case KSYMediaPlayer.MEDIA_INFO_RELOADED:
                     Toast.makeText(mContext, "Succeed to reload video.", Toast.LENGTH_SHORT).show();
@@ -424,7 +424,7 @@ public class SurfaceActivity extends Activity implements View.OnClickListener{
         ksyMediaPlayer.setOnErrorListener(mOnErrorListener);
         ksyMediaPlayer.setOnSeekCompleteListener(mOnSeekCompletedListener);
         ksyMediaPlayer.setScreenOnWhilePlaying(true);
-        ksyMediaPlayer.setBufferTimeMax(3);
+        ksyMediaPlayer.setBufferTimeMax(3.0f);
         ksyMediaPlayer.setTimeout(5, 30);
 
         settings = getSharedPreferences("SETTINGS",Context.MODE_PRIVATE);

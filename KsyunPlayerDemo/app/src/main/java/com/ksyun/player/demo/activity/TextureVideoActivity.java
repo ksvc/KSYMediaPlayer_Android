@@ -266,6 +266,11 @@ public class TextureVideoActivity extends Activity implements View.OnClickListen
                 case KSYMediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START:
                     Toast.makeText(mContext, "Video Rendering Start", Toast.LENGTH_SHORT).show();
                     break;
+                case KSYMediaPlayer.MEDIA_INFO_SUGGEST_RELOAD:
+                    // Player find a new stream(video or audio), and we could reload the video.
+                    if(mVideoView != null)
+                        mVideoView.reload(mDataSource, false, KSYMediaPlayer.KSYReloadMode.KSY_RELOAD_MODE_ACCURATE);
+                    break;
                 case KSYMediaPlayer.MEDIA_INFO_RELOADED:
                     Toast.makeText(mContext, "Succeed to reload video.", Toast.LENGTH_SHORT).show();
                     Log.d(TAG, "Succeed to reload video.");
@@ -405,7 +410,7 @@ public class TextureVideoActivity extends Activity implements View.OnClickListen
         mVideoView.setOnErrorListener(mOnErrorListener);
         mVideoView.setOnSeekCompleteListener(mOnSeekCompletedListener);
         mVideoView.setScreenOnWhilePlaying(true);
-        mVideoView.setBufferTimeMax(1.0f);
+        mVideoView.setBufferTimeMax(3.0f);
         mVideoView.setTimeout(5, 30);
 
         settings = getSharedPreferences("SETTINGS", Context.MODE_PRIVATE);
