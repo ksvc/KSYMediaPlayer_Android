@@ -10,6 +10,9 @@ android {
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+        ndk {
+            abiFilters "armeabi-v7a","arm64-v8a"
+        }
     }
     buildTypes {
         release {
@@ -27,7 +30,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile fileTree(include: '*/so', dir: 'libs/armeabi-v7a')
     compile fileTree(include: '*/so', dir: 'libs/arm64-v8a')
-    compile fileTree(include: '*/so', dir: 'libs/x86')
     compile files('src/main/libs/zxing.jar')
     compile files('src/main/libs/bugly_crash_release.jar')
     testCompile 'junit:junit:4.12'
