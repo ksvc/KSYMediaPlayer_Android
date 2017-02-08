@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:textSize="18dp"
         android:textColor="@color/colorblack"
-        android:maxLength="10"
         android:singleLine="true"
         android:layout_toRightOf="@+id/img_list_local"
         android:layout_marginTop="8dp" />
@@ -26,7 +25,6 @@
         android:textSize="12dp"
         android:singleLine="true"
         android:layout_marginTop="5dp"
-        android:maxLength="33"
         android:layout_below="@+id/tittle_list_local"
         android:layout_toRightOf="@+id/img_list_local"/>
 
