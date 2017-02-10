@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ksyun.player.demo.R;
@@ -35,6 +36,8 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
     private boolean updateok = false;
     private SharedPreferences settings;
     private File currentFile;
+
+    private TextView local_path;
 
     public LocalFragment() {
         // Required empty public constructor
@@ -87,6 +90,7 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
 
         swipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_container);
         listView = (ListView)view.findViewById(R.id.list_local_frag);
+        local_path = (TextView) view.findViewById(R.id.local_path);
         swipeLayout.setOnRefreshListener(this);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -97,6 +101,7 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
                     showlistVideos.clear();
                     getList.getFileList(showlistVideos,file);
                     currentFile = file;
+                    local_path.setText(currentFile.getAbsolutePath());
                     Message msg = new Message();
                     msg.what = UPDATE;
                     mHandler.sendMessageDelayed(msg,500);
@@ -117,6 +122,7 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
         });
         getList.getFileList(showlistVideos, Environment.getExternalStorageDirectory());
         currentFile = Environment.getExternalStorageDirectory();
+        local_path.setText(currentFile.getAbsolutePath());
         return view;
     }
     public void updatelist(){
@@ -142,6 +148,7 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
             showlistVideos.clear();
             getList.getFileList(showlistVideos,currentFile.getParentFile());
             currentFile = currentFile.getParentFile();
+            local_path.setText(currentFile.getAbsolutePath());
             Message msg = new Message();
             msg.what = UPDATE;
             mHandler.sendMessageDelayed(msg,500);
