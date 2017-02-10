@@ -19,6 +19,7 @@ import com.ksyun.player.demo.model.GetList;
 import com.ksyun.player.demo.util.Settings;
 import com.ksyun.player.demo.util.Video;
 
+import java.io.File;
 import java.util.ArrayList;
 
 
@@ -33,6 +34,7 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
     private GetList getList;
     private boolean updateok = false;
     private SharedPreferences settings;
+    private File currentFile;
 
     public LocalFragment() {
         // Required empty public constructor
@@ -59,7 +61,6 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
                         if(updateok){
                             updatelist();
                             swipeLayout.setRefreshing(false);
-                            Toast.makeText(getActivity(), "更新成功", Toast.LENGTH_SHORT).show();
                         }else{
                             swipeLayout.setRefreshing(false);
                             Toast.makeText(getActivity(), "更新失败,请等待加载完毕", Toast.LENGTH_SHORT).show();
@@ -91,22 +92,31 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Video v = showlistVideos.get(position);
-
-                String chooseview;
-                chooseview = settings.getString("choose_view","undefind");
-               if(chooseview.equals(Settings.USEKSYTEXTURE)){
-                    Intent intent = new Intent(getActivity(),TextureVideoActivity.class);
-                    intent.putExtra("path",v.getPath());
-                    startActivity(intent);
+                File file = new File(v.getPath());
+                if(file.isDirectory()){
+                    showlistVideos.clear();
+                    getList.getFileList(showlistVideos,file);
+                    currentFile = file;
+                    Message msg = new Message();
+                    msg.what = UPDATE;
+                    mHandler.sendMessageDelayed(msg,500);
                 }else{
-                    Intent intent = new Intent(getActivity(), SurfaceActivity.class);
-                    intent.putExtra("path",v.getPath());
-                    startActivity(intent);
+                    String chooseview;
+                    chooseview = settings.getString("choose_view","undefind");
+                    if(chooseview.equals(Settings.USEKSYTEXTURE)){
+                        Intent intent = new Intent(getActivity(),TextureVideoActivity.class);
+                        intent.putExtra("path",v.getPath());
+                        startActivity(intent);
+                    }else{
+                        Intent intent = new Intent(getActivity(), SurfaceActivity.class);
+                        intent.putExtra("path",v.getPath());
+                        startActivity(intent);
+                    }
                 }
             }
         });
-
-        getList.startThread(showlistVideos, Environment.getExternalStorageDirectory());
+        getList.getFileList(showlistVideos, Environment.getExternalStorageDirectory());
+        currentFile = Environment.getExternalStorageDirectory();
         return view;
     }
     public void updatelist(){
@@ -123,6 +133,19 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
         Message msg = new Message();
         msg.what = UPDATE;
         mHandler.sendMessageDelayed(msg,3000);
+    }
+
+    public void onBackPressed(){
+        if(currentFile.getAbsolutePath().equals(Environment.getExternalStorageDirectory().getAbsolutePath())){
+            getActivity().finish();
+        }else{
+            showlistVideos.clear();
+            getList.getFileList(showlistVideos,currentFile.getParentFile());
+            currentFile = currentFile.getParentFile();
+            Message msg = new Message();
+            msg.what = UPDATE;
+            mHandler.sendMessageDelayed(msg,500);
+        }
     }
 }
 
