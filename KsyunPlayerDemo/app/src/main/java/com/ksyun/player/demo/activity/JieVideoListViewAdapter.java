@@ -12,6 +12,7 @@ import com.ksyun.player.demo.model.MyVideoThumbLoader;
 import com.ksyun.player.demo.R;
 import com.ksyun.player.demo.util.Video;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,9 +62,13 @@ public class JieVideoListViewAdapter extends BaseAdapter {
             holder = (ViewHolder)view.getTag();
         }
         String path = listVideos.get(i).getPath();
-        holder.img.setTag(path);
-        mVideoThumbLoader.showThumbByAsynctack(path, holder.img);
-
+        File file = new File(path);
+        if(file.isDirectory()){
+            holder.img.setImageResource(R.drawable.file);
+        }else{
+            holder.img.setTag(path);
+            mVideoThumbLoader.showThumbByAsynctack(path, holder.img);
+        }
         holder.title.setText(listVideos.get(i).getTitle());
         holder.path.setText(listVideos.get(i).getPath());
         return view;

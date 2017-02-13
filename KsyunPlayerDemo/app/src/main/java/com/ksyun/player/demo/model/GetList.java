@@ -1,7 +1,5 @@
 package com.ksyun.player.demo.model;
 
-import android.util.Log;
-
 import com.ksyun.player.demo.activity.LocalFragment;
 import com.ksyun.player.demo.util.Video;
 
@@ -13,19 +11,14 @@ import java.util.ArrayList;
  * Created by liubohua on 16/7/15.
  */
 public class GetList {
-    private ArrayList<Video> mylist = new ArrayList<Video>();
+    private ArrayList<Video> mylist;
 
-    public void startThread(final ArrayList<Video> list, final File file){
+    public void getFileList(final ArrayList<Video> list, final File file) {
 
-       new Thread(new Runnable() {
-           @Override
-           public void run() {
-               getVideoFile(list,file);
+        getVideoFile(list, file);
+        mylist = new ArrayList<Video>();
+        LocalFragment.mHandler.obtainMessage(3, mylist).sendToTarget();
 
-               Log.e("asdasd",mylist.size()+"asdasdasd");
-               LocalFragment.mHandler.obtainMessage(3,mylist).sendToTarget();
-           }
-       }).start();
 
     }
 
@@ -76,12 +69,20 @@ public class GetList {
                                 list.add(v);
                                 mylist.add(v);
                                 if ((list.size() == 15)) {
-                                    LocalFragment.mHandler.obtainMessage(2,mylist).sendToTarget();
+                                    LocalFragment.mHandler.obtainMessage(2, mylist).sendToTarget();
                                 }
                                 return true;
                             }
                         } else if (file.isDirectory()) {
-                            getVideoFile(list, file);
+                            Video v = new Video();
+                            v.setTitle(file.getName());
+                            v.setPath(file.getAbsolutePath());
+                            list.add(v);
+                            mylist.add(v);
+                            if ((list.size() == 15)) {
+                                LocalFragment.mHandler.obtainMessage(2, mylist).sendToTarget();
+                            }
+                            return true;
                         }
                         return false;
                     }
