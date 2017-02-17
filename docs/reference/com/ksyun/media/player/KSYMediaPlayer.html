@@ -156,12 +156,15 @@
               
     <li><h2>Interfaces</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaController.html">IMediaController</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html">IMediaController.MediaPlayerControl</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html">IMediaPlayer</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnBufferingUpdateListener.html">IMediaPlayer.OnBufferingUpdateListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnCompletionListener.html">IMediaPlayer.OnCompletionListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnErrorListener.html">IMediaPlayer.OnErrorListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnInfoListener.html">IMediaPlayer.OnInfoListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnLogEventListener.html">IMediaPlayer.OnLogEventListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnMessageListener.html">IMediaPlayer.OnMessageListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnPreparedListener.html">IMediaPlayer.OnPreparedListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnSeekCompleteListener.html">IMediaPlayer.OnSeekCompleteListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnVideoSizeChangedListener.html">IMediaPlayer.OnVideoSizeChangedListener</a></li>
@@ -179,6 +182,7 @@
           <li class="selected api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html">KSYMediaPlayer</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.Builder.html">KSYMediaPlayer.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYTextureView.html">KSYTextureView</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYVideoView.html">KSYVideoView</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/MediaInfo.html">MediaInfo</a></li>
       </ul>
     </li>
@@ -333,7 +337,8 @@
         
         class</td>
       <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.Builder.html">KSYMediaPlayer.Builder</a></td>
-      <td class="jd-descrcol" width="100%">创建KSYMediaPlayer所需的内部类 &nbsp;</td>
+      <td class="jd-descrcol" width="100%">创建KSYMediaPlayer所需的内部类
+&nbsp;</td>
     </tr>
     
     
@@ -381,7 +386,8 @@
         
         interface</td>
       <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnAudioPCMListener.html">KSYMediaPlayer.OnAudioPCMListener</a></td>
-      <td class="jd-descrcol" width="100%">&nbsp;</td>
+      <td class="jd-descrcol" width="100%">原始音频数据的回调监听器
+&nbsp;</td>
     </tr>
     
     
@@ -495,28 +501,40 @@
     <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#SDL_FCC_RV16">SDL_FCC_RV16</a></td>
-        <td class="jd-descrcol" width="100%">原始视频输出格式为RGB565 </td>
+        <td class="jd-descrcol" width="100%">原始视频输出格式为RGB565
+</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#SDL_FCC_RV32">SDL_FCC_RV32</a></td>
-        <td class="jd-descrcol" width="100%">原始视频输出格式为RGB8888 </td>
+        <td class="jd-descrcol" width="100%">原始视频输出格式为RGB8888
+</td>
     </tr>
     
     
     <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
-        <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#VIDEO_SCALING_MODE_SCALE_TO_FIT">VIDEO_SCALING_MODE_SCALE_TO_FIT</a></td>
-        <td class="jd-descrcol" width="100%">视频缩放模式,填充模式,在视频宽高比例与手机宽高比例不一致时,播放可能留有黑边,具体接口<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setVideoScalingMode(int)">setVideoScalingMode(int)</a></code> </td>
+        <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#VIDEO_SCALING_MODE_NOSCALE_TO_FIT">VIDEO_SCALING_MODE_NOSCALE_TO_FIT</a></td>
+        <td class="jd-descrcol" width="100%">视频缩放模式,拉伸模式,视频完全填满显示窗口,视频与窗口比例不匹配画面会有变形<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setVideoScalingMode(int)">setVideoScalingMode(int)</a></code>
+</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#VIDEO_SCALING_MODE_SCALE_TO_FIT">VIDEO_SCALING_MODE_SCALE_TO_FIT</a></td>
+        <td class="jd-descrcol" width="100%">视频缩放模式,填充模式,在视频宽高比例与手机宽高比例不一致时,播放可能留有黑边,具体接口<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setVideoScalingMode(int)">setVideoScalingMode(int)</a></code>
+</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING">VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING</a></td>
-        <td class="jd-descrcol" width="100%">视频缩放模式,裁剪模式,具体接口<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setVideoScalingMode(int)">setVideoScalingMode(int)</a></code> </td>
+        <td class="jd-descrcol" width="100%">视频缩放模式,裁剪模式,具体接口<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setVideoScalingMode(int)">setVideoScalingMode(int)</a></code>
+</td>
     </tr>
     
     
@@ -1412,7 +1430,7 @@
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#seekTo(long)">seekTo</a></span>(long msec)
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#seekTo(long, boolean)">seekTo</a></span>(long msec, boolean accurate)
         
         <div class="jd-descrdiv">快进快退</div>
   
@@ -1430,13 +1448,31 @@
             void
         </td>
         <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#seekTo(long)">seekTo</a></span>(long msec)
+        
+        <div class="jd-descrdiv">快进快退</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#selectTrack(int)">selectTrack</a></span>(int track)
         
   </td></tr>
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1454,7 +1490,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1472,7 +1508,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1483,6 +1519,24 @@
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setDataSource(java.io.FileDescriptor)">setDataSource</a></span>(FileDescriptor fd)
+        
+        <div class="jd-descrdiv">Sets the data source (FileDescriptor) to use.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setDataSource(java.io.FileDescriptor, long, long)">setDataSource</a></span>(FileDescriptor fd, long offset, long length)
         
         <div class="jd-descrdiv">Sets the data source (FileDescriptor) to use.</div>
   
@@ -1608,7 +1662,7 @@
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setDisplay(SurfaceHolder)">setDisplay</a></span>(SurfaceHolder sh)
         
-        <div class="jd-descrdiv">Sets the SurfaceHolder to use for displaying the video portion of
+        <div class="jd-descrdiv">Sets the <code><a href="../../../../SurfaceHolder/package-summary.html">SurfaceHolder</a></code> to use for displaying the video portion of
  the media.</div>
   
   </td></tr>
@@ -1679,6 +1733,8 @@
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setOnAudioPCMAvailableListener(com.ksyun.media.player.KSYMediaPlayer.OnAudioPCMListener)">setOnAudioPCMAvailableListener</a></span>(<a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnAudioPCMListener.html">KSYMediaPlayer.OnAudioPCMListener</a> listener)
         
+        <div class="jd-descrdiv">设置获取原始音频数据的监听器</div>
+  
   </td></tr>
 
 
@@ -2422,7 +2478,8 @@
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>原始视频输出格式为RGB565 </p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>原始视频输出格式为RGB565
+</p></div>
 
     
         <div class="jd-tagdata">
@@ -2462,7 +2519,8 @@
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>原始视频输出格式为RGB8888 </p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>原始视频输出格式为RGB8888
+</p></div>
 
     
         <div class="jd-tagdata">
@@ -2471,6 +2529,47 @@
             
                 842225234
                 (0x32335652)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<a id="VIDEO_SCALING_MODE_NOSCALE_TO_FIT"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        VIDEO_SCALING_MODE_NOSCALE_TO_FIT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>视频缩放模式,拉伸模式,视频完全填满显示窗口,视频与窗口比例不匹配画面会有变形<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setVideoScalingMode(int)">setVideoScalingMode(int)</a></code>
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                0
+                (0x00000000)
             
         </span>
         </div>
@@ -2502,7 +2601,8 @@
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>视频缩放模式,填充模式,在视频宽高比例与手机宽高比例不一致时,播放可能留有黑边,具体接口<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setVideoScalingMode(int)">setVideoScalingMode(int)</a></code> </p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>视频缩放模式,填充模式,在视频宽高比例与手机宽高比例不一致时,播放可能留有黑边,具体接口<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setVideoScalingMode(int)">setVideoScalingMode(int)</a></code>
+</p></div>
 
     
         <div class="jd-tagdata">
@@ -2542,7 +2642,8 @@
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>视频缩放模式,裁剪模式,具体接口<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setVideoScalingMode(int)">setVideoScalingMode(int)</a></code> </p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>视频缩放模式,裁剪模式,具体接口<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setVideoScalingMode(int)">setVideoScalingMode(int)</a></code>
+</p></div>
 
     
         <div class="jd-tagdata">
@@ -3045,7 +3146,7 @@
   <div class="jd-tagdata jd-tagdescr"><p>获取当前播放的进度</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>当前播放进度,单位:毫秒
+      <ul class="nolist"><li>当前播放进度, 单位:毫秒
 </li></ul>
   </div>
 
@@ -3215,7 +3316,7 @@
   <div class="jd-tagdata jd-tagdescr"><p>获取当前多媒体文件的时长,须在<code><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnPreparedListener.html">IMediaPlayer.OnPreparedListener</a></code>发起回调了方可有效</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>多媒体文件的时长,单位:毫秒
+      <ul class="nolist"><li>多媒体文件的时长, 单位:毫秒
 </li></ul>
   </div>
 
@@ -4015,7 +4116,7 @@
   <div class="jd-tagdata jd-tagdescr"><p>播放器是否处于播放状态</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>true表示播放器处于播放状态,反之则否
+      <ul class="nolist"><li>true表示播放器处于播放状态, 反之则否
 </li></ul>
   </div>
 
@@ -4321,6 +4422,59 @@
 </div>
 
 
+<a id="seekTo(long, boolean)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">seekTo</span>
+      <span class="normal">(long msec, boolean accurate)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>快进快退</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>msec</th>
+          <td>目标时间点,单位:毫秒</td>
+        </tr>
+        <tr>
+          <th>accurate</th>
+          <td>是否进行精准seek</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>IllegalStateException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <a id="seekTo(long)"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -4542,6 +4696,74 @@
 </div>
 
 
+<a id="setDataSource(java.io.FileDescriptor, long, long)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setDataSource</span>
+      <span class="normal">(FileDescriptor fd, long offset, long length)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the data source (FileDescriptor) to use.  The FileDescriptor must be
+ seekable (N.B. a LocalSocket is not seekable). It is the caller's responsibility
+ to close the file descriptor. It is safe to do so as soon as this call returns.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>fd</th>
+          <td>the FileDescriptor for the file you want to play</td>
+        </tr>
+        <tr>
+          <th>offset</th>
+          <td>the offset into the file where the data to be played starts, in bytes</td>
+        </tr>
+        <tr>
+          <th>length</th>
+          <td>the length in bytes of the data to be played</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>IllegalStateException</td>
+            <td>if it is called in an invalid state
+</td>
+        </tr>  
+        <tr>
+            <th>IOException</td>
+            <td></td>
+        </tr>  
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <a id="setDataSource(java.lang.String)"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -4574,7 +4796,7 @@
         <tr>
           <th>path</th>
           <td>the path of the file, or the http/rtsp URL of the stream you
-            want to play</td>
+             want to play</td>
         </tr>
       </table>
   </div>
@@ -4584,14 +4806,14 @@
         <tr>
             <th>IllegalStateException</td>
             <td>if it is called in an invalid state
- 
-             <p>
-             When <code>path</code> refers to a local file, the file may
-             actually be opened by a process other than the calling
-             application. This implies that the pathname should be an
-             absolute path (as any other process runs with unspecified
-             current working directory), and that the pathname should
-             reference a world-readable file.
+                               <p>
+                               <p>
+                               When <code>path</code> refers to a local file, the file may
+                               actually be opened by a process other than the calling
+                               application. This implies that the pathname should be an
+                               absolute path (as any other process runs with unspecified
+                               current working directory), and that the pathname should
+                               reference a world-readable file.
 </td>
         </tr>  
         <tr>
@@ -4908,9 +5130,9 @@
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets the SurfaceHolder to use for displaying the video portion of
+  <div class="jd-tagdata jd-tagdescr"><p>Sets the <code><a href="../../../../SurfaceHolder/package-summary.html">SurfaceHolder</a></code> to use for displaying the video portion of
  the media.
- 
+ <p>
  Either a surface holder or surface must be set if a display or video sink
  is needed. Not calling this method or <code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setSurface(Surface)">setSurface(Surface)</a></code> when
  playing back a video will result in only the audio track being played. A
@@ -5073,7 +5295,7 @@
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>设置获取原始音频数据的监听器</p></div>
 
     </div>
 </div>
@@ -5219,7 +5441,7 @@
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>true表示设置成功,false则反之
+      <ul class="nolist"><li>true表示设置成功, false则反之
 </li></ul>
   </div>
 
@@ -5340,7 +5562,7 @@
  does not support <code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setScreenOnWhilePlaying(boolean)">setScreenOnWhilePlaying(boolean)</a></code>. Setting a
  Surface will un-set any Surface or SurfaceHolder that was previously set.
  A null surface will result in only the audio track being played.
- 
+ <p>
  If the Surface sends frames to a <code><a href="../../../../SurfaceTexture/package-summary.html">SurfaceTexture</a></code>, the timestamps
  returned from <code><a href="../../../../SurfaceTexture/package-summary.html">SurfaceTexture</a></code> will have an
  unspecified zero point. These timestamps cannot be directly compared
@@ -5354,7 +5576,7 @@
         <tr>
           <th>surface</th>
           <td>The Surface to be used for the video portion of the
-            media.
+                media.
 </td>
         </tr>
       </table>
@@ -5558,7 +5780,7 @@
       <table class="jd-tagtable">
         <tr>
           <th>mode</th>
-          <td>播放器缩放模式,可参见<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#VIDEO_SCALING_MODE_SCALE_TO_FIT">VIDEO_SCALING_MODE_SCALE_TO_FIT</a></code>和<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING">VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING</a></code>
+          <td>播放器缩放模式,可参见<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#VIDEO_SCALING_MODE_SCALE_TO_FIT">VIDEO_SCALING_MODE_SCALE_TO_FIT</a></code>,<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING">VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING</a></code>和<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#VIDEO_SCALING_MODE_NOSCALE_TO_FIT">VIDEO_SCALING_MODE_NOSCALE_TO_FIT</a></code>
 </td>
         </tr>
       </table>

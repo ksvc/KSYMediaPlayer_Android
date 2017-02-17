@@ -156,12 +156,15 @@
               
     <li><h2>Interfaces</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaController.html">IMediaController</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html">IMediaController.MediaPlayerControl</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html">IMediaPlayer</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnBufferingUpdateListener.html">IMediaPlayer.OnBufferingUpdateListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnCompletionListener.html">IMediaPlayer.OnCompletionListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnErrorListener.html">IMediaPlayer.OnErrorListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnInfoListener.html">IMediaPlayer.OnInfoListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnLogEventListener.html">IMediaPlayer.OnLogEventListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnMessageListener.html">IMediaPlayer.OnMessageListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnPreparedListener.html">IMediaPlayer.OnPreparedListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnSeekCompleteListener.html">IMediaPlayer.OnSeekCompleteListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnVideoSizeChangedListener.html">IMediaPlayer.OnVideoSizeChangedListener</a></li>
@@ -179,6 +182,7 @@
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html">KSYMediaPlayer</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.Builder.html">KSYMediaPlayer.Builder</a></li>
           <li class="selected api apilevel-"><a href="../../../../com/ksyun/media/player/KSYTextureView.html">KSYTextureView</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYVideoView.html">KSYVideoView</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/MediaInfo.html">MediaInfo</a></li>
       </ul>
     </li>
@@ -242,6 +246,13 @@
   
   
 
+  
+   
+  
+  
+  
+  
+
 
 <div class="sum-details-links">
 
@@ -254,9 +265,12 @@ Summary:
 
 
 
+  <a href="#lfields">Fields</a>
+  
 
 
-  <a href="#pubctors">Ctors</a>
+
+  &#124; <a href="#pubctors">Ctors</a>
   
 
 
@@ -299,12 +313,17 @@ Summary:
   
 
   
-    extends TextureView<br/>
+    extends FrameLayout<br/>
   
   
   
 
   
+  
+      implements 
+      
+        <a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html">IMediaController.MediaPlayerControl</a> 
+      
   
   
 
@@ -327,7 +346,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="2" class="jd-inheritance-class-cell">TextureView</td>
+        <td colspan="2" class="jd-inheritance-class-cell">FrameLayout</td>
     </tr>
     
 
@@ -353,7 +372,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>金山云提供的播放控件,继承了TextureView并对KSYMediaPlayer进行封装，接口与KSYMediaPlayer保持一致,具体接口含义请见<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html">KSYMediaPlayer</a></code>
+<p>金山云提供的播放控件,对TextureView和KSYMediaPlayer进行封装,接口定义与KSYMediaPlayer保持一直,支持控件<code><a href="../../../../com/ksyun/media/player/IMediaController.html">IMediaController</a></code>,具体接口定义可参见<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html">KSYMediaPlayer</a></code>
 </p>
 
 
@@ -397,6 +416,26 @@ Summary:
 
 
 
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
+
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
+          int</td>
+          <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#mCurrentState">mCurrentState</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+
+</table>
 
 
 
@@ -452,7 +491,7 @@ Summary:
             
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#KSYTextureView(Context, AttributeSet, int)">KSYTextureView</a></span>(Context context, AttributeSet attrs, int defStyle)
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#KSYTextureView(Context, AttributeSet, int)">KSYTextureView</a></span>(Context context, AttributeSet attrs, int defStyleAttr)
         
   </td></tr>
 
@@ -526,6 +565,54 @@ Summary:
             
             
             
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#canPause()">canPause</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#canSeekBackward()">canSeekBackward</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#canSeekForward()">canSeekForward</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
             void
         </td>
         <td class="jd-linkcol" width="100%">
@@ -535,7 +622,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -551,7 +638,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -567,7 +654,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -583,7 +670,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -594,6 +681,22 @@ Summary:
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#getAudioSessionId()">getAudioSessionId</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#getBufferPercentage()">getBufferPercentage</a></span>()
         
   </td></tr>
 
@@ -1377,13 +1480,29 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#seekTo(long)">seekTo</a></span>(long i)
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#seekTo(long)">seekTo</a></span>(long pos)
         
   </td></tr>
 
 
 	 
     <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#seekTo(long, boolean)">seekTo</a></span>(long pos, boolean accurate)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1399,7 +1518,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1415,7 +1534,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1431,7 +1550,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1442,6 +1561,22 @@ Summary:
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#setComeBackFromShare(boolean)">setComeBackFromShare</a></span>(boolean comeBackFromShare)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#setDataSource(java.io.FileDescriptor, long, long)">setDataSource</a></span>(FileDescriptor fd, long offset, long length)
         
   </td></tr>
 
@@ -1569,13 +1704,29 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#setMirror(boolean)">setMirror</a></span>(boolean mirror)
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#setMediaController(com.ksyun.media.player.IMediaController)">setMediaController</a></span>(<a href="../../../../com/ksyun/media/player/IMediaController.html">IMediaController</a> controller)
         
   </td></tr>
 
 
 	 
     <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#setMirror(boolean)">setMirror</a></span>(boolean mirror)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1591,7 +1742,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1607,7 +1758,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1623,7 +1774,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1639,7 +1790,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1655,7 +1806,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1666,6 +1817,22 @@ Summary:
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#setOnLogEventListener(com.ksyun.media.player.IMediaPlayer.OnLogEventListener)">setOnLogEventListener</a></span>(<a href="../../../../com/ksyun/media/player/IMediaPlayer.OnLogEventListener.html">IMediaPlayer.OnLogEventListener</a> l)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#setOnMessageListener(com.ksyun.media.player.IMediaPlayer.OnMessageListener)">setOnMessageListener</a></span>(<a href="../../../../com/ksyun/media/player/IMediaPlayer.OnMessageListener.html">IMediaPlayer.OnMessageListener</a> listener)
         
   </td></tr>
 
@@ -1761,13 +1928,29 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#setScreenOnWhilePlaying(boolean)">setScreenOnWhilePlaying</a></span>(boolean screenOn)
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#setRotation(float)">setRotation</a></span>(float rotation)
         
   </td></tr>
 
 
 	 
     <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYTextureView.html#setScreenOnWhilePlaying(boolean)">setScreenOnWhilePlaying</a></span>(boolean screenOn)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1783,7 +1966,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1799,7 +1982,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1815,7 +1998,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1831,7 +2014,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1847,7 +2030,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1863,7 +2046,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1879,7 +2062,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1895,7 +2078,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1911,7 +2094,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1927,7 +2110,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1943,7 +2126,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -2144,6 +2327,192 @@ From class
 </td></tr>
 
 
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-com.ksyun.media.player.IMediaController.MediaPlayerControl" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-com.ksyun.media.player.IMediaController.MediaPlayerControl-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From interface
+
+  <a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html">com.ksyun.media.player.IMediaController.MediaPlayerControl</a>
+
+<div id="inherited-methods-com.ksyun.media.player.IMediaController.MediaPlayerControl">
+  <div id="inherited-methods-com.ksyun.media.player.IMediaController.MediaPlayerControl-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-com.ksyun.media.player.IMediaController.MediaPlayerControl-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#canPause()">canPause</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#canSeekBackward()">canSeekBackward</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#canSeekForward()">canSeekForward</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#getBufferPercentage()">getBufferPercentage</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            long
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#getCurrentPosition()">getCurrentPosition</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            long
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#getDuration()">getDuration</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#isPlaying()">isPlaying</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#pause()">pause</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#seekTo(long)">seekTo</a></span>(long pos)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#start()">start</a></span>()
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
 </table>
 
 
@@ -2168,6 +2537,43 @@ From class
 
 
 <!-- Fields -->
+
+
+<!-- ========= FIELD DETAIL ======== -->
+<h2>Fields</h2>
+
+
+
+
+<a id="mCurrentState"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        int
+      </span>
+        mCurrentState
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
 
 
 <!-- Public ctors -->
@@ -2253,7 +2659,7 @@ From class
         
       </span>
       <span class="sympad">KSYTextureView</span>
-      <span class="normal">(Context context, AttributeSet attrs, int defStyle)</span>
+      <span class="normal">(Context context, AttributeSet attrs, int defStyleAttr)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2361,6 +2767,99 @@ From class
         float
       </span>
       <span class="sympad">bufferEmptyDuration</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="canPause()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">canPause</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="canSeekBackward()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">canSeekBackward</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="canSeekForward()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">canSeekForward</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2516,6 +3015,37 @@ From class
         int
       </span>
       <span class="sympad">getAudioSessionId</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="getBufferPercentage()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getBufferPercentage</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -4035,7 +4565,38 @@ From class
         void
       </span>
       <span class="sympad">seekTo</span>
-      <span class="normal">(long i)</span>
+      <span class="normal">(long pos)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="seekTo(long, boolean)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">seekTo</span>
+      <span class="normal">(long pos, boolean accurate)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -4172,6 +4733,54 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="setDataSource(java.io.FileDescriptor, long, long)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setDataSource</span>
+      <span class="normal">(FileDescriptor fd, long offset, long length)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>IOException</td>
+            <td></td>
+        </tr>  
+        <tr>
+            <th>IllegalArgumentException</td>
+            <td></td>
+        </tr>  
+        <tr>
+            <th>IllegalStateException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -4430,6 +5039,37 @@ From class
 </div>
 
 
+<a id="setMediaController(com.ksyun.media.player.IMediaController)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setMediaController</span>
+      <span class="normal">(<a href="../../../../com/ksyun/media/player/IMediaController.html">IMediaController</a> controller)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
 <a id="setMirror(boolean)"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -4647,6 +5287,37 @@ From class
 </div>
 
 
+<a id="setOnMessageListener(com.ksyun.media.player.IMediaPlayer.OnMessageListener)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setOnMessageListener</span>
+      <span class="normal">(<a href="../../../../com/ksyun/media/player/IMediaPlayer.OnMessageListener.html">IMediaPlayer.OnMessageListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
 <a id="setOnPreparedListener(com.ksyun.media.player.IMediaPlayer.OnPreparedListener)"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -4785,6 +5456,37 @@ From class
       </span>
       <span class="sympad">setRotateDegree</span>
       <span class="normal">(int degree)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="setRotation(float)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setRotation</span>
+      <span class="normal">(float rotation)</span>
     </h4>
       <div class="api-level">
         <div>

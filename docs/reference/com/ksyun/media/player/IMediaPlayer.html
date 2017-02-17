@@ -156,12 +156,15 @@
               
     <li><h2>Interfaces</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaController.html">IMediaController</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html">IMediaController.MediaPlayerControl</a></li>
           <li class="selected api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html">IMediaPlayer</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnBufferingUpdateListener.html">IMediaPlayer.OnBufferingUpdateListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnCompletionListener.html">IMediaPlayer.OnCompletionListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnErrorListener.html">IMediaPlayer.OnErrorListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnInfoListener.html">IMediaPlayer.OnInfoListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnLogEventListener.html">IMediaPlayer.OnLogEventListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnMessageListener.html">IMediaPlayer.OnMessageListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnPreparedListener.html">IMediaPlayer.OnPreparedListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnSeekCompleteListener.html">IMediaPlayer.OnSeekCompleteListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnVideoSizeChangedListener.html">IMediaPlayer.OnVideoSizeChangedListener</a></li>
@@ -179,6 +182,7 @@
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html">KSYMediaPlayer</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.Builder.html">KSYMediaPlayer.Builder</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYTextureView.html">KSYTextureView</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYVideoView.html">KSYVideoView</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/MediaInfo.html">MediaInfo</a></li>
       </ul>
     </li>
@@ -392,13 +396,26 @@
          
         
         interface</td>
+      <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnMessageListener.html">IMediaPlayer.OnMessageListener</a></td>
+      <td class="jd-descrcol" width="100%">金山云提供给的消息通道监听器,可设置此监听器获取主播端通过消息通道发送的信息
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+      <td class="jd-typecol">
+        
+         
+         
+        
+        interface</td>
       <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnPreparedListener.html">IMediaPlayer.OnPreparedListener</a></td>
       <td class="jd-descrcol" width="100%">与<code><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#prepareAsync()">prepareAsync()</a></code>相对应,在调用<code><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#prepareAsync()">prepareAsync()</a></code>之后且准备成功会发出onPrepared回调
 &nbsp;</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
       <td class="jd-typecol">
         
          
@@ -411,7 +428,7 @@
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
       <td class="jd-typecol">
         
          
@@ -1290,13 +1307,29 @@
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#setOnPreparedListener(com.ksyun.media.player.IMediaPlayer.OnPreparedListener)">setOnPreparedListener</a></span>(<a href="../../../../com/ksyun/media/player/IMediaPlayer.OnPreparedListener.html">IMediaPlayer.OnPreparedListener</a> listener)
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#setOnMessageListener(com.ksyun.media.player.IMediaPlayer.OnMessageListener)">setOnMessageListener</a></span>(<a href="../../../../com/ksyun/media/player/IMediaPlayer.OnMessageListener.html">IMediaPlayer.OnMessageListener</a> listener)
         
   </td></tr>
 
 
 	 
     <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#setOnPreparedListener(com.ksyun.media.player.IMediaPlayer.OnPreparedListener)">setOnPreparedListener</a></span>(<a href="../../../../com/ksyun/media/player/IMediaPlayer.OnPreparedListener.html">IMediaPlayer.OnPreparedListener</a> listener)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1312,7 +1345,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1328,7 +1361,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1344,7 +1377,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1360,7 +1393,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1376,7 +1409,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1392,7 +1425,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1408,7 +1441,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -4280,6 +4313,37 @@
       </span>
       <span class="sympad">setOnInfoListener</span>
       <span class="normal">(<a href="../../../../com/ksyun/media/player/IMediaPlayer.OnInfoListener.html">IMediaPlayer.OnInfoListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="setOnMessageListener(com.ksyun.media.player.IMediaPlayer.OnMessageListener)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setOnMessageListener</span>
+      <span class="normal">(<a href="../../../../com/ksyun/media/player/IMediaPlayer.OnMessageListener.html">IMediaPlayer.OnMessageListener</a> listener)</span>
     </h4>
       <div class="api-level">
         <div>

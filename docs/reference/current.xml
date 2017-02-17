@@ -1,6 +1,228 @@
 <api>
 <package name="com.ksyun.media.player"
 >
+<interface name="IMediaController"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="hide"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="isShowing"
+ return="boolean"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="onPause"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="onStart"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="setAnchorView"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="view" type="View">
+</parameter>
+</method>
+<method name="setEnabled"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="enabled" type="boolean">
+</parameter>
+</method>
+<method name="setMediaPlayer"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="player" type="com.ksyun.media.player.IMediaController.MediaPlayerControl">
+</parameter>
+</method>
+<method name="show"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</interface>
+<interface name="IMediaController.MediaPlayerControl"
+ abstract="true"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="canPause"
+ return="boolean"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="canSeekBackward"
+ return="boolean"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="canSeekForward"
+ return="boolean"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getBufferPercentage"
+ return="int"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getCurrentPosition"
+ return="long"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getDuration"
+ return="long"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="isPlaying"
+ return="boolean"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="pause"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="seekTo"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pos" type="long">
+</parameter>
+</method>
+<method name="start"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</interface>
 <interface name="IMediaPlayer"
  abstract="true"
  static="false"
@@ -430,6 +652,19 @@
  visibility="public"
 >
 <parameter name="listener" type="com.ksyun.media.player.IMediaPlayer.OnInfoListener">
+</parameter>
+</method>
+<method name="setOnMessageListener"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.ksyun.media.player.IMediaPlayer.OnMessageListener">
 </parameter>
 </method>
 <method name="setOnPreparedListener"
@@ -1144,6 +1379,33 @@
 </parameter>
 </method>
 </interface>
+<interface name="IMediaPlayer.OnMessageListener"
+ abstract="true"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="onMessage"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="mp" type="com.ksyun.media.player.IMediaPlayer">
+</parameter>
+<parameter name="name" type="java.lang.String">
+</parameter>
+<parameter name="info" type="java.lang.String">
+</parameter>
+<parameter name="number" type="double">
+</parameter>
+</method>
+</interface>
 <interface name="IMediaPlayer.OnPreparedListener"
  abstract="true"
  static="true"
@@ -1474,6 +1736,17 @@
 >
 <parameter name="key" type="java.lang.String">
 </parameter>
+</method>
+<method name="getVideoCodec"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
 </method>
 <method name="parse"
  return="com.ksyun.media.player.KSYMediaMeta"
@@ -2350,7 +2623,7 @@
  type="java.lang.String"
  transient="false"
  volatile="false"
- value="&quot;prepare_cost_time&quot;"
+ value="&quot;prepare_cost&quot;"
  static="true"
  final="true"
  deprecated="not deprecated"
@@ -2461,6 +2734,17 @@
  transient="false"
  volatile="false"
  value="&quot;type&quot;"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="IJKM_KEY_VIDEO_CODEC"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ value="&quot;vcodec&quot;"
  static="true"
  final="true"
  deprecated="not deprecated"
@@ -2728,6 +3012,16 @@
  volatile="false"
  static="false"
  final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="mVCodec"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
  deprecated="not deprecated"
  visibility="public"
 >
@@ -3678,7 +3972,7 @@
 <method name="seekTo"
  return="void"
  abstract="false"
- native="true"
+ native="false"
  synchronized="false"
  static="false"
  final="false"
@@ -3686,6 +3980,23 @@
  visibility="public"
 >
 <parameter name="msec" type="long">
+</parameter>
+<exception name="IllegalStateException" type="java.lang.IllegalStateException">
+</exception>
+</method>
+<method name="seekTo"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="msec" type="long">
+</parameter>
+<parameter name="accurate" type="boolean">
 </parameter>
 <exception name="IllegalStateException" type="java.lang.IllegalStateException">
 </exception>
@@ -3809,6 +4120,29 @@
  visibility="public"
 >
 <parameter name="fd" type="java.io.FileDescriptor">
+</parameter>
+<exception name="IOException" type="java.io.IOException">
+</exception>
+<exception name="IllegalArgumentException" type="java.lang.IllegalArgumentException">
+</exception>
+<exception name="IllegalStateException" type="java.lang.IllegalStateException">
+</exception>
+</method>
+<method name="setDataSource"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="fd" type="java.io.FileDescriptor">
+</parameter>
+<parameter name="offset" type="long">
+</parameter>
+<parameter name="length" type="long">
 </parameter>
 <exception name="IOException" type="java.io.IOException">
 </exception>
@@ -4269,6 +4603,17 @@
  visibility="public"
 >
 </field>
+<field name="VIDEO_SCALING_MODE_NOSCALE_TO_FIT"
+ type="int"
+ transient="false"
+ volatile="false"
+ value="0"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
 <field name="VIDEO_SCALING_MODE_SCALE_TO_FIT"
  type="int"
  transient="false"
@@ -4543,13 +4888,15 @@
 </method>
 </interface>
 <class name="KSYTextureView"
- extends="TextureView"
+ extends="FrameLayout"
  abstract="false"
  static="false"
  final="false"
  deprecated="not deprecated"
  visibility="public"
 >
+<implements name="com.ksyun.media.player.IMediaController.MediaPlayerControl">
+</implements>
 <constructor name="KSYTextureView"
  type="com.ksyun.media.player.KSYTextureView"
  static="false"
@@ -4583,7 +4930,7 @@
 </parameter>
 <parameter name="attrs" type="AttributeSet">
 </parameter>
-<parameter name="defStyle" type="int">
+<parameter name="defStyleAttr" type="int">
 </parameter>
 </constructor>
 <method name="addVideoRawBuffer"
@@ -4612,6 +4959,39 @@
 </method>
 <method name="bufferEmptyDuration"
  return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="canPause"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="canSeekBackward"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="canSeekForward"
+ return="boolean"
  abstract="false"
  native="false"
  synchronized="false"
@@ -4668,6 +5048,17 @@
 >
 </method>
 <method name="getAudioSessionId"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getBufferPercentage"
  return="int"
  abstract="false"
  native="false"
@@ -5256,7 +5647,22 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="i" type="long">
+<parameter name="pos" type="long">
+</parameter>
+</method>
+<method name="seekTo"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pos" type="long">
+</parameter>
+<parameter name="accurate" type="boolean">
 </parameter>
 </method>
 <method name="selectTrack"
@@ -5377,6 +5783,29 @@
 <exception name="IOException" type="java.io.IOException">
 </exception>
 </method>
+<method name="setDataSource"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="fd" type="java.io.FileDescriptor">
+</parameter>
+<parameter name="offset" type="long">
+</parameter>
+<parameter name="length" type="long">
+</parameter>
+<exception name="IOException" type="java.io.IOException">
+</exception>
+<exception name="IllegalArgumentException" type="java.lang.IllegalArgumentException">
+</exception>
+<exception name="IllegalStateException" type="java.lang.IllegalStateException">
+</exception>
+</method>
 <method name="setDecodeMode"
  return="void"
  abstract="false"
@@ -5414,6 +5843,19 @@
  visibility="public"
 >
 <parameter name="looping" type="boolean">
+</parameter>
+</method>
+<method name="setMediaController"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="controller" type="com.ksyun.media.player.IMediaController">
 </parameter>
 </method>
 <method name="setMirror"
@@ -5507,6 +5949,19 @@
 <parameter name="l" type="com.ksyun.media.player.IMediaPlayer.OnLogEventListener">
 </parameter>
 </method>
+<method name="setOnMessageListener"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.ksyun.media.player.IMediaPlayer.OnMessageListener">
+</parameter>
+</method>
 <method name="setOnPreparedListener"
  return="void"
  abstract="false"
@@ -5570,6 +6025,19 @@
  visibility="public"
 >
 <parameter name="degree" type="int">
+</parameter>
+</method>
+<method name="setRotation"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="rotation" type="float">
 </parameter>
 </method>
 <method name="setScreenOnWhilePlaying"
@@ -5743,6 +6211,1288 @@
  visibility="public"
 >
 </method>
+<field name="mCurrentState"
+ type="int"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="KSYVideoView"
+ extends="FrameLayout"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<implements name="com.ksyun.media.player.IMediaController.MediaPlayerControl">
+</implements>
+<constructor name="KSYVideoView"
+ type="com.ksyun.media.player.KSYVideoView"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="Context">
+</parameter>
+</constructor>
+<constructor name="KSYVideoView"
+ type="com.ksyun.media.player.KSYVideoView"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="Context">
+</parameter>
+<parameter name="attrs" type="AttributeSet">
+</parameter>
+</constructor>
+<constructor name="KSYVideoView"
+ type="com.ksyun.media.player.KSYVideoView"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="Context">
+</parameter>
+<parameter name="attrs" type="AttributeSet">
+</parameter>
+<parameter name="defStyleAttr" type="int">
+</parameter>
+</constructor>
+<method name="addVideoRawBuffer"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="rawBuffer" type="byte[]">
+</parameter>
+</method>
+<method name="bufferEmptyCount"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="bufferEmptyDuration"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="canPause"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="canSeekBackward"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="canSeekForward"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="deselectTrack"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="track" type="int">
+</parameter>
+</method>
+<method name="getAudioCachedBytes"
+ return="long"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getAudioCachedDuration"
+ return="long"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getAudioCachedPackets"
+ return="long"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getAudioSessionId"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getBufferPercentage"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getBufferTimeMax"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getClientIP"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getCurrentPosition"
+ return="long"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getCurrentPts"
+ return="long"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getDataSource"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getDecodedDataSize"
+ return="long"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getDownloadDataSize"
+ return="long"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getDuration"
+ return="long"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getLocalDnsIP"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getMediaInfo"
+ return="com.ksyun.media.player.MediaInfo"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getMediaMeta"
+ return="Bundle"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getScreenShot"
+ return="Bitmap"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getSelectedTrack"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="trackType" type="int">
+</parameter>
+</method>
+<method name="getServerAddress"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getSpeed"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="speed" type="float">
+</parameter>
+</method>
+<method name="getStreamQosInfo"
+ return="com.ksyun.media.player.misc.KSYQosInfo"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getStreamStartTime"
+ return="long"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getTrackInfo"
+ return="com.ksyun.media.player.misc.KSYTrackInfo[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getVersion"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getVideoCachedBytes"
+ return="long"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getVideoCachedDuration"
+ return="long"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getVideoCachedPackets"
+ return="long"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getVideoDecodeFramesPerSecond"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getVideoDecoder"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getVideoHeight"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getVideoOutputFramesPerSecond"
+ return="float"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getVideoSarDen"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getVideoSarNum"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getVideoWidth"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="isLooping"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="isPlayable"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="isPlaying"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="onKeyDown"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="keyCode" type="int">
+</parameter>
+<parameter name="event" type="KeyEvent">
+</parameter>
+</method>
+<method name="onTouchEvent"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="ev" type="MotionEvent">
+</parameter>
+</method>
+<method name="onTrackballEvent"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="ev" type="MotionEvent">
+</parameter>
+</method>
+<method name="pause"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="prepareAsync"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="release"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="reload"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+<parameter name="flushBuffer" type="boolean">
+</parameter>
+</method>
+<method name="reload"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="path" type="java.lang.String">
+</parameter>
+<parameter name="flushBuffer" type="boolean">
+</parameter>
+<parameter name="mode" type="com.ksyun.media.player.KSYMediaPlayer.KSYReloadMode">
+</parameter>
+</method>
+<method name="reset"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="seekTo"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="l" type="long">
+</parameter>
+</method>
+<method name="seekTo"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="pos" type="long">
+</parameter>
+<parameter name="accurate" type="boolean">
+</parameter>
+</method>
+<method name="selectTrack"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="track" type="int">
+</parameter>
+</method>
+<method name="setBufferSize"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="size" type="int">
+</parameter>
+</method>
+<method name="setBufferTimeMax"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="timeSecond" type="float">
+</parameter>
+</method>
+<method name="setDataSource"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="Context">
+</parameter>
+<parameter name="uri" type="Uri">
+</parameter>
+<exception name="IOException" type="java.io.IOException">
+</exception>
+</method>
+<method name="setDataSource"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="Context">
+</parameter>
+<parameter name="uri" type="Uri">
+</parameter>
+<parameter name="headers" type="java.util.Map&lt;java.lang.String, java.lang.String&gt;">
+</parameter>
+<exception name="IOException" type="java.io.IOException">
+</exception>
+</method>
+<method name="setDataSource"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="path" type="java.lang.String">
+</parameter>
+<exception name="IOException" type="java.io.IOException">
+</exception>
+</method>
+<method name="setDataSource"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="fd" type="java.io.FileDescriptor">
+</parameter>
+<exception name="IOException" type="java.io.IOException">
+</exception>
+</method>
+<method name="setDataSource"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="fd" type="java.io.FileDescriptor">
+</parameter>
+<parameter name="offset" type="long">
+</parameter>
+<parameter name="length" type="long">
+</parameter>
+<exception name="IOException" type="java.io.IOException">
+</exception>
+<exception name="IllegalArgumentException" type="java.lang.IllegalArgumentException">
+</exception>
+<exception name="IllegalStateException" type="java.lang.IllegalStateException">
+</exception>
+</method>
+<method name="setDecodeMode"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="mode" type="com.ksyun.media.player.KSYMediaPlayer.KSYDecodeMode">
+</parameter>
+</method>
+<method name="setDeinterlaceMode"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="mode" type="com.ksyun.media.player.KSYMediaPlayer.KSYDeinterlaceMode">
+</parameter>
+</method>
+<method name="setLooping"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="looping" type="boolean">
+</parameter>
+</method>
+<method name="setMediaController"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="controller" type="com.ksyun.media.player.IMediaController">
+</parameter>
+</method>
+<method name="setMirror"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="mirror" type="boolean">
+</parameter>
+</method>
+<method name="setOnAudioPCMAvailableListener"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.ksyun.media.player.KSYMediaPlayer.OnAudioPCMListener">
+</parameter>
+</method>
+<method name="setOnBufferingUpdateListener"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="l" type="com.ksyun.media.player.IMediaPlayer.OnBufferingUpdateListener">
+</parameter>
+</method>
+<method name="setOnCompletionListener"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="l" type="com.ksyun.media.player.IMediaPlayer.OnCompletionListener">
+</parameter>
+</method>
+<method name="setOnErrorListener"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="l" type="com.ksyun.media.player.IMediaPlayer.OnErrorListener">
+</parameter>
+</method>
+<method name="setOnInfoListener"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="l" type="com.ksyun.media.player.IMediaPlayer.OnInfoListener">
+</parameter>
+</method>
+<method name="setOnLogEventListener"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="l" type="com.ksyun.media.player.IMediaPlayer.OnLogEventListener">
+</parameter>
+</method>
+<method name="setOnMessageListener"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="l" type="com.ksyun.media.player.IMediaPlayer.OnMessageListener">
+</parameter>
+</method>
+<method name="setOnPreparedListener"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="l" type="com.ksyun.media.player.IMediaPlayer.OnPreparedListener">
+</parameter>
+</method>
+<method name="setOnSeekCompleteListener"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="l" type="com.ksyun.media.player.IMediaPlayer.OnSeekCompleteListener">
+</parameter>
+</method>
+<method name="setOnVideoSizeChangedListener"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="l" type="com.ksyun.media.player.IMediaPlayer.OnVideoSizeChangedListener">
+</parameter>
+</method>
+<method name="setPlayerMute"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="mute" type="int">
+</parameter>
+</method>
+<method name="setRotateDegree"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="degree" type="int">
+</parameter>
+</method>
+<method name="setRotation"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="rotation" type="float">
+</parameter>
+</method>
+<method name="setScreenOnWhilePlaying"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="screenOn" type="boolean">
+</parameter>
+</method>
+<method name="setSpeed"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="speed" type="float">
+</parameter>
+</method>
+<method name="setTimeout"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="prepareTimeout" type="int">
+</parameter>
+<parameter name="readTimeout" type="int">
+</parameter>
+</method>
+<method name="setVideoOffset"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="horizontal" type="float">
+</parameter>
+<parameter name="vertical" type="float">
+</parameter>
+</method>
+<method name="setVideoRawDataListener"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="listener" type="com.ksyun.media.player.KSYMediaPlayer.OnVideoRawDataListener">
+</parameter>
+</method>
+<method name="setVideoRenderingState"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="mode" type="int">
+</parameter>
+</method>
+<method name="setVideoScalingMode"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="mode" type="int">
+</parameter>
+</method>
+<method name="setVolume"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="leftVolume" type="float">
+</parameter>
+<parameter name="rightVolume" type="float">
+</parameter>
+</method>
+<method name="setWakeMode"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="context" type="Context">
+</parameter>
+<parameter name="mode" type="int">
+</parameter>
+</method>
+<method name="shouldAutoPlay"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="state" type="boolean">
+</parameter>
+</method>
+<method name="softReset"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="start"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="stop"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="surfaceChanged"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="holder" type="SurfaceHolder">
+</parameter>
+<parameter name="format" type="int">
+</parameter>
+<parameter name="width" type="int">
+</parameter>
+<parameter name="height" type="int">
+</parameter>
+</method>
+<method name="surfaceCreated"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="holder" type="SurfaceHolder">
+</parameter>
+</method>
+<method name="surfaceDestroyed"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="holder" type="SurfaceHolder">
+</parameter>
+</method>
+<field name="mCurrentState"
+ type="int"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
 </class>
 <class name="MediaInfo"
  extends="java.lang.Object"
