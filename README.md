@@ -4,6 +4,9 @@
 
 金山云Android播放SDK特有的直播优化策略能提供一流的直播体验，为Android开发者提供简单、快捷的接口，帮助开发者实现Android平台上的多媒体播放应用。
 
+### 1.1 版本信息
+LICENSE和版本信息：[LICENSE](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/license)
+
 ## 2.KSYMediaPlayer SDK 功能说明
 
 - [x] 接口定义与Android系统播放器[MediaPlayer](https://developer.android.com/reference/android/media/MediaPlayer.html)保持一致
