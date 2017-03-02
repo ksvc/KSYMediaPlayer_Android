@@ -454,7 +454,15 @@ public class SurfaceActivity extends Activity implements View.OnClickListener{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        timer.cancel();
+        if(timer != null) {
+            timer.cancel();
+            timer = null;
+        }
+
+        if (timerTask != null){
+            timerTask.cancel();
+            timerTask = null;
+        }
         mVideoTextureView = null;
         mSurfaceTexture = null;
     }
@@ -643,6 +651,16 @@ public class SurfaceActivity extends Activity implements View.OnClickListener{
             mQosThread = null;
         }
 
+        if(timer != null) {
+            timer.cancel();
+            timer = null;
+        }
+
+        if (timerTask != null){
+            timerTask.cancel();
+            timerTask = null;
+        }
+
         mHandler = null;
 
         finish();
@@ -705,7 +723,7 @@ public class SurfaceActivity extends Activity implements View.OnClickListener{
     private final SurfaceHolder.Callback mSurfaceCallback = new SurfaceHolder.Callback() {
         @Override
         public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-            if(ksyMediaPlayer != null && ksyMediaPlayer.isPlaying())
+            if(ksyMediaPlayer != null)
                 ksyMediaPlayer.setVideoScalingMode(KSYMediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING);
         }
 
