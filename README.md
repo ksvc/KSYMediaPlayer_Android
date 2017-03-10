@@ -32,9 +32,9 @@ LICENSE和版本信息：[LICENSE](https://github.com/ksvc/KSYMediaPlayer_Androi
 - [x] 支持[反交错功能](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/VodSurppotDeinterlace)
 - [x] 支持[音量放大](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/PlayerVolume)，最大可以放大两倍
 
+### 2.1 直播库与点播库
 
-
-支持的文件封装格式和音视频编码标准如下所示：   
+支持的文件封装格式和音视频编码标准如下所示：   
 
 
 |      信息   |          直播         |             点播(完整包含直播所有功能)            |
@@ -46,7 +46,10 @@ LICENSE和版本信息：[LICENSE](https://github.com/ksvc/KSYMediaPlayer_Androi
 
 > 点播库包含直播库全部功能，并且额外支持了更多的vod格式。
 
-### 文档
+* libs_live 提供直播SDK
+* libs_vod 提供点播SDK，完整包含直播所有功能
+
+### 2.2 SDK文档
 
 [详情请见wiki](https://github.com/ksvc/KSYMediaPlayer_Android/wiki)
 
