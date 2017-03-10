@@ -37,7 +37,7 @@ LICENSE和版本信息：[LICENSE](https://github.com/ksvc/KSYMediaPlayer_Androi
 支持的文件封装格式和音视频编码标准如下所示：   
 
 
-|      信息   |          直播         |             点播            |
+|      信息   |          直播         |             点播(完整包含直播所有功能)            |
 |:----------:|:---------------------:|:--------------------------:|
 |   流协议    | HLS, RTMP, HTTP,HTTPS, FILE |   HLS, RTMP, RTSP, HTTP, HTTPS, FILE |
 |   封装格式  | FLV, TS, MPEG, MOV, M4V, MP3, AAC, GIF, ASF, RM | FLV, TS, MPEG, MOV, M4V, MP3, AAC, GIF, ASF, RM, MKV, AVI, WEBM |
