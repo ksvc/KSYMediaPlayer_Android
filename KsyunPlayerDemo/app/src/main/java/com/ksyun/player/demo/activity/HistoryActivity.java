@@ -31,6 +31,7 @@ public class HistoryActivity extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        settings = getSharedPreferences("SETTINGS", Context.MODE_PRIVATE);
         setContentView(R.layout.activity_history);
         listurl = new ArrayList<String>();
 
@@ -52,19 +53,14 @@ public class HistoryActivity extends Activity{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String path = listurl.get(i);
-
-                String chooseview;
-                settings = getSharedPreferences("SETTINGS", Context.MODE_PRIVATE);
-                chooseview = settings.getString("choose_view","undefind");
-
-                if(chooseview.equals(Settings.USEKSYTEXTURE)){
-                    Intent intent = new Intent(HistoryActivity.this,TextureVideoActivity.class);
-                    intent.putExtra("path",path);
+                String playerType = settings.getString("choose_type", Settings.LIVE);
+                if (playerType.equals(Settings.VOD)) {
+                    Intent intent = new Intent(HistoryActivity.this, TextureVodActivity.class);
+                    intent.putExtra("path", path);
                     startActivity(intent);
-
-                }else{
-                    Intent intent = new Intent(HistoryActivity.this,SurfaceActivity.class);
-                    intent.putExtra("path",path);
+                } else {
+                    Intent intent = new Intent(HistoryActivity.this, TextureVideoActivity.class);
+                    intent.putExtra("path", path);
                     startActivity(intent);
                 }
             }
