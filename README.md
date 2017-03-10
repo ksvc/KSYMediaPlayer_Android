@@ -7,6 +7,12 @@
 ### 1.1 版本信息
 LICENSE和版本信息：[LICENSE](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/license)
 
+### 1.3 关于费用
+金山云SDK保证，提供的[KSYMediaPlayer Android播放SDK](https://github.com/ksvc/KSYMediaPlayer_Android)可以用于商业应用，不会收取任何SDK使用费用。但是基于[KSYMediaPlayer Android播放SDK](https://github.com/ksvc/KSYMediaPlayer_Android)的其他商业服务，会由特定供应商收取授权费用，大致包括：
+
+1. 云存储
+1. CDN分发
+
 ## 2.KSYMediaPlayer SDK 功能说明
 
 - [x] 接口定义与Android系统播放器[MediaPlayer](https://developer.android.com/reference/android/media/MediaPlayer.html)保持一致
