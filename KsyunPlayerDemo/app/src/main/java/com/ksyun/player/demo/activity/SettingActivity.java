@@ -4,7 +4,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
@@ -15,43 +18,87 @@ import com.ksyun.player.demo.util.Settings;
 
 public class SettingActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener{
 
-    public static final int GET_JSONDATA = 0x1001;
     public static final int PLAY_VIDEO = 0x1002;
 
 
     private SharedPreferences settings ;
     private SharedPreferences.Editor editor;
-    private RadioButton radiosurface;
-    private RadioButton radioksytexture;
-    private RadioButton radiosoft;
-    private RadioButton radiohard;
-    private Switch debugswitch;
+    private RadioButton radioSoft;
+    private RadioButton radioHard;
+    private RadioButton radioLive;
+    private RadioButton radioVod;
+    private Switch debugSwitch;
 
-    private RadioGroup mChooseSurface;
+
     private RadioGroup mChooseCodec;
+    private RadioGroup mChooseType;
 
+    private EditText mBufferTime;
+    private EditText mBufferSize;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setting);
 
         settings = getSharedPreferences("SETTINGS",Context.MODE_PRIVATE);
         editor = settings.edit();
-        String chooseview = settings.getString("choose_view","信息为空");
-        String choosedecode = settings.getString("choose_decode","信息为空");
-        String choosedebug = settings.getString("choose_debug","信息为空");
+        setContentView(R.layout.activity_setting);
+        String chooseDecode = settings.getString("choose_decode", Settings.USESOFT);
+        String chooseDebug = settings.getString("choose_debug", Settings.DEBUGON);
+        String chooseType = settings.getString("choose_type", Settings.LIVE);
+        String bufferTime = settings.getString("buffertime", "2");
+        String bufferSize = settings.getString("buffersize", "15");
 
-        mChooseSurface = (RadioGroup) findViewById(R.id.choose_surface);
+
         mChooseCodec = (RadioGroup) findViewById(R.id.choose_codec);
+        mChooseType = (RadioGroup) findViewById(R.id.choose_type);
 
-        mChooseSurface.setOnCheckedChangeListener(this);
         mChooseCodec.setOnCheckedChangeListener(this);
+        mChooseType.setOnCheckedChangeListener(this);
 
-        debugswitch = (Switch)findViewById(R.id.switch_set);
+        debugSwitch = (Switch) findViewById(R.id.switch_set);
 
-        initSetting(choosedecode,chooseview,choosedebug);
+        mBufferSize = (EditText) findViewById(R.id.bfsize_edit);
+        mBufferTime = (EditText) findViewById(R.id.bftime_edit);
 
-        debugswitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        mBufferSize.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                editor.putString("buffersize", mBufferSize.getText().toString());
+                editor.commit();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        mBufferTime.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                editor.putString("buffertime", mBufferTime.getText().toString());
+                editor.commit();
+            }
+        });
+
+        initSetting(chooseDecode, chooseDebug, bufferSize, bufferTime, chooseType);
+
+        debugSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked) {
@@ -66,46 +113,52 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
         });
     }
 
-    private void initSetting(String choosedecode, String chooseview,String choosedebug) {
-        radiosoft = (RadioButton)findViewById(R.id.use_sw);
-        radiohard = (RadioButton)findViewById(R.id.use_hw);
-        radiosurface = (RadioButton)findViewById(R.id.use_surfaceview);
-        radioksytexture = (RadioButton)findViewById(R.id.use_ksytextureview);
 
-        switch (choosedecode){
+    private void initSetting(String chooseDecode, String chooseDebug, String bufferSize, String bufferTime, String chooseType) {
+        radioSoft = (RadioButton) findViewById(R.id.use_sw);
+        radioHard = (RadioButton) findViewById(R.id.use_hw);
+
+        radioLive = (RadioButton) findViewById(R.id.type_live);
+        radioVod = (RadioButton) findViewById(R.id.type_vod);
+
+        mBufferSize.setText(bufferSize);
+        mBufferTime.setText(bufferTime);
+
+        switch (chooseDecode) {
             case Settings.USEHARD:
-                mChooseCodec.check(radiohard.getId());
+                mChooseCodec.check(radioHard.getId());
                 break;
             case Settings.USESOFT:
-                mChooseCodec.check(radiosoft.getId());
+                mChooseCodec.check(radioSoft.getId());
                 break;
             default:
-                mChooseCodec.check(radiosoft.getId());
+                mChooseCodec.check(radioSoft.getId());
                 editor.putString("choose_decode", Settings.USESOFT);
                 break;
         }
-        switch (chooseview){
-            case Settings.USESUFACE:
-                mChooseSurface.check(radiosurface.getId());
-                break;
-            case Settings.USEKSYTEXTURE:
-                mChooseSurface.check(radioksytexture.getId());
-                break;
-            default:
-                mChooseSurface.check(radiosurface.getId());
-                editor.putString("choose_view", Settings.USESUFACE);
-                break;
-        }
-        switch (choosedebug){
+        switch (chooseDebug) {
             case Settings.DEBUGOFF:
-                debugswitch.setChecked(false);
+                debugSwitch.setChecked(false);
                 break;
             case Settings.DEBUGON:
-                debugswitch.setChecked(true);
+                debugSwitch.setChecked(true);
                 break;
             default:
-                debugswitch.setChecked(false);
-                editor.putString("choose_debug", Settings.DEBUGOFF);
+                debugSwitch.setChecked(true);
+                editor.putString("choose_debug", Settings.DEBUGON);
+                break;
+        }
+
+        switch (chooseType) {
+            case Settings.VOD:
+                mChooseType.check(radioVod.getId());
+                break;
+            case Settings.LIVE:
+                mChooseType.check(radioLive.getId());
+                break;
+            default:
+                mChooseType.check(radioLive.getId());
+                editor.putString("choose_type", Settings.LIVE);
                 break;
         }
         editor.commit();
@@ -115,23 +168,18 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
 
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        switch(i){
-            case R.id.use_surfaceview:
-                editor.putString("choose_view", Settings.USESUFACE);
-                break;
-            case R.id.use_ksytextureview:
-                editor.putString("choose_view", Settings.USEKSYTEXTURE);
-                break;
+        switch (i) {
             case R.id.use_hw:
-                mChooseSurface.check(radioksytexture.getId());
-                //radiosurface.setEnabled(false);
-                Toast.makeText(SettingActivity.this, "硬解请使用KSYTextureView", Toast.LENGTH_SHORT).show();
                 editor.putString("choose_decode", Settings.USEHARD);
-                editor.putString("choose_view", Settings.USEKSYTEXTURE);
                 break;
-            case  R.id.use_sw:
-                //radiosurface.setEnabled(true);
+            case R.id.use_sw:
                 editor.putString("choose_decode", Settings.USESOFT);
+                break;
+            case R.id.type_vod:
+                editor.putString("choose_type", Settings.VOD);
+                break;
+            case R.id.type_live:
+                editor.putString("choose_type", Settings.LIVE);
                 break;
             default:
                 break;

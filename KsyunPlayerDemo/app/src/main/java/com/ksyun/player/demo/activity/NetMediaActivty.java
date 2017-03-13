@@ -25,14 +25,14 @@ import java.util.ArrayList;
 
 
 public class NetMediaActivty extends AppCompatActivity implements View.OnClickListener{
-    private Button net_setting;
-    private Button net_history;
-    private Button net_scan;
-    private Button net_startvedio;
-    private EditText texturl;
-    private ListView netlist;
+    private Button netHistory;
+    private Button netScan;
+    private Button netStartVideo;
+    private Button netSetting;
+    private EditText textUrl;
+    private ListView netList;
 
-    private ArrayList<String> listurl;
+    private ArrayList<String> listUrl;
 
     private Cursor cursor;
     private NetDbAdapter NetDb;
@@ -41,51 +41,49 @@ public class NetMediaActivty extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        settings = getSharedPreferences("SETTINGS", Context.MODE_PRIVATE);
+
         setContentView(R.layout.activity_net);
 
-        texturl = (EditText)findViewById(R.id.search_net);
-        net_startvedio = (Button)findViewById(R.id.btn_net_vedio);
-        netlist = (ListView)findViewById(R.id.list_net);
+        textUrl = (EditText) findViewById(R.id.search_net);
+        netStartVideo = (Button) findViewById(R.id.btn_net_vedio);
+        netList = (ListView) findViewById(R.id.list_net);
 
         final String[] sampleUrl = {"rtmp://live.hkstv.hk.lxdns.com/live/hks",
                 "http://playback.ks.zb.mi.com/record/live/107578_1467605748/hls/107578_1467605748.m3u8",
                 "http://cxy.kssws.ks-cdn.com/h265_56c26b7a7dc5f6043.mp4"};
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,sampleUrl);
-        netlist.setAdapter(adapter);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, sampleUrl);
+        netList.setAdapter(adapter);
 
-        netlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        netList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                texturl.setText(sampleUrl[i]);
+                textUrl.setText(sampleUrl[i]);
             }
         });
 
-        net_startvedio.setOnClickListener(new View.OnClickListener() {
+        netStartVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String path = texturl.getText().toString();
+                String path = textUrl.getText().toString();
                 NetDb = new NetDbAdapter(NetMediaActivty.this);
                 NetDb.open();
 
-                if(NetDb.getData(path)){
+                if (NetDb.getData(path)) {
                     NetDb.updateData(path);
-                }else{
+                } else {
                     NetDb.createDate(path);
                 }
                 NetDb.close();
-
-                String chooseview;
-                settings = getSharedPreferences("SETTINGS",Context.MODE_PRIVATE);
-                chooseview = settings.getString("choose_view","undefind");
-
-               if(chooseview.equals(Settings.USEKSYTEXTURE)){
-                    Intent intent = new Intent(NetMediaActivty.this, TextureVideoActivity.class);
-                    intent.putExtra("path",path);
+                String playerType = settings.getString("choose_type", Settings.LIVE);
+                if (playerType.equals(Settings.VOD)) {
+                    Intent intent = new Intent(NetMediaActivty.this, TextureVodActivity.class);
+                    intent.putExtra("path", path);
                     startActivity(intent);
-                }else{
-                    Intent intent = new Intent(NetMediaActivty.this,SurfaceActivity.class);
-                    intent.putExtra("path",path);
+                } else {
+                    Intent intent = new Intent(NetMediaActivty.this, TextureVideoActivity.class);
+                    intent.putExtra("path", path);
                     startActivity(intent);
 
                 }
@@ -107,12 +105,12 @@ public class NetMediaActivty extends AppCompatActivity implements View.OnClickLi
                     android.support.v7.app.ActionBar.LayoutParams.MATCH_PARENT, android.support.v7.app.ActionBar.LayoutParams.MATCH_PARENT);
             actionBar.setCustomView(v, layout);
 
-            net_history = (Button)findViewById(R.id.net_history);
-            net_setting = (Button)findViewById(R.id.net_setting);
-            net_scan = (Button)findViewById(R.id.net_scan);
-            net_scan.setOnClickListener(this);
-            net_history.setOnClickListener(this);
-            net_setting.setOnClickListener(this);
+            netHistory = (Button) findViewById(R.id.net_history);
+            netScan = (Button) findViewById(R.id.net_scan);
+            netSetting = (Button) findViewById(R.id.net_setting);
+            netScan.setOnClickListener(this);
+            netHistory.setOnClickListener(this);
+            netSetting.setOnClickListener(this);
 
         }else{
             Toast.makeText(NetMediaActivty.this, "ActionBar不存在", Toast.LENGTH_SHORT).show();
@@ -122,37 +120,38 @@ public class NetMediaActivty extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.net_history:
-                listurl = new ArrayList<String>();
+                listUrl = new ArrayList<String>();
                 NetDb = new NetDbAdapter(NetMediaActivty.this);
                 NetDb.open();
                 cursor = NetDb.getAllData();
                 cursor.moveToFirst();
-                if(cursor.getCount()>0){
-                    listurl.add( cursor.getString(cursor.getColumnIndex(NetDbAdapter.KEY_PATH)));
+                if (cursor.getCount() > 0) {
+                    listUrl.add(cursor.getString(cursor.getColumnIndex(NetDbAdapter.KEY_PATH)));
                 }
-                while(cursor.moveToNext()){
-                    listurl.add( cursor.getString(cursor.getColumnIndex(NetDbAdapter.KEY_PATH)));
+                while (cursor.moveToNext()) {
+                    listUrl.add(cursor.getString(cursor.getColumnIndex(NetDbAdapter.KEY_PATH)));
                 }
 
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,listurl);
-                netlist.setAdapter(adapter);
-                netlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, listUrl);
+                netList.setAdapter(adapter);
+                netList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        texturl.setText(listurl.get(i));
+                        textUrl.setText(listUrl.get(i));
                     }
                 });
 
                 break;
-            case R.id.net_setting:
-                Intent intent = new Intent(this,SettingActivity.class);
-                startActivity(intent);
-                break;
             case R.id.net_scan:
-                Intent intent1 = new Intent(this,CaptureActivity.class);
-                startActivityForResult(intent1,0);
+                Intent intent1 = new Intent(this, CaptureActivity.class);
+                startActivityForResult(intent1, 0);
+                break;
+            case R.id.net_setting:
+                Intent intent2 = new Intent(this, SettingActivity.class);
+                startActivity(intent2);
+                break;
             default:
                 break;
         }
@@ -166,7 +165,7 @@ public class NetMediaActivty extends AppCompatActivity implements View.OnClickLi
         if (resultCode == RESULT_OK) {
             Bundle bundle = data.getExtras();
             String scanResult = bundle.getString("result");
-            texturl.setText(scanResult);
+            textUrl.setText(scanResult);
         }
     }
 }

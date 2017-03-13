@@ -10,14 +10,10 @@
 
     <string name="set_setting">设置</string>
 
-    <string name="popup_choice">请选择编码格式</string>
 
     <string name="net_scan">扫一扫</string>
 
-    <string name="set_st">播放格式:</string>
-    <string name="set_surface">SurfaceView</string>
-    <string name="set_texture">TextureView</string>
-    <string name="set_hwc">解码格式:</string>
+    <string name="set_hwc">解码方式:</string>
     <string name="set_hard">硬解</string>
     <string name="set_soft">软解</string>
     <string name="start_vedio">播放</string>
@@ -25,5 +21,12 @@
     <string name="debugoff">Debug关</string>
     <string name="debugon">Debug开</string>
     <string name="debugchange">Debubg开关</string>
-    <string name="set_ksytexture">KSYTexTureView</string>
+    <string name="set_ksytexture">KSYTexture</string>
+
+    <string name="live_type">播放:</string>
+    <string name="type_vod">点播</string>
+    <string name="type_live">直播</string>
+    <string name="bftime_text">BufferTime:</string>
+    <string name="bfsize_text">BufferSize:</string>
+    <string name="text_setting">设置</string>
 </resources>

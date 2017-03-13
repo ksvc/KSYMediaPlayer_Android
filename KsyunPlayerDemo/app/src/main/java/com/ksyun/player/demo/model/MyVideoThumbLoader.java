@@ -41,7 +41,7 @@ public class MyVideoThumbLoader {
         return lruCache.get(path);
 
     }
-    public void showThumbByAsynctack(String path,ImageView imgview){
+    public void showThumbByAsyncTask(String path,ImageView imgview){
 
         if(getVideoThumbToCache(path) == null){
             //异步加载

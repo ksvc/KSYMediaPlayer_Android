@@ -67,7 +67,7 @@ public class JieVideoListViewAdapter extends BaseAdapter {
             holder.img.setImageResource(R.drawable.file);
         }else{
             holder.img.setTag(path);
-            mVideoThumbLoader.showThumbByAsynctack(path, holder.img);
+            mVideoThumbLoader.showThumbByAsyncTask(path, holder.img);
         }
         holder.title.setText(listVideos.get(i).getTitle());
         holder.path.setText(listVideos.get(i).getPath());

@@ -34,10 +34,12 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:configChanges="orientation|keyboardHidden|screenSize"
             />
-        <activity android:name=".activity.SurfaceActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+        <activity android:name=".activity.TextureVodActivity"
+            android:screenOrientation="landscape"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            />
+            android:launchMode="singleTop">
+        </activity>
+
         <activity android:name=".activity.SettingActivity"></activity>
         <activity
             android:configChanges="orientation|keyboardHidden|screenSize"
