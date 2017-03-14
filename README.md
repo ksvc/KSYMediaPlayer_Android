@@ -7,7 +7,7 @@
 ### 1.1 版本信息
 LICENSE和版本信息：[LICENSE](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/license)
 
-### 1.3 关于费用
+### 1.2 关于费用
 金山云SDK保证，提供的[KSYMediaPlayer Android播放SDK](https://github.com/ksvc/KSYMediaPlayer_Android)可以用于商业应用，不会收取任何SDK使用费用。但是基于[KSYMediaPlayer Android播放SDK](https://github.com/ksvc/KSYMediaPlayer_Android)的其他商业服务，会由特定供应商收取授权费用，大致包括：
 
 1. 云存储
@@ -28,7 +28,8 @@ LICENSE和版本信息：[LICENSE](https://github.com/ksvc/KSYMediaPlayer_Androi
 - [x] 支持[视频画面缩放模式](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/scaleVideo)
 - [x] 支持[镜像播放](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/PlayerMirror)
 - [x] 支持获取本地[视频信息与视频缩略图](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/androidProbeMediaInfo)
-- [x] 支持获取[视频原始数据](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/rawVideoData)
+- [x] 支持获取[视频原始数据(YUV/RGB)](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/rawVideoData)
+- [x] 支持获取[音频原始数据(PCM)](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/rawAudioData)
 - [x] KSYMediaPlayer支持多实例
 - [x] 支持音量调节，可静音播放
 - [x] 支持后台播放
