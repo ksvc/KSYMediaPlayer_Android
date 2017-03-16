@@ -15,7 +15,6 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
@@ -41,7 +40,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -655,11 +653,11 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
             msg.what = HIDDEN_SEEKBAR;
             mHandler.sendMessageDelayed(msg, 3000);
             if (mPause) {
-                mPlayerStartBtn.setBackgroundResource(R.drawable.qyvideo_pause_btn);
+                mPlayerStartBtn.setBackgroundResource(R.drawable.ksy_pause_btn);
                 mVideoView.pause();
                 mPauseStartTime = System.currentTimeMillis();
             } else {
-                mPlayerStartBtn.setBackgroundResource(R.drawable.qyvideo_start_btn);
+                mPlayerStartBtn.setBackgroundResource(R.drawable.ksy_playing_btn);
                 mVideoView.start();
                 mPausedTime += System.currentTimeMillis() - mPauseStartTime;
                 mPauseStartTime = 0;

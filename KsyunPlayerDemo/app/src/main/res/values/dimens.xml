@@ -18,6 +18,12 @@
     <dimen name="font_size_22px">11sp</dimen>
     <dimen name="font_size_20px">10sp</dimen>
 
+    <dimen name="demo_size_15dp">15dp</dimen>
+    <dimen name="demo_size_30dp">30dp</dimen>
+    <dimen name="demo_size_50dp">50dp</dimen>
+    <dimen name="demo_size_180dp">180dp</dimen>
+    <dimen name="demo_size_320dp">320dp</dimen>
+
 
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="global_actionbar_height">46dip</dimen>

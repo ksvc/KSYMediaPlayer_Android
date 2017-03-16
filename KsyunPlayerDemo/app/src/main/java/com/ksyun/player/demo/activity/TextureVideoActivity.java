@@ -618,11 +618,11 @@ public class TextureVideoActivity extends Activity implements View.OnClickListen
             msg.what = HIDDEN_SEEKBAR;
             mHandler.sendMessageDelayed(msg, 3000);
             if (mPause) {
-                mPlayerStartBtn.setBackgroundResource(R.drawable.qyvideo_pause_btn);
+                mPlayerStartBtn.setBackgroundResource(R.drawable.ksy_pause_btn);
                 mVideoView.pause();
                 mPauseStartTime = System.currentTimeMillis();
             } else {
-                mPlayerStartBtn.setBackgroundResource(R.drawable.qyvideo_start_btn);
+                mPlayerStartBtn.setBackgroundResource(R.drawable.ksy_playing_btn);
                 mVideoView.start();
                 mPausedTime += System.currentTimeMillis() - mPauseStartTime;
                 mPauseStartTime = 0;

@@ -4,6 +4,8 @@
     <string name="history">历史</string>
     <string name="setting">设置</string>
 
+    <string name="ksyun_name">金山云</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="net_search">查找视频信息</string>
@@ -26,6 +28,7 @@
     <string name="live_type">播放:</string>
     <string name="type_vod">点播</string>
     <string name="type_live">直播</string>
+    <string name="type_floating">悬浮窗播放</string>
     <string name="bftime_text">BufferTime:</string>
     <string name="bfsize_text">BufferSize:</string>
     <string name="text_setting">设置</string>

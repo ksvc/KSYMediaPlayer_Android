@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="@color/player_black">
 
-    <com.ksyun.media.player.KSYTextureView
-        android:id="@+id/texture_view"
+    <TextureView
+        android:id="@+id/player_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        tools:targetApi="ice_cream_sandwich" />
-
+        android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/loading_text"
@@ -34,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/player_yellow"
-            android:textSize="10dp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/player_mem"
@@ -42,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/player_cpu"
             android:textColor="@color/player_yellow"
-            android:textSize="10dp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/player_re"
@@ -50,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/player_mem"
             android:textColor="@color/player_yellow"
-            android:textSize="10dp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/player_br"
@@ -58,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/player_re"
             android:textColor="@color/player_yellow"
-            android:textSize="10dp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/player_video_time"
@@ -66,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/player_br"
             android:textColor="@color/player_yellow"
-            android:textSize="10dp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/player_audio_time"
@@ -74,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/player_video_time"
             android:textColor="@color/player_yellow"
-            android:textSize="10dp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/player_ip"
@@ -82,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/player_audio_time"
             android:textColor="@color/player_yellow"
-            android:textSize="10dp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/player_sdk_version"
@@ -90,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/player_ip"
             android:textColor="@color/player_yellow"
-            android:textSize="10dp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/player_dns_time"
@@ -98,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/player_sdk_version"
             android:textColor="@color/player_yellow"
-            android:textSize="10dp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/player_http_connection_time"
@@ -106,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/player_dns_time"
             android:textColor="@color/player_yellow"
-            android:textSize="10dp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/player_buffer_empty_count"
@@ -114,7 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/player_http_connection_time"
             android:textColor="@color/player_yellow"
-            android:textSize="10dp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/player_buffer_empty_duration"
@@ -122,7 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/player_buffer_empty_count"
             android:textColor="@color/player_yellow"
-            android:textSize="10dp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/player_decode_fps"
@@ -130,7 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/player_buffer_empty_duration"
             android:textColor="@color/player_yellow"
-            android:textSize="10dp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/player_output_fps"
@@ -138,64 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/player_decode_fps"
             android:textColor="@color/player_yellow"
-            android:textSize="10dp" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/rightPanel_player"
-        android:layout_width="80dp"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/player_panel"
-        android:layout_alignParentRight="true"
-        android:visibility="gone">
-        <ImageView
-            android:id="@+id/player_screen"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_above="@+id/player_rotate"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/screen" />
-
-        <ImageView
-            android:id="@+id/player_rotate"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_above="@+id/player_audio_seekbar"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/rotate" />
-
-
-        <com.ksyun.player.demo.util.ProgressTextView
-            android:id="@+id/ptv_open_percentage"
-            android:layout_width="40dp"
-            android:layout_height="140dp"
-            android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@+id/player_audio_seekbar"
-            android:visibility="invisible"
-            custom:ptv_textColor="#99CC33"
-            custom:ptv_textSize="10sp"
-            custom:ptv_thumHeight="8dp"
-            custom:ptv_thumWidth="12dp" />
-
-        <com.ksyun.player.demo.util.VerticalSeekBar
-            android:id="@+id/player_audio_seekbar"
-            android:layout_width="wrap_content"
-            android:layout_height="140dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="30dp"
-            android:max="200"
-            android:maxHeight="2.0dp"
-            android:minHeight="2.0dp"
-            android:paddingBottom="0dp"
-            android:paddingTop="0dp"
-            android:progressDrawable="@drawable/player_seekbar"
-            android:thumb="@drawable/player_seekbar_selector"
-            android:visibility="invisible" />
-
+            android:textSize="10sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -247,25 +184,16 @@
                 android:textColor="@color/sendbtn_allowclike_color" />
 
             <ImageView
-                android:id="@+id/player_scale"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginRight="10dp"
-                android:layout_toLeftOf="@+id/player_volume"
-                android:src="@drawable/scale"
-                android:layout_centerVertical="true"/>
-
-            <ImageView
-                android:id="@+id/player_volume"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:id="@+id/floating_playing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ksy_floating_btn"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/voice" />
+                android:layout_marginRight="@dimen/demo_size_15dp"/>
 
         </RelativeLayout>
 
 
     </RelativeLayout>
+
 </RelativeLayout>

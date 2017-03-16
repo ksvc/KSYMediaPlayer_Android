@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/floating_window_layout"
+        android:layout_width="@dimen/demo_size_180dp"
+        android:layout_height="@dimen/demo_size_320dp">
+
+        <TextureView
+            android:id="@+id/floating_window_player_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/floating_window_quit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ksy_floating_close" />
+    </RelativeLayout>
+
+</RelativeLayout>
