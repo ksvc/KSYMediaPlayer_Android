@@ -21,6 +21,7 @@ public class QosThread extends Thread {
     private String mPackageName;
 
     private boolean mRunning;
+    private boolean mPausing;
 
     public QosThread(Context context, Handler handler) {
         mHandler = handler;
@@ -35,6 +36,15 @@ public class QosThread extends Thread {
     @Override
     public void run() {
         while(mRunning) {
+
+            while (mPausing) {
+                try {
+                    sleep(3);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
             mCpuStats.parseTopResults(mPackageName);
 
             Debug.getMemoryInfo(mi);
@@ -55,5 +65,13 @@ public class QosThread extends Thread {
 
     public void stopThread() {
         mRunning = false;
+    }
+
+    public void resume2() {
+        mPausing = false;
+    }
+
+    public void pause() {
+        mPausing = true;
     }
 }

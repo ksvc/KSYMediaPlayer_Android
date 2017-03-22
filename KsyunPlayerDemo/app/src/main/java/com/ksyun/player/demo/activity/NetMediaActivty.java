@@ -50,8 +50,7 @@ public class NetMediaActivty extends AppCompatActivity implements View.OnClickLi
         netList = (ListView) findViewById(R.id.list_net);
 
         final String[] sampleUrl = {"rtmp://live.hkstv.hk.lxdns.com/live/hks",
-                "http://playback.ks.zb.mi.com/record/live/107578_1467605748/hls/107578_1467605748.m3u8",
-                "http://cxy.kssws.ks-cdn.com/h265_56c26b7a7dc5f6043.mp4"};
+                "http://playback.ks.zb.mi.com/record/live/107578_1467605748/hls/107578_1467605748.m3u8" };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, sampleUrl);
         netList.setAdapter(adapter);
@@ -81,11 +80,15 @@ public class NetMediaActivty extends AppCompatActivity implements View.OnClickLi
                     Intent intent = new Intent(NetMediaActivty.this, TextureVodActivity.class);
                     intent.putExtra("path", path);
                     startActivity(intent);
-                } else {
+                } else if (playerType.equals(Settings.LIVE)){
                     Intent intent = new Intent(NetMediaActivty.this, TextureVideoActivity.class);
                     intent.putExtra("path", path);
                     startActivity(intent);
 
+                } else {
+                    Intent intent = new Intent(NetMediaActivty.this, FloatingVideoActivity.class);
+                    intent.putExtra("path", path);
+                    startActivity(intent);
                 }
             }
         });

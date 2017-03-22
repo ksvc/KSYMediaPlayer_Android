@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/player_white">
+
+    <RelativeLayout
+        android:id="@+id/floating_top_panel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/demo_size_50dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/player_black">
+
+        <ImageView
+            android:id="@+id/floating_playing_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ksy_floating_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ksyun_name"
+            android:textSize="@dimen/font_size_40px"
+            android:textColor="@color/player_white"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/floating_top_panel">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/player_black"
+            android:text="@string/ksyun_introduction_1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/font_size_20px"
+            android:textColor="@color/player_black"
+            android:text="@string/ksyun_introduction_2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/font_size_20px"
+            android:textColor="@color/player_black"
+            android:text="@string/ksyun_introduction_3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/font_size_20px"
+            android:textColor="@color/player_black"
+            android:text="@string/ksyun_introduction_4"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -224,7 +224,7 @@
             android:layout_height="35dp"
             android:layout_alignParentBottom="true"
             android:layout_margin="20dp"
-            android:background="@drawable/qyvideo_start_btn" />
+            android:background="@drawable/ksy_playing_btn" />
 
 
         <ImageView
