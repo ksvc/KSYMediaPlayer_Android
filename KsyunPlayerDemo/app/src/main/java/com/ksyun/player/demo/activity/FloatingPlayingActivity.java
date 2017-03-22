@@ -85,7 +85,7 @@ public class FloatingPlayingActivity extends Activity implements Handler.Callbac
             mFloatingView.setHandler(mHandler);
             if (mFloatingViewParams == null) {
                 mFloatingViewParams = new WindowManager.LayoutParams();
-                mFloatingViewParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+                mFloatingViewParams.type = WindowManager.LayoutParams.TYPE_TOAST;
                 mFloatingViewParams.format = PixelFormat.RGBA_8888;
                 mFloatingViewParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL |
                         WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE |
