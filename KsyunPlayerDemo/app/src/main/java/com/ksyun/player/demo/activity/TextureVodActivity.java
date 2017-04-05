@@ -123,6 +123,18 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
 
     private String mDataSource;
 
+    //
+    private float centerPointX;
+    private float centerPointY;
+    private float lastMoveX = -1;
+    private float lastMoveY = -1;
+    private float movedDeltaX;
+    private float movedDeltaY;
+    private float totalRatio;
+    private float deltaRatio;
+    private double lastSpan;
+    private boolean mTouching;
+
     private IMediaPlayer.OnPreparedListener mOnPreparedListener = new IMediaPlayer.OnPreparedListener() {
         @Override
         public void onPrepared(IMediaPlayer mp) {
@@ -208,9 +220,11 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
     private IMediaPlayer.OnBufferingUpdateListener mOnBufferingUpdateListener = new IMediaPlayer.OnBufferingUpdateListener() {
         @Override
         public void onBufferingUpdate(IMediaPlayer mp, int percent) {
-            long duration = mVideoView.getDuration();
-            long progress = duration * percent / 100;
-            mPlayerSeekbar.setSecondaryProgress((int) progress);
+            if (mVideoView != null) {
+                long duration = mVideoView.getDuration();
+                long progress = duration * percent / 100;
+                mPlayerSeekbar.setSecondaryProgress((int) progress);
+            }
         }
     };
 
@@ -563,7 +577,7 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
         if (mPlayerPanelShow) {
             mPlayerPanel.setVisibility(View.VISIBLE);
             topPanel.setVisibility(View.VISIBLE);
-
+            Toast.makeText(mContext, "可双指缩放画面,单指移动画面",Toast.LENGTH_SHORT).show();
             Message msg = new Message();
             msg.what = HIDDEN_SEEKBAR;
             mHandler.sendMessageDelayed(msg, 3000);
@@ -693,10 +707,100 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            dealTouchEvent(v, event);
-            return false;
+            switch (event.getActionMasked()) {
+                case MotionEvent.ACTION_DOWN:
+                    mTouching = false;
+                    break;
+                case MotionEvent.ACTION_POINTER_DOWN:
+                    mTouching = true;
+                    if (event.getPointerCount() == 2) {
+                        lastSpan = getCurrentSpan(event);
+                        centerPointX = getFocusX(event);
+                        centerPointY = getFocusY(event);
+                    }
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    if (event.getPointerCount() == 1) {
+                        float posX = event.getX();
+                        float posY = event.getY();
+                        if (lastMoveX == -1 && lastMoveX == -1) {
+                            lastMoveX = posX;
+                            lastMoveY = posY;
+                        }
+                        movedDeltaX = posX - lastMoveX;
+                        movedDeltaY = posY - lastMoveY;
+
+                        if (Math.abs(movedDeltaX) > 5 || Math.abs(movedDeltaY) > 5) {
+                            if (mVideoView != null) {
+                                mVideoView.moveVideo(movedDeltaX, movedDeltaY);
+                            }
+                            mTouching = true;
+                        }
+                        lastMoveX = posX;
+                        lastMoveY = posY;
+                    } else if (event.getPointerCount() == 2) {
+                        double spans = getCurrentSpan(event);
+                        if (spans > 5)
+                        {
+                            deltaRatio = (float) (spans / lastSpan);
+                            totalRatio = mVideoView.getVideoScaleRatio() * deltaRatio;
+                            /*
+                            //限定缩放边界,如果视频的宽度小于屏幕的宽度则停止播放
+                            if ((rotateNum / 90) %2 != 0){
+                                if (totalRatio * mVideoWidth <= mVideoView.getHeight())
+                                    break;
+                            }
+                            else {
+                                if (totalRatio * mVideoWidth <= mVideoView.getWidth())
+                                    break;
+                            }
+                            */
+                            if(mVideoView != null){
+                                mVideoView.setVideoScaleRatio(totalRatio, centerPointX, centerPointY);
+                            }
+                            lastSpan = spans;
+                        }
+                    }
+                    break;
+                case MotionEvent.ACTION_POINTER_UP:
+                    if (event.getPointerCount() == 2) {
+                        lastMoveX = -1;
+                        lastMoveY = -1;
+                    }
+                    break;
+                case MotionEvent.ACTION_UP:
+                    lastMoveX = -1;
+                    lastMoveY = -1;
+
+                    if (!mTouching){
+                        dealTouchEvent(v, event);
+                    }
+                    break;
+                default:
+                    break;
+            }
+            return true;
         }
     };
+
+    private double getCurrentSpan(MotionEvent event) {
+        float disX = Math.abs(event.getX(0) - event.getX(1));
+        float disY = Math.abs(event.getY(0) - event.getY(1));
+        return Math.sqrt(disX * disX + disY * disY);
+    }
+
+    private float getFocusX(MotionEvent event){
+        float xPoint0 = event.getX(0);
+        float xPoint1 = event.getX(1);
+        return (xPoint0 + xPoint1) / 2;
+    }
+
+    private float getFocusY(MotionEvent event) {
+        float yPoint0 = event.getY(0);
+        float yPoint1 = event.getY(1);
+        return (yPoint0 + yPoint1) / 2;
+    }
+
 
     @Override
     public void onClick(View view) {

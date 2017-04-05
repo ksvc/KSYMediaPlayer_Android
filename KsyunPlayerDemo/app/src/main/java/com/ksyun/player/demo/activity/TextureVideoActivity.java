@@ -13,6 +13,7 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -125,6 +126,17 @@ public class TextureVideoActivity extends Activity implements View.OnClickListen
 
     private String mDataSource;
     private boolean showAudioBar = false;
+
+    //
+    private float centerPointX;
+    private float centerPointY;
+    private float lastMoveX = -1;
+    private float lastMoveY = -1;
+    private float movedDeltaX;
+    private float movedDeltaY;
+    private float totalRatio;
+    private float deltaRatio;
+    private double lastSpan;
 
     private IMediaPlayer.OnPreparedListener mOnPreparedListener = new IMediaPlayer.OnPreparedListener() {
         @Override
@@ -367,6 +379,7 @@ public class TextureVideoActivity extends Activity implements View.OnClickListen
 
         mVideoView = (KSYTextureView) findViewById(R.id.texture_view);
         mVideoView.setKeepScreenOn(true);
+        mVideoView.setOnTouchListener(mTouchListener);
         this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
         mHandler = new Handler() {
@@ -648,6 +661,97 @@ public class TextureVideoActivity extends Activity implements View.OnClickListen
 
         }
     };
+
+    private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            switch (event.getActionMasked()) {
+                case MotionEvent.ACTION_DOWN:
+                    break;
+                case MotionEvent.ACTION_POINTER_DOWN:
+                    if (event.getPointerCount() == 2) {
+                        lastSpan = getCurrentSpan(event);
+                        centerPointX = getFocusX(event);
+                        centerPointY = getFocusY(event);
+                    }
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    if (event.getPointerCount() == 1) {
+                        float posX = event.getX();
+                        float posY = event.getY();
+                        if (lastMoveX == -1 && lastMoveX == -1) {
+                            lastMoveX = posX;
+                            lastMoveY = posY;
+                        }
+                        movedDeltaX = posX - lastMoveX;
+                        movedDeltaY = posY - lastMoveY;
+
+                        if (Math.abs(movedDeltaX) > 5 || Math.abs(movedDeltaY) > 5) {
+                            if (mVideoView != null) {
+                                mVideoView.moveVideo(movedDeltaX, movedDeltaY);
+                            }
+                        }
+                        lastMoveX = posX;
+                        lastMoveY = posY;
+                    } else if (event.getPointerCount() == 2) {
+                        double spans = getCurrentSpan(event);
+                        if (spans > 5)
+                        {
+                            deltaRatio = (float) (spans / lastSpan);
+                            totalRatio = mVideoView.getVideoScaleRatio() * deltaRatio;
+                            /*
+                            //限定缩放边界,如果视频的宽度小于屏幕的宽度则停止播放
+                            if ((rotateNum / 90) %2 != 0){
+                                if (totalRatio * mVideoWidth <= mVideoView.getHeight())
+                                    break;
+                            }
+                            else {
+                                if (totalRatio * mVideoWidth <= mVideoView.getWidth())
+                                    break;
+                            }
+                            */
+                            if(mVideoView != null){
+                                mVideoView.setVideoScaleRatio(totalRatio, centerPointX, centerPointY);
+                            }
+                            lastSpan = spans;
+                        }
+                    }
+                    break;
+                case MotionEvent.ACTION_POINTER_UP:
+                    if (event.getPointerCount() == 2) {
+                        lastMoveX = -1;
+                        lastMoveY = -1;
+                    }
+                    break;
+                case MotionEvent.ACTION_UP:
+                    lastMoveX = -1;
+                    lastMoveY = -1;
+
+                    break;
+                default:
+                    break;
+            }
+            return true;
+        }
+    };
+
+    private double getCurrentSpan(MotionEvent event) {
+        float disX = Math.abs(event.getX(0) - event.getX(1));
+        float disY = Math.abs(event.getY(0) - event.getY(1));
+        return Math.sqrt(disX * disX + disY * disY);
+    }
+
+    private float getFocusX(MotionEvent event){
+        float xPoint0 = event.getX(0);
+        float xPoint1 = event.getX(1);
+        return (xPoint0 + xPoint1) / 2;
+    }
+
+    private float getFocusY(MotionEvent event) {
+        float yPoint0 = event.getY(0);
+        float yPoint1 = event.getY(1);
+        return (yPoint0 + yPoint1) / 2;
+    }
 
 
     @Override
