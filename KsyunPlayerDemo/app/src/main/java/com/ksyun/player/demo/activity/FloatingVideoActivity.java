@@ -93,6 +93,8 @@ public class FloatingVideoActivity extends Activity implements Handler.Callback 
     private KSYQosInfo mQosInfo;
     private boolean mPause = false;
     private boolean mPlayerPanelShow = false;
+    private boolean mPlayingCompleted = false;
+    private boolean mJumpToFloatingActivity = false;
 
     private IMediaPlayer.OnPreparedListener mOnPreparedListener = new IMediaPlayer.OnPreparedListener() {
         @Override
@@ -157,7 +159,9 @@ public class FloatingVideoActivity extends Activity implements Handler.Callback 
     private IMediaPlayer.OnCompletionListener mOnCompletionListener = new IMediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(IMediaPlayer iMediaPlayer) {
-            FloatingVideoActivity.this.finish();
+            mPlayingCompleted = true;
+            if (!mJumpToFloatingActivity)
+                FloatingVideoActivity.this.finish();
         }
     };
 
@@ -185,6 +189,7 @@ public class FloatingVideoActivity extends Activity implements Handler.Callback 
     private View.OnClickListener mFloatingPlayingListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            mJumpToFloatingActivity = true;
             Intent intent = new Intent(FloatingVideoActivity.this, FloatingPlayingActivity.class);
             startActivity(intent);
         }
@@ -393,6 +398,10 @@ public class FloatingVideoActivity extends Activity implements Handler.Callback 
         mPlayerSeekBar.setEnabled(true);
         mPlayerSeekBar.bringToFront();
 
+        startToPlay();
+    }
+
+    private void startToPlay() {
         KSYFloatingPlayer.getInstance().getKSYMediaPlayer().setOnPreparedListener(mOnPreparedListener);
         KSYFloatingPlayer.getInstance().getKSYMediaPlayer().setOnErrorListener(mOnErrorListener);
         KSYFloatingPlayer.getInstance().getKSYMediaPlayer().setOnInfoListener(mOnInfoListener);
@@ -438,6 +447,16 @@ public class FloatingVideoActivity extends Activity implements Handler.Callback 
     @Override
     protected void onResume() {
         super.onResume();
+
+        if (mPlayingCompleted)
+            this.finish();
+
+        if (KSYFloatingPlayer.getInstance().getKSYMediaPlayer() != null)
+            KSYFloatingPlayer.getInstance().getKSYMediaPlayer().start();
+        else {
+            KSYFloatingPlayer.getInstance().init(getApplicationContext());
+            startToPlay();
+        }
 
         if (mQosThread != null) {
             mQosThread.resume2();
