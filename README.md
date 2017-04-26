@@ -74,6 +74,7 @@ LICENSE和版本信息：[LICENSE](https://github.com/ksvc/KSYMediaPlayer_Androi
 > 只集成armeabi-v7a版本，会导致ARMv5 ARMv6 设备不能运行。如果APP需要适配这两类设备，需要额外集成armebi版本。
 > ARMv5 ARMv6 设备计算性能较差，金山云不保证该芯片设备上的直播体验。不推荐直播APP视频适配该两款芯片设备。
 
+具体可参见Wiki [SDK集成注意事项](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/SDKIntegration)
 ### 2.2 SDK文档
 
 [详情请见wiki](https://github.com/ksvc/KSYMediaPlayer_Android/wiki)
