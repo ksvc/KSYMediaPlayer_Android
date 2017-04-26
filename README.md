@@ -62,6 +62,18 @@ LICENSE和版本信息：[LICENSE](https://github.com/ksvc/KSYMediaPlayer_Androi
 
 如果使用直播推流、播放功能，请使用[KSYLive_Android][KSYLive_Android]，无需单独集成[libksyplayer][libs_live]。
 
+#### 2.1.3 体系结构
+当前播放SDK [libksyplayer][libksyplayer]支持以下体系结构:
+* armeabi
+* armeabi-v7a
+* arm64-v8a
+* x86
+* x86_64
+
+为了节省apk size，如果没有特殊缘由，请只集成armeabi-v7a版本。
+> 只集成armeabi-v7a版本，会导致ARMv5 ARMv6 设备不能运行。如果APP需要适配这两类设备，需要额外集成armebi版本。
+> ARMv5 ARMv6 设备计算性能较差，金山云不保证该芯片设备上的直播体验。不推荐直播APP视频适配该两款芯片设备。
+
 ### 2.2 SDK文档
 
 [详情请见wiki](https://github.com/ksvc/KSYMediaPlayer_Android/wiki)
@@ -125,3 +137,4 @@ $ git clone https://git.oschina.net/ksvc/KSYMediaPlayer_Android.git
 [libs_vod]: https://github.com/ksvc/KSYMediaPlayer_Android/tree/master/libs_vod
 [ksystreamer]: https://github.com/ksvc/KSYStreamer_Android/tree/master/libs
 [KSYLive_Android]: https://github.com/ksvc/KSYLive_Android/tree/master/libs
+[libksyplayer]:https://github.com/ksvc/KSYMediaPlayer_Android/
