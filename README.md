@@ -39,7 +39,11 @@ LICENSE和版本信息：[LICENSE](https://github.com/ksvc/KSYMediaPlayer_Androi
 - [x] 支持[反交错功能](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/VodSurppotDeinterlace)
 - [x] 支持[音量放大](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/PlayerVolume)，最大可以放大两倍
 
-### 2.1 直播库与点播库
+### 2.1 播放库版本说明
+#### 2.1.1 单独播放SDK
+当应用只不用播放功能时，需要单独引用libksyplayer.so。libksyplayer.so在不同目录下，标识为直播库与点播库。
+* [libs_live][libs_live]目录下的libksyplayer.so为直播SDK
+* [libs_vod][libs_vod]目录下的libksyplayer.so为点播SDK，点播库完整包含直播库所有功能。
 
 支持的文件封装格式和音视频编码标准如下所示：   
 
@@ -53,8 +57,10 @@ LICENSE和版本信息：[LICENSE](https://github.com/ksvc/KSYMediaPlayer_Androi
 
 > 点播库包含直播库全部功能，并且额外支持了更多的vod格式。
 
-* libs_live 提供直播SDK
-* libs_vod 提供点播SDK，完整包含直播所有功能
+#### 2.1.2 直播SDK
+[KSYLive_Android][KSYLive_Android]集成了[libksyplayer][libs_live]，具有播放SDK直播的所有功能，并且集成了[KSYStreamer][ksystreamer]，具有推流SDK所有功能。
+
+如果使用直播推流、播放功能，请使用[KSYLive_Android][KSYLive_Android]，无需单独集成[libksyplayer][libs_live]。
 
 ### 2.2 SDK文档
 
@@ -114,3 +120,8 @@ $ git clone https://git.oschina.net/ksvc/KSYMediaPlayer_Android.git
 - Issues：<https://github.com/ksvc/KSYMediaPlayer_Android/issues>
 
 <a href="http://www.ksyun.com/"><img src="https://raw.githubusercontent.com/wiki/ksvc/KSYLive_Android/images/logo.png" border="0" alt="金山云计算" /></a>
+
+[libs_live]: https://github.com/ksvc/KSYMediaPlayer_Android/tree/master/libs_live
+[libs_vod]: https://github.com/ksvc/KSYMediaPlayer_Android/tree/master/libs_vod
+[ksystreamer]: https://github.com/ksvc/KSYStreamer_Android/tree/master/libs
+[KSYLive_Android]: https://github.com/ksvc/KSYLive_Android/tree/master/libs
