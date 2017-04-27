@@ -39,7 +39,11 @@ LICENSE和版本信息：[LICENSE](https://github.com/ksvc/KSYMediaPlayer_Androi
 - [x] 支持[反交错功能](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/VodSurppotDeinterlace)
 - [x] 支持[音量放大](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/PlayerVolume)，最大可以放大两倍
 
-### 2.1 直播库与点播库
+### 2.1 播放库版本说明
+#### 2.1.1 单独播放SDK
+当应用只不用播放功能时，需要单独引用libksyplayer.so。libksyplayer.so在不同目录下，标识为直播库与点播库。
+* [libs_live][libs_live]目录下的libksyplayer.so为直播SDK
+* [libs_vod][libs_vod]目录下的libksyplayer.so为点播SDK，点播库完整包含直播库所有功能。
 
 支持的文件封装格式和音视频编码标准如下所示：   
 
@@ -53,9 +57,24 @@ LICENSE和版本信息：[LICENSE](https://github.com/ksvc/KSYMediaPlayer_Androi
 
 > 点播库包含直播库全部功能，并且额外支持了更多的vod格式。
 
-* libs_live 提供直播SDK
-* libs_vod 提供点播SDK，完整包含直播所有功能
+#### 2.1.2 直播SDK
+[KSYLive_Android][KSYLive_Android]集成了[libksyplayer][libs_live]，具有播放SDK直播的所有功能，并且集成了[KSYStreamer][ksystreamer]，具有推流SDK所有功能。
 
+如果使用直播推流、播放功能，请使用[KSYLive_Android][KSYLive_Android]，无需单独集成[libksyplayer][libs_live]。
+
+#### 2.1.3 体系结构
+当前播放SDK [libksyplayer][libksyplayer]支持以下体系结构:
+* armeabi
+* armeabi-v7a
+* arm64-v8a
+* x86
+* x86_64
+
+为了节省apk size，如果没有特殊缘由，请只集成armeabi-v7a版本。
+> 只集成armeabi-v7a版本，会导致ARMv5 ARMv6 设备不能运行。如果APP需要适配这两类设备，需要额外集成armebi版本。
+> ARMv5 ARMv6 设备计算性能较差，金山云不保证该芯片设备上的直播体验。不推荐直播APP视频适配该两款芯片设备。
+
+具体可参见Wiki [SDK集成注意事项](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/SDKIntegration)
 ### 2.2 SDK文档
 
 [详情请见wiki](https://github.com/ksvc/KSYMediaPlayer_Android/wiki)
@@ -113,4 +132,10 @@ $ git clone https://git.oschina.net/ksvc/KSYMediaPlayer_Android.git
 - QQ讨论群：574179720 [视频云技术交流群] 
 - Issues：<https://github.com/ksvc/KSYMediaPlayer_Android/issues>
 
-<a href="http://www.ksyun.com/"><img src="http://www.ksyun.com/assets/img/static/logo.png" border="0" alt="金山云计算" /></a>
+<a href="http://www.ksyun.com/"><img src="https://raw.githubusercontent.com/wiki/ksvc/KSYLive_Android/images/logo.png" border="0" alt="金山云计算" /></a>
+
+[libs_live]: https://github.com/ksvc/KSYMediaPlayer_Android/tree/master/libs_live
+[libs_vod]: https://github.com/ksvc/KSYMediaPlayer_Android/tree/master/libs_vod
+[ksystreamer]: https://github.com/ksvc/KSYStreamer_Android/tree/master/libs
+[KSYLive_Android]: https://github.com/ksvc/KSYLive_Android/tree/master/libs
+[libksyplayer]:https://github.com/ksvc/KSYMediaPlayer_Android/
