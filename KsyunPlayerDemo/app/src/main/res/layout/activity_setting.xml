@@ -106,6 +106,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/type_floating"/>
+                <RadioButton
+                    android:id="@+id/type_media_player"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/type_media_player"/>
             </RadioGroup>
 
         </LinearLayout>

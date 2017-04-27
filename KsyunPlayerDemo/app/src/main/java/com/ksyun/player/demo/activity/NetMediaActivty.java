@@ -49,7 +49,7 @@ public class NetMediaActivty extends AppCompatActivity implements View.OnClickLi
         netStartVideo = (Button) findViewById(R.id.btn_net_vedio);
         netList = (ListView) findViewById(R.id.list_net);
 
-        final String[] sampleUrl = {"rtmp://live.hkstv.hk.lxdns.com/live/hks",
+        final String[] sampleUrl = { "rtmp://live.hkstv.hk.lxdns.com/live/hks",
                 "http://playback.ks.zb.mi.com/record/live/107578_1467605748/hls/107578_1467605748.m3u8" };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, sampleUrl);
@@ -85,6 +85,10 @@ public class NetMediaActivty extends AppCompatActivity implements View.OnClickLi
                     intent.putExtra("path", path);
                     startActivity(intent);
 
+                } else if (playerType.equals(Settings.MEDIA_PLAYER)) {
+                    Intent intent = new Intent(NetMediaActivty.this, MediaPlayerActivity.class);
+                    intent.putExtra("path", path);
+                    startActivity(intent);
                 } else {
                     Intent intent = new Intent(NetMediaActivty.this, FloatingVideoActivity.class);
                     intent.putExtra("path", path);
