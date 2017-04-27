@@ -62,6 +62,10 @@ public class HistoryActivity extends Activity{
                     Intent intent = new Intent(HistoryActivity.this, TextureVideoActivity.class);
                     intent.putExtra("path", path);
                     startActivity(intent);
+                } else if (playerType.equals(Settings.MEDIA_PLAYER)) {
+                    Intent intent = new Intent(HistoryActivity.this, MediaPlayerActivity.class);
+                    intent.putExtra("path", path);
+                    startActivity(intent);
                 } else {
                     Intent intent = new Intent(HistoryActivity.this, FloatingVideoActivity.class);
                     intent.putExtra("path", path);

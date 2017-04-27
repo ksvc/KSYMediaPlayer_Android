@@ -119,6 +119,10 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
                         Intent intent = new Intent(getActivity(), TextureVideoActivity.class);
                         intent.putExtra("path", v.getPath());
                         startActivity(intent);
+                    } else if (playerType.equals(Settings.MEDIA_PLAYER)){
+                        Intent intent = new Intent(getActivity(), MediaPlayerActivity.class);
+                        intent.putExtra("path", v.getPath());
+                        startActivity(intent);
                     } else {
                         Intent intent = new Intent(getActivity(), FloatingVideoActivity.class);
                         intent.putExtra("path", v.getPath());
