@@ -2,6 +2,7 @@ package com.ksyun.player.demo.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.graphics.SurfaceTexture;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -69,6 +70,8 @@ public class MediaPlayerActivity extends Activity {
             if (mMediaPlayer != null) {
                 mMediaPlayer.start();
                 mMediaPlayer.setVideoScalingMode(MediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT);
+                if (mMediaPlayer.getVideoHeight() > mMediaPlayer.getVideoWidth())
+                    MediaPlayerActivity.this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
             }
         }
     };
