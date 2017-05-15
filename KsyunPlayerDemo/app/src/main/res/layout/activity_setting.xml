@@ -111,71 +111,156 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_below="@+id/type_layout"
-            android:id="@+id/bftime_layout"
+            android:id="@+id/cache_threshold_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
+            android:layout_below="@+id/type_layout"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/bftime_text"
-                android:textSize="20sp"/>
+                android:text="@string/cache_threshold_text"
+                android:textSize="20dp"/>
 
-            <EditText
-                android:id="@+id/bftime_edit"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:minEms="3"
-                android:inputType="number"
-                android:layout_marginLeft="12dp" />
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="S"/>
+                <LinearLayout
+                    android:id="@+id/bftime_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bftime_text"/>
+                    <EditText
+                        android:id="@+id/bftime_edit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:minEms="3"
+                        android:inputType="number"
+                        android:layout_marginLeft="12dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="S"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_below="@+id/bftime_layout"
+                    android:id="@+id/bfsize_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bfsize_text"/>
+                    <EditText
+                        android:id="@+id/bfsize_edit"
+                        android:layout_width="wrap_content"
+                        android:singleLine="true"
+                        android:inputType="number"
+                        android:minEms="3"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="M"/>
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 
+
         <LinearLayout
-            android:layout_below="@+id/bftime_layout"
-            android:id="@+id/bfsize_layout"
+            android:layout_below="@+id/cache_threshold_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/bfsize_text"
+                android:text="@string/timeout_threshold_text"
                 android:textSize="20sp"/>
 
-            <EditText
-                android:id="@+id/bfsize_edit"
-                android:layout_width="wrap_content"
-                android:singleLine="true"
-                android:inputType="number"
-                android:minEms="3"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp" />
+                android:layout_marginLeft="20dp"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="M"/>
+                <LinearLayout
+                    android:id="@+id/bfpreparetimeout_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bfpreparetimeout_text" />
+                    <EditText
+                        android:id="@+id/bfpreparetimeout_edit"
+                        android:layout_width="wrap_content"
+                        android:singleLine="true"
+                        android:inputType="number"
+                        android:minEms="3"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="S"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_below="@+id/bfpreparetimeout_layout"
+                    android:id="@+id/bfreadtimeout_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bfreadtimeout_text" />
+                    <EditText
+                        android:id="@+id/bfreadtimeout_edit"
+                        android:layout_width="wrap_content"
+                        android:singleLine="true"
+                        android:inputType="number"
+                        android:minEms="3"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="S"/>
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 
     </RelativeLayout>
-
-
 
 </ScrollView>

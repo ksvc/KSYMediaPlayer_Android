@@ -36,6 +36,9 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
 
     private EditText mBufferTime;
     private EditText mBufferSize;
+
+    private EditText mPrepareTimeout;
+    private EditText mReadTimeout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,8 +51,8 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
         String chooseType = settings.getString("choose_type", Settings.LIVE);
         String bufferTime = settings.getString("buffertime", "2");
         String bufferSize = settings.getString("buffersize", "15");
-
-
+        String prepareTimeout = settings.getString("preparetimeout", "5");
+        String readTimeout = settings.getString("readtimeout", "30");
 
         mChooseCodec = (RadioGroup) findViewById(R.id.choose_codec);
         mChooseType = (RadioGroup) findViewById(R.id.choose_type);
@@ -61,6 +64,9 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
 
         mBufferSize = (EditText) findViewById(R.id.bfsize_edit);
         mBufferTime = (EditText) findViewById(R.id.bftime_edit);
+
+        mPrepareTimeout = (EditText) findViewById(R.id.bfpreparetimeout_edit);
+        mReadTimeout = (EditText) findViewById(R.id.bfreadtimeout_edit);
 
         mBufferSize.addTextChangedListener(new TextWatcher() {
             @Override
@@ -98,7 +104,44 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
             }
         });
 
-        initSetting(chooseDecode, chooseDebug, bufferSize, bufferTime, chooseType);
+        mPrepareTimeout.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                editor.putString("preparetimeout", mPrepareTimeout.getText().toString());
+                editor.commit();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        mReadTimeout.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                editor.putString("readtimeout", mReadTimeout.getText().toString());
+                editor.commit();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        initSetting(chooseDecode, chooseDebug, bufferSize, bufferTime, chooseType, prepareTimeout, readTimeout);
 
         debugSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -116,7 +159,7 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
     }
 
 
-    private void initSetting(String chooseDecode, String chooseDebug, String bufferSize, String bufferTime, String chooseType) {
+    private void initSetting(String chooseDecode, String chooseDebug, String bufferSize, String bufferTime, String chooseType, String prepareTimeout, String readTimeout) {
         radioSoft = (RadioButton) findViewById(R.id.use_sw);
         radioHard = (RadioButton) findViewById(R.id.use_hw);
 
@@ -126,6 +169,9 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
 
         mBufferSize.setText(bufferSize);
         mBufferTime.setText(bufferTime);
+
+        mPrepareTimeout.setText(prepareTimeout);
+        mReadTimeout.setText(readTimeout);
 
         switch (chooseDecode) {
             case Settings.USEHARD:

@@ -61,6 +61,9 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
     private String bufferTime;
     private String bufferSize;
 
+    private String prepareTimeout;
+    private String readTimeout;
+
     private Context mContext;
     private QosThread mQosThread;
 
@@ -449,13 +452,14 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
         mVideoView.setOnSeekCompleteListener(mOnSeekCompletedListener);
         mVideoView.setOnMessageListener(mOnMessageListener);
         mVideoView.setScreenOnWhilePlaying(true);
-        mVideoView.setTimeout(5, 30);
 
         settings = getSharedPreferences("SETTINGS", Context.MODE_PRIVATE);
         chooseDecode = settings.getString("choose_decode", "undefind");
         bufferTime = settings.getString("buffertime", "2");
         bufferSize = settings.getString("buffersize", "15");
 
+        prepareTimeout = settings.getString("preparetimeout", "5");
+        readTimeout = settings.getString("readtimeout", "30");
 
         if (!TextUtils.isEmpty(bufferTime)) {
             mVideoView.setBufferTimeMax(Integer.parseInt(bufferTime));
@@ -465,6 +469,12 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
         if (!TextUtils.isEmpty(bufferSize)) {
             mVideoView.setBufferSize(Integer.parseInt(bufferSize));
             Log.e(TAG, "palyer buffersize :" + bufferSize);
+        }
+
+        if ((!TextUtils.isEmpty(prepareTimeout) && (!TextUtils.isEmpty(readTimeout)))){
+            mVideoView.setTimeout(Integer.parseInt(prepareTimeout),Integer.parseInt(readTimeout));
+            Log.e(TAG, "prepareTimeout :" + prepareTimeout);
+            Log.e(TAG, "readTimeout :" + readTimeout);
         }
 
         if (chooseDecode.equals(Settings.USEHARD)) {

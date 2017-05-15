@@ -36,5 +36,9 @@
     <string name="type_floating">悬浮窗播放</string>
     <string name="bftime_text">BufferTime:</string>
     <string name="bfsize_text">BufferSize:</string>
+    <string name="bfpreparetimeout_text">PrepareTimeout:</string>
+    <string name="bfreadtimeout_text">ReadTimeout:</string>
+    <string name="cache_threshold_text">缓存阀值：</string>
+    <string name="timeout_threshold_text">超时阀值:</string>
     <string name="text_setting">设置</string>
 </resources>
