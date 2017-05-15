@@ -34,6 +34,7 @@
     <string name="type_vod">点播</string>
     <string name="type_live">直播</string>
     <string name="type_floating">悬浮窗播放</string>
+    <string name="type_media_player">系统播放器</string>
     <string name="bftime_text">BufferTime:</string>
     <string name="bfsize_text">BufferSize:</string>
     <string name="bfpreparetimeout_text">PrepareTimeout:</string>

@@ -2,7 +2,13 @@
 
 ## 1.产品概述
 
-金山云Android播放SDK特有的直播优化策略能提供一流的直播体验，为Android开发者提供简单、快捷的接口，帮助开发者实现Android平台上的多媒体播放应用。
+金山云Android播放SDK提供了直播、点播功能，为Android开发者提供简单、快捷的接口，帮助开发者实现Android平台上的多媒体播放应用。
+
+[金山云播放SDK][libksyplayer]**不限制**用户的拉流地址。用户可以只使用金山云直播SDK而不使用金山云的云服务。
+
+[金山云播放SDK][libksyplayer]不收取任何授权使用费用，不含任何失效时间或者远程下发关闭的后门。同时[金山云播放SDK][libksyplayer]也不要求ak/sk等鉴权，没有任何用户标识信息。
+
+[金山云播放SDK][libksyplayer]提供了业内一流的H.265解码能力，适配装载了H.265硬解芯片的设备，免费使用，欢迎试用评估。
 
 ### 1.1 版本信息
 LICENSE和版本信息：[LICENSE](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/license)
@@ -38,6 +44,7 @@ LICENSE和版本信息：[LICENSE](https://github.com/ksvc/KSYMediaPlayer_Androi
 - [x] [支持在线查看文档](https://ksvc.github.io/KSYMediaPlayer_Android/docs/reference/packages.html)
 - [x] 支持[反交错功能](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/VodSurppotDeinterlace)
 - [x] 支持[音量放大](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/PlayerVolume)，最大可以放大两倍
+- [x] 支持[cache内seek](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/SeekInCache)
 
 ### 2.1 播放库版本说明
 #### 2.1.1 单独播放SDK
