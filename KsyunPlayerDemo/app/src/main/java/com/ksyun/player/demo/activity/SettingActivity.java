@@ -85,28 +85,11 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String strBufferSize = mBufferSize.getText().toString();
-                if (TextUtils.isEmpty(strBufferSize))
-                    return;
 
-                Pattern pattern = Pattern.compile("^[0-9]*$");
-                Matcher matcher = pattern.matcher(strBufferSize);
-                if (matcher.matches()){
+                if (!TextUtils.isEmpty(strBufferSize)){
                     editor.putInt("buffersize", Integer.parseInt(strBufferSize));
                     editor.commit();
-                }else{
-                    Toast.makeText(SettingActivity.this, "输入有误，只能输入数字", Toast.LENGTH_SHORT).show();
                 }
-               /* pattern = Pattern.compile("^[a-zA-Z]*$");
-                matcher = pattern.matcher(strBufferSize);
-                if (matcher.matches()){
-                    Toast.makeText(SettingActivity.this, "您输入的字母不符合要求，请重新输入数字！", Toast.LENGTH_SHORT).show();
-                }
-                pattern = Pattern.compile("[\u4e00-\u9fa5]");
-                matcher = pattern.matcher(strBufferSize);
-                if (matcher.matches()){
-                    Toast.makeText(SettingActivity.this, "您输入的汉字不符合要求，请重新输入数字！", Toast.LENGTH_SHORT).show();
-                }
-*/
             }
 
             @Override
@@ -123,31 +106,16 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String strBufferTime = mBufferTime.getText().toString();
+                if (!TextUtils.isEmpty(strBufferTime)){
+                    editor.putInt("buffertime", Integer.parseInt(strBufferTime));
+                    editor.commit();
+                }
 
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                String strBufferTime = mBufferTime.getText().toString();
-                if (TextUtils.isEmpty(strBufferTime))
-                    return;
-
-                Pattern pattern = Pattern.compile("^[0-9]*$");
-                Matcher matcher = pattern.matcher(strBufferTime);
-                if (matcher.matches()){
-                    editor.putInt("buffertime", Integer.parseInt(strBufferTime));
-                    editor.commit();
-                }
-                pattern = Pattern.compile("^[a-zA-Z]*$");
-                matcher = pattern.matcher(strBufferTime);
-                if (matcher.matches()){
-                    Toast.makeText(SettingActivity.this, "您输入的字母不符合要求，请重新输入数字！", Toast.LENGTH_SHORT).show();
-                }
-                pattern = Pattern.compile("[\u4e00-\u9fa5]");
-                matcher = pattern.matcher(strBufferTime);
-                if (matcher.matches()){
-                    Toast.makeText(SettingActivity.this, "您输入的汉字不符合要求，请重新输入数字！", Toast.LENGTH_SHORT).show();
-                }
 
             }
         });
@@ -162,26 +130,10 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String strPrepareTimeout = mPrepareTimeout.getText().toString();
-                if (TextUtils.isEmpty(strPrepareTimeout))
-                    return;
-
-                Pattern pattern = Pattern.compile("^[0-9]*$");
-                Matcher matcher = pattern.matcher(strPrepareTimeout);
-                if (matcher.matches()){
+                if (!TextUtils.isEmpty(strPrepareTimeout)){
                     editor.putInt("preparetimeout", Integer.parseInt(strPrepareTimeout));
                     editor.commit();
                 }
-                pattern = Pattern.compile("[a-zA-Z]");
-                matcher = pattern.matcher(strPrepareTimeout);
-                if (matcher.matches()){
-                    Toast.makeText(SettingActivity.this, "您输入的字母不符合要求，请重新输入数字！", Toast.LENGTH_LONG).show();
-                }
-                pattern = Pattern.compile("[\u4e00-\u9fa5]");
-                matcher = pattern.matcher(strPrepareTimeout);
-                if (matcher.matches()){
-                    Toast.makeText(SettingActivity.this, "您输入的汉字不符合要求，请重新输入数字！", Toast.LENGTH_SHORT).show();
-                }
-
             }
 
             @Override
@@ -199,26 +151,10 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String strReadTimeout = mReadTimeout.getText().toString();
-                if (TextUtils.isEmpty(strReadTimeout))
-                    return;
-
-                Pattern pattern = Pattern.compile("^[0-9]*$");
-                Matcher matcher = pattern.matcher(strReadTimeout);
-                if (matcher.matches()){
+                if (!TextUtils.isEmpty(strReadTimeout)){
                     editor.putInt("readtimeout", Integer.parseInt(strReadTimeout));
                     editor.commit();
                 }
-                pattern = Pattern.compile("[a-zA-Z]");
-                matcher = pattern.matcher(strReadTimeout);
-                if (matcher.matches()){
-                    Toast.makeText(SettingActivity.this, "您输入的字母不符合要求，请重新输入数字！", Toast.LENGTH_SHORT).show();
-                }
-                pattern = Pattern.compile("[\u4e00-\u9fa5]");
-                matcher = pattern.matcher(strReadTimeout);
-                if (matcher.matches()){
-                    Toast.makeText(SettingActivity.this, "您输入的汉字不符合要求，请重新输入数字！", Toast.LENGTH_SHORT).show();
-                }
-
             }
 
             @Override

@@ -452,17 +452,17 @@ public class TextureVideoActivity extends Activity implements View.OnClickListen
         prepareTimeout = settings.getInt("preparetimeout", 5);
         readTimeout = settings.getInt("readtimeout", 30);
 
-        if (!TextUtils.isEmpty(String.valueOf(bufferTime))) {
+        if (bufferTime > 0) {
             mVideoView.setBufferTimeMax(bufferTime);
             Log.e(TAG, "palyer buffertime :" + bufferTime);
         }
 
-        if (!TextUtils.isEmpty(String.valueOf(bufferSize))) {
+        if (bufferSize > 0) {
             mVideoView.setBufferSize(bufferSize);
             Log.e(TAG, "palyer buffersize :" + bufferSize);
         }
 
-        if ((!TextUtils.isEmpty(String.valueOf(prepareTimeout))) && (!TextUtils.isEmpty(String.valueOf(readTimeout)))){
+        if (prepareTimeout > 0 && readTimeout > 0){
             mVideoView.setTimeout(prepareTimeout, readTimeout);
             Log.e(TAG, "prepareTimeout :" + prepareTimeout);
             Log.e(TAG, "readTimeout: " + readTimeout);
