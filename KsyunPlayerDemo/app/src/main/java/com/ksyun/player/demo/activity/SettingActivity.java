@@ -2,10 +2,13 @@ package com.ksyun.player.demo.activity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.MediaCodec;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -15,6 +18,9 @@ import android.widget.Toast;
 
 import com.ksyun.player.demo.R;
 import com.ksyun.player.demo.util.Settings;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SettingActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener{
 
@@ -50,10 +56,10 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
         String chooseDecode = settings.getString("choose_decode", Settings.USESOFT);
         String chooseDebug = settings.getString("choose_debug", Settings.DEBUGON);
         String chooseType = settings.getString("choose_type", Settings.LIVE);
-        String bufferTime = settings.getString("buffertime", "2");
-        String bufferSize = settings.getString("buffersize", "15");
-        String prepareTimeout = settings.getString("preparetimeout", "5");
-        String readTimeout = settings.getString("readtimeout", "30");
+        int bufferTime = settings.getInt("buffertime", 2);
+        int bufferSize = settings.getInt("buffersize", 15);
+        int prepareTimeout = settings.getInt("preparetimeout", 5);
+        int readTimeout = settings.getInt("readtimeout", 30);
 
         mChooseCodec = (RadioGroup) findViewById(R.id.choose_codec);
         mChooseType = (RadioGroup) findViewById(R.id.choose_type);
@@ -64,6 +70,7 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
         debugSwitch = (Switch) findViewById(R.id.switch_set);
 
         mBufferSize = (EditText) findViewById(R.id.bfsize_edit);
+
         mBufferTime = (EditText) findViewById(R.id.bftime_edit);
 
         mPrepareTimeout = (EditText) findViewById(R.id.bfpreparetimeout_edit);
@@ -77,8 +84,29 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                editor.putString("buffersize", mBufferSize.getText().toString());
-                editor.commit();
+                String strBufferSize = mBufferSize.getText().toString();
+                if (TextUtils.isEmpty(strBufferSize))
+                    return;
+
+                Pattern pattern = Pattern.compile("^[0-9]*$");
+                Matcher matcher = pattern.matcher(strBufferSize);
+                if (matcher.matches()){
+                    editor.putInt("buffersize", Integer.parseInt(strBufferSize));
+                    editor.commit();
+                }else{
+                    Toast.makeText(SettingActivity.this, "输入有误，只能输入数字", Toast.LENGTH_SHORT).show();
+                }
+               /* pattern = Pattern.compile("^[a-zA-Z]*$");
+                matcher = pattern.matcher(strBufferSize);
+                if (matcher.matches()){
+                    Toast.makeText(SettingActivity.this, "您输入的字母不符合要求，请重新输入数字！", Toast.LENGTH_SHORT).show();
+                }
+                pattern = Pattern.compile("[\u4e00-\u9fa5]");
+                matcher = pattern.matcher(strBufferSize);
+                if (matcher.matches()){
+                    Toast.makeText(SettingActivity.this, "您输入的汉字不符合要求，请重新输入数字！", Toast.LENGTH_SHORT).show();
+                }
+*/
             }
 
             @Override
@@ -100,10 +128,30 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
 
             @Override
             public void afterTextChanged(Editable editable) {
-                editor.putString("buffertime", mBufferTime.getText().toString());
-                editor.commit();
+                String strBufferTime = mBufferTime.getText().toString();
+                if (TextUtils.isEmpty(strBufferTime))
+                    return;
+
+                Pattern pattern = Pattern.compile("^[0-9]*$");
+                Matcher matcher = pattern.matcher(strBufferTime);
+                if (matcher.matches()){
+                    editor.putInt("buffertime", Integer.parseInt(strBufferTime));
+                    editor.commit();
+                }
+                pattern = Pattern.compile("^[a-zA-Z]*$");
+                matcher = pattern.matcher(strBufferTime);
+                if (matcher.matches()){
+                    Toast.makeText(SettingActivity.this, "您输入的字母不符合要求，请重新输入数字！", Toast.LENGTH_SHORT).show();
+                }
+                pattern = Pattern.compile("[\u4e00-\u9fa5]");
+                matcher = pattern.matcher(strBufferTime);
+                if (matcher.matches()){
+                    Toast.makeText(SettingActivity.this, "您输入的汉字不符合要求，请重新输入数字！", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
+
 
         mPrepareTimeout.addTextChangedListener(new TextWatcher() {
             @Override
@@ -113,8 +161,27 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                editor.putString("preparetimeout", mPrepareTimeout.getText().toString());
-                editor.commit();
+                String strPrepareTimeout = mPrepareTimeout.getText().toString();
+                if (TextUtils.isEmpty(strPrepareTimeout))
+                    return;
+
+                Pattern pattern = Pattern.compile("^[0-9]*$");
+                Matcher matcher = pattern.matcher(strPrepareTimeout);
+                if (matcher.matches()){
+                    editor.putInt("preparetimeout", Integer.parseInt(strPrepareTimeout));
+                    editor.commit();
+                }
+                pattern = Pattern.compile("[a-zA-Z]");
+                matcher = pattern.matcher(strPrepareTimeout);
+                if (matcher.matches()){
+                    Toast.makeText(SettingActivity.this, "您输入的字母不符合要求，请重新输入数字！", Toast.LENGTH_LONG).show();
+                }
+                pattern = Pattern.compile("[\u4e00-\u9fa5]");
+                matcher = pattern.matcher(strPrepareTimeout);
+                if (matcher.matches()){
+                    Toast.makeText(SettingActivity.this, "您输入的汉字不符合要求，请重新输入数字！", Toast.LENGTH_SHORT).show();
+                }
+
             }
 
             @Override
@@ -131,8 +198,26 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                editor.putString("readtimeout", mReadTimeout.getText().toString());
-                editor.commit();
+                String strReadTimeout = mReadTimeout.getText().toString();
+                if (TextUtils.isEmpty(strReadTimeout))
+                    return;
+
+                Pattern pattern = Pattern.compile("^[0-9]*$");
+                Matcher matcher = pattern.matcher(strReadTimeout);
+                if (matcher.matches()){
+                    editor.putInt("readtimeout", Integer.parseInt(strReadTimeout));
+                    editor.commit();
+                }
+                pattern = Pattern.compile("[a-zA-Z]");
+                matcher = pattern.matcher(strReadTimeout);
+                if (matcher.matches()){
+                    Toast.makeText(SettingActivity.this, "您输入的字母不符合要求，请重新输入数字！", Toast.LENGTH_SHORT).show();
+                }
+                pattern = Pattern.compile("[\u4e00-\u9fa5]");
+                matcher = pattern.matcher(strReadTimeout);
+                if (matcher.matches()){
+                    Toast.makeText(SettingActivity.this, "您输入的汉字不符合要求，请重新输入数字！", Toast.LENGTH_SHORT).show();
+                }
 
             }
 
@@ -160,7 +245,7 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
     }
 
 
-    private void initSetting(String chooseDecode, String chooseDebug, String bufferSize, String bufferTime, String chooseType, String prepareTimeout, String readTimeout) {
+    private void initSetting(String chooseDecode, String chooseDebug, int bufferSize, int bufferTime, String chooseType, int prepareTimeout, int readTimeout) {
         radioSoft = (RadioButton) findViewById(R.id.use_sw);
         radioHard = (RadioButton) findViewById(R.id.use_hw);
 
@@ -169,11 +254,11 @@ public class SettingActivity extends AppCompatActivity implements RadioGroup.OnC
         radioFloating = (RadioButton) findViewById(R.id.type_floating);
         radioMediaPlayer = (RadioButton) findViewById(R.id.type_media_player);
 
-        mBufferSize.setText(bufferSize);
-        mBufferTime.setText(bufferTime);
+        mBufferSize.setText(String.valueOf(bufferSize));
+        mBufferTime.setText(String.valueOf(bufferTime));
 
-        mPrepareTimeout.setText(prepareTimeout);
-        mReadTimeout.setText(readTimeout);
+        mPrepareTimeout.setText(String.valueOf(prepareTimeout));
+        mReadTimeout.setText(String.valueOf(readTimeout));
 
         switch (chooseDecode) {
             case Settings.USEHARD:

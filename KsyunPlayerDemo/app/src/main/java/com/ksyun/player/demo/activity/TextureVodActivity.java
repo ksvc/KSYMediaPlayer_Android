@@ -58,11 +58,12 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
     private SharedPreferences settings;
     private String chooseDecode;
     private String chooseDebug;
-    private String bufferTime;
-    private String bufferSize;
 
-    private String prepareTimeout;
-    private String readTimeout;
+    private int bufferTime;
+    private int bufferSize;
+
+    private int prepareTimeout;
+    private int readTimeout;
 
     private Context mContext;
     private QosThread mQosThread;
@@ -455,24 +456,24 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
 
         settings = getSharedPreferences("SETTINGS", Context.MODE_PRIVATE);
         chooseDecode = settings.getString("choose_decode", "undefind");
-        bufferTime = settings.getString("buffertime", "2");
-        bufferSize = settings.getString("buffersize", "15");
+        bufferTime = settings.getInt("buffertime", 2);
+        bufferSize = settings.getInt("buffersize", 15);
 
-        prepareTimeout = settings.getString("preparetimeout", "5");
-        readTimeout = settings.getString("readtimeout", "30");
+        prepareTimeout = settings.getInt("preparetimeout", 5);
+        readTimeout = settings.getInt("readtimeout", 30);
 
-        if (!TextUtils.isEmpty(bufferTime)) {
-            mVideoView.setBufferTimeMax(Integer.parseInt(bufferTime));
+        if (!TextUtils.isEmpty(String.valueOf(bufferTime))) {
+            mVideoView.setBufferTimeMax(bufferTime);
             Log.e(TAG, "palyer buffertime :" + bufferTime);
         }
 
-        if (!TextUtils.isEmpty(bufferSize)) {
-            mVideoView.setBufferSize(Integer.parseInt(bufferSize));
+        if (!TextUtils.isEmpty(String.valueOf(bufferSize))) {
+            mVideoView.setBufferSize(bufferSize);
             Log.e(TAG, "palyer buffersize :" + bufferSize);
         }
 
-        if ((!TextUtils.isEmpty(prepareTimeout) && (!TextUtils.isEmpty(readTimeout)))){
-            mVideoView.setTimeout(Integer.parseInt(prepareTimeout),Integer.parseInt(readTimeout));
+        if ((!TextUtils.isEmpty(String.valueOf(prepareTimeout)) && (!TextUtils.isEmpty(String.valueOf(readTimeout))))){
+            mVideoView.setTimeout(prepareTimeout, readTimeout);
             Log.e(TAG, "prepareTimeout :" + prepareTimeout);
             Log.e(TAG, "readTimeout :" + readTimeout);
         }
