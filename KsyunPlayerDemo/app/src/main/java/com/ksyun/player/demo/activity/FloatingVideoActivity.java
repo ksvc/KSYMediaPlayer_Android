@@ -48,8 +48,8 @@ public class FloatingVideoActivity extends Activity implements Handler.Callback 
 
     private String chooseDecode;
     private String chooseDebug;
-    private String bufferTime;
-    private String bufferSize;
+    private int bufferTime;
+    private int bufferSize;
     private String mDataSource;
 
     private Handler mHandler;
@@ -410,15 +410,15 @@ public class FloatingVideoActivity extends Activity implements Handler.Callback 
         mSettings = getSharedPreferences("SETTINGS", Context.MODE_PRIVATE);
         chooseDecode = mSettings.getString("choose_decode", "undefined");
         chooseDebug = mSettings.getString("choose_debug", "undefined");
-        bufferTime = mSettings.getString("buffertime", "2");
-        bufferSize = mSettings.getString("buffersize", "15");
+        bufferTime = mSettings.getInt("buffertime", 2);
+        bufferSize = mSettings.getInt("buffersize", 15);
 
-        if (!TextUtils.isEmpty(bufferTime)) {
-            KSYFloatingPlayer.getInstance().getKSYMediaPlayer().setBufferTimeMax(Integer.parseInt(bufferTime));
+        if (bufferTime > 0) {
+            KSYFloatingPlayer.getInstance().getKSYMediaPlayer().setBufferTimeMax(bufferTime);
         }
 
-        if (!TextUtils.isEmpty(bufferSize)) {
-            KSYFloatingPlayer.getInstance().getKSYMediaPlayer().setBufferSize(Integer.parseInt(bufferSize));
+        if (bufferSize > 0) {
+            KSYFloatingPlayer.getInstance().getKSYMediaPlayer().setBufferSize(bufferSize);
         }
 
         if (chooseDecode.equals(Settings.USEHARD)) {
