@@ -2,13 +2,15 @@
 
 ## 1.产品概述
 
-金山云Android播放SDK提供了直播、点播功能，为Android开发者提供简单、快捷的接口，帮助开发者实现Android平台上的多媒体播放应用。
+金山云播放内核涵盖Android、iOS、Flash和浏览器插件四个平台，基于FFmpeg自主研发音视频媒体播放内核，作为一款全平台兼容的软件播放方案，金山云播放内核提供了跨终端平台的播放器SDK，以及开放的音视频播放、控制接口和完整的开源调用示例，不仅极大降低开发门槛，同时支持客户快速在多个平台发布产品。  
+KSYMediaPlayer Android SDK是金山云播放内核官方推出的Android平台上使用的软件开发工具包(SDK)，为Android开发者提供简单、快捷的接口，帮助开发者实现Android平台上的多媒体播放应用。
 
-[金山云播放SDK][libksyplayer]**不限制**用户的拉流地址。用户可以只使用金山云直播SDK而不使用金山云的云服务。
+简要说明：
 
-[金山云播放SDK][libksyplayer]不收取任何授权使用费用，不含任何失效时间或者远程下发关闭的后门。同时[金山云播放SDK][libksyplayer]也不要求ak/sk等鉴权，没有任何用户标识信息。
-
-[金山云播放SDK][libksyplayer]提供了业内一流的H.265解码能力，适配装载了H.265硬解芯片的设备，免费使用，欢迎试用评估。
+* [金山云播放SDK][libksyplayer]**不限制**用户的拉流地址。用户可以只使用金山云直播SDK而不使用金山云的云服务。
+* [金山云播放SDK][libksyplayer]不收取任何授权使用费用(**免费使用**)，不含任何失效时间或者远程下发关闭的后门。同时[金山云播放SDK][libksyplayer]也不要求ak/sk等鉴权，没有任何用户标识信息。
+* [金山云播放SDK][libksyplayer]同时内建了业内一流的H.265解码能力，适配装载了H.265硬解芯片的设备，H.265能力也是**免费使用**，欢迎集成使用。
+* [金山云播放SDK][libksyplayer]当前未提供开源代码，如果需要其他定制化开发功能，请通过[金山云商务渠道][ksyun]联系。
 
 ### 1.1 版本信息
 LICENSE和版本信息：[LICENSE](https://github.com/ksvc/KSYMediaPlayer_Android/wiki/license)
@@ -146,3 +148,4 @@ $ git clone https://git.oschina.net/ksvc/KSYMediaPlayer_Android.git
 [ksystreamer]: https://github.com/ksvc/KSYStreamer_Android/tree/master/libs
 [KSYLive_Android]: https://github.com/ksvc/KSYLive_Android/tree/master/libs
 [libksyplayer]:https://github.com/ksvc/KSYMediaPlayer_Android/
+[ksyun]:https://www.ksyun.com/about/aboutcontact
