@@ -1,4 +1,4 @@
-package com.ksyun.player.demo.activity;
+package com.ksyun.player.demo.ui.activity.playrelatedactivity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.view.Surface;
 import android.view.TextureView;
 import android.widget.Toast;
+
 
 import com.ksyun.player.demo.R;
 

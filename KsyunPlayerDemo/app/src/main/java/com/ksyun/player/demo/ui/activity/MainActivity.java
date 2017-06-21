@@ -1,4 +1,4 @@
-package com.ksyun.player.demo.activity;
+package com.ksyun.player.demo.ui.activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.ksyun.player.demo.R;
+import com.ksyun.player.demo.ui.fragment.LocalFragment;
 import com.tencent.bugly.crashreport.CrashReport;
 
 
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View v = inflator.inflate(layoutId, new LinearLayout(mContext), false);
             ActionBar.LayoutParams layout = new ActionBar.LayoutParams(
-                    android.support.v7.app.ActionBar.LayoutParams.MATCH_PARENT, android.support.v7.app.ActionBar.LayoutParams.MATCH_PARENT);
+                    ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
             actionBar.setCustomView(v, layout);
             media_net = (Button)findViewById(R.id.media_network);
             media_history = (Button)findViewById(R.id.media_history);

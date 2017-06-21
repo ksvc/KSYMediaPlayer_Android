@@ -1,6 +1,6 @@
 package com.ksyun.player.demo.model;
 
-import com.ksyun.player.demo.activity.LocalFragment;
+import com.ksyun.player.demo.ui.fragment.LocalFragment;
 import com.ksyun.player.demo.util.Video;
 
 import java.io.File;

@@ -1,4 +1,4 @@
-package com.ksyun.player.demo.activity;
+package com.ksyun.player.demo.ui.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -28,7 +28,6 @@ import com.ksyun.player.demo.zxing.view.ViewfinderView;
 
 import java.io.IOException;
 import java.util.Vector;
-
 
 
 /**
@@ -142,8 +141,7 @@ public class CaptureActivity extends Activity implements Callback {
 			return;
 		}
 		if (handler == null) {
-			handler = new CaptureActivityHandler(this, decodeFormats,
-					characterSet);
+			handler = new CaptureActivityHandler(this, decodeFormats, characterSet);
 		}
 	}
 

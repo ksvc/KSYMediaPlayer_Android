@@ -1,4 +1,4 @@
-package com.ksyun.player.demo.activity;
+package com.ksyun.player.demo.ui.activity.playrelatedactivity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -27,6 +27,7 @@ import com.ksyun.media.player.misc.KSYQosInfo;
 import com.ksyun.player.demo.R;
 import com.ksyun.player.demo.model.KSYFloatingPlayer;
 import com.ksyun.player.demo.model.Strings;
+import com.ksyun.player.demo.ui.activity.FloatingPlayingActivity;
 import com.ksyun.player.demo.util.QosObject;
 import com.ksyun.player.demo.util.QosThread;
 import com.ksyun.player.demo.util.Settings;

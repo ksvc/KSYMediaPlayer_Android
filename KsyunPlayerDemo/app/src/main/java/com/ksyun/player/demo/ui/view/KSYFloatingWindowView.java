@@ -1,10 +1,9 @@
-package com.ksyun.player.demo.view;
+package com.ksyun.player.demo.ui.view;
 
 import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.os.Handler;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.Surface;
@@ -15,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.ksyun.player.demo.R;
-import com.ksyun.player.demo.activity.FloatingPlayingActivity;
+import com.ksyun.player.demo.ui.activity.FloatingPlayingActivity;
 import com.ksyun.player.demo.model.KSYFloatingPlayer;
 
 import java.lang.reflect.Field;

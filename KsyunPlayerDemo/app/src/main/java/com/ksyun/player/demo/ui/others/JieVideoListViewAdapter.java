@@ -1,4 +1,4 @@
-package com.ksyun.player.demo.activity;
+package com.ksyun.player.demo.ui.others;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,8 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ksyun.player.demo.model.MyVideoThumbLoader;
 import com.ksyun.player.demo.R;
+import com.ksyun.player.demo.model.MyVideoThumbLoader;
 import com.ksyun.player.demo.util.Video;
 
 import java.io.File;
