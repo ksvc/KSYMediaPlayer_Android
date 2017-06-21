@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Debug;
 import android.os.Handler;
 
-import com.ksyun.player.demo.ui.activity.playrelatedactivity.TextureVideoActivity;
+import com.ksyun.player.demo.ui.activity.player.TextureVideoActivity;
 
 
 /**

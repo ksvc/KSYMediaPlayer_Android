@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.ksyun.player.demo.R;
-import com.ksyun.player.demo.ui.activity.FloatingPlayingActivity;
+import com.ksyun.player.demo.ui.activity.player.FloatingPlayingActivity;
 import com.ksyun.player.demo.model.KSYFloatingPlayer;
 
 import java.lang.reflect.Field;

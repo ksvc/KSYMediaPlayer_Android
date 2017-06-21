@@ -33,28 +33,28 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.NetMediaActivty" />
-        <activity android:name=".ui.activity.playrelatedactivity.TextureVideoActivity"
+        <activity android:name=".ui.activity.player.TextureVideoActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:configChanges="orientation|keyboardHidden|screenSize"
             />
-        <activity android:name=".ui.activity.playrelatedactivity.TextureVodActivity"
+        <activity android:name=".ui.activity.player.TextureVodActivity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTop">
         </activity>
 
-        <activity android:name=".ui.activity.playrelatedactivity.MediaPlayerActivity"
+        <activity android:name=".ui.activity.player.MediaPlayerActivity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:configChanges="orientation|keyboardHidden|screenSize"></activity>
 
-        <activity android:name=".ui.activity.playrelatedactivity.FloatingVideoActivity"
+        <activity android:name=".ui.activity.player.FloatingVideoActivity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:configChanges="orientation|keyboardHidden|screenSize"
             />
-        <activity android:name=".ui.activity.FloatingPlayingActivity"
+        <activity android:name=".ui.activity.player.FloatingPlayingActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:configChanges="orientation|keyboardHidden|screenSize"

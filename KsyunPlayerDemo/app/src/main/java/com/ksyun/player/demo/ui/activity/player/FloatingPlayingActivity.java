@@ -1,4 +1,4 @@
-package com.ksyun.player.demo.ui.activity;
+package com.ksyun.player.demo.ui.activity.player;
 
 import android.app.Activity;
 import android.content.Context;

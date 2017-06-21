@@ -13,10 +13,10 @@ import android.widget.ListView;
 
 import com.ksyun.player.demo.R;
 import com.ksyun.player.demo.model.NetDbAdapter;
-import com.ksyun.player.demo.ui.activity.playrelatedactivity.FloatingVideoActivity;
-import com.ksyun.player.demo.ui.activity.playrelatedactivity.MediaPlayerActivity;
-import com.ksyun.player.demo.ui.activity.playrelatedactivity.TextureVideoActivity;
-import com.ksyun.player.demo.ui.activity.playrelatedactivity.TextureVodActivity;
+import com.ksyun.player.demo.ui.activity.player.FloatingVideoActivity;
+import com.ksyun.player.demo.ui.activity.player.MediaPlayerActivity;
+import com.ksyun.player.demo.ui.activity.player.TextureVideoActivity;
+import com.ksyun.player.demo.ui.activity.player.TextureVodActivity;
 import com.ksyun.player.demo.util.Settings;
 
 import java.util.ArrayList;

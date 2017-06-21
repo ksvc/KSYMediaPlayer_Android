@@ -1,4 +1,4 @@
-package com.ksyun.player.demo.ui.activity.playrelatedactivity;
+package com.ksyun.player.demo.ui.activity.player;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.Surface;
@@ -27,7 +26,6 @@ import com.ksyun.media.player.misc.KSYQosInfo;
 import com.ksyun.player.demo.R;
 import com.ksyun.player.demo.model.KSYFloatingPlayer;
 import com.ksyun.player.demo.model.Strings;
-import com.ksyun.player.demo.ui.activity.FloatingPlayingActivity;
 import com.ksyun.player.demo.util.QosObject;
 import com.ksyun.player.demo.util.QosThread;
 import com.ksyun.player.demo.util.Settings;
