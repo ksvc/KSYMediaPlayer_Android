@@ -1,8 +1,7 @@
-package com.ksyun.player.demo.activity;
+package com.ksyun.player.demo.ui.activity.player;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,7 +15,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.ksyun.player.demo.R;
-import com.ksyun.player.demo.view.KSYFloatingWindowView;
+import com.ksyun.player.demo.ui.view.KSYFloatingWindowView;
 
 /**
  * Created by xbc on 2017/3/14.

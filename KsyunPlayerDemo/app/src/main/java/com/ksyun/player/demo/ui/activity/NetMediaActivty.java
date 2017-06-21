@@ -1,4 +1,4 @@
-package com.ksyun.player.demo.activity;
+package com.ksyun.player.demo.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +19,10 @@ import android.widget.Toast;
 
 import com.ksyun.player.demo.R;
 import com.ksyun.player.demo.model.NetDbAdapter;
+import com.ksyun.player.demo.ui.activity.player.FloatingVideoActivity;
+import com.ksyun.player.demo.ui.activity.player.MediaPlayerActivity;
+import com.ksyun.player.demo.ui.activity.player.TextureVideoActivity;
+import com.ksyun.player.demo.ui.activity.player.TextureVodActivity;
 import com.ksyun.player.demo.util.Settings;
 
 import java.util.ArrayList;
@@ -109,7 +113,7 @@ public class NetMediaActivty extends AppCompatActivity implements View.OnClickLi
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View v = inflator.inflate(layoutId, new LinearLayout(mContext), false);
             ActionBar.LayoutParams layout = new ActionBar.LayoutParams(
-                    android.support.v7.app.ActionBar.LayoutParams.MATCH_PARENT, android.support.v7.app.ActionBar.LayoutParams.MATCH_PARENT);
+                    ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
             actionBar.setCustomView(v, layout);
 
             netHistory = (Button) findViewById(R.id.net_history);

@@ -1,4 +1,4 @@
-package com.ksyun.player.demo.activity;
+package com.ksyun.player.demo.ui.activity.player;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.Surface;

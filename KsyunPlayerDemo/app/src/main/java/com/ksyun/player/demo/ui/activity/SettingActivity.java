@@ -1,14 +1,12 @@
-package com.ksyun.player.demo.activity;
+package com.ksyun.player.demo.ui.activity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.media.MediaCodec;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -18,9 +16,6 @@ import android.widget.Toast;
 
 import com.ksyun.player.demo.R;
 import com.ksyun.player.demo.util.Settings;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class SettingActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener{
 
