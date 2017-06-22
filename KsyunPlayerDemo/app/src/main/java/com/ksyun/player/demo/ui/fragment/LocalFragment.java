@@ -1,28 +1,29 @@
 package com.ksyun.player.demo.ui.fragment;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ksyun.player.demo.R;
 import com.ksyun.player.demo.model.GetList;
 import com.ksyun.player.demo.ui.activity.player.FloatingVideoActivity;
-import com.ksyun.player.demo.ui.others.JieVideoListViewAdapter;
 import com.ksyun.player.demo.ui.activity.player.MediaPlayerActivity;
 import com.ksyun.player.demo.ui.activity.player.TextureVideoActivity;
 import com.ksyun.player.demo.ui.activity.player.TextureVodActivity;
+import com.ksyun.player.demo.ui.others.JieVideoListViewAdapter;
+import com.ksyun.player.demo.ui.view.LoadMoreListView;
 import com.ksyun.player.demo.util.Settings;
 import com.ksyun.player.demo.util.Video;
 
@@ -30,34 +31,32 @@ import java.io.File;
 import java.util.ArrayList;
 
 
-public class LocalFragment extends android.app.Fragment implements SwipeRefreshLayout.OnRefreshListener {
+/**
+ * Created by admin on 17/6/21.
+ */
 
-    private static final int UPDATE = 1;
-    private ListView listView;
-    private JieVideoListViewAdapter mAdapter;
+public class LocalFragment extends Fragment {
+
     private ArrayList<Video> showListVideos;
-    private SwipeRefreshLayout swipeLayout;
+    private TextView localPath;
+    private LoadMoreListView mListView;
+    private JieVideoListViewAdapter mAdapter;
+    private SharedPreferences settings;
     public static Handler mHandler;
     private GetList getList;
-    private boolean isUpdate = false;
-    private SharedPreferences settings;
     private File currentFile;
+    private boolean isUpdate = false;
 
-    private TextView localPath;
-
-    public LocalFragment() {
-        // Required empty public constructor
-    }
+    public LocalFragment(){}
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         showListVideos = new ArrayList<Video>();
         getList = new GetList();
@@ -66,15 +65,16 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
             public void handleMessage(Message msg) {
                 super.handleMessage(msg);
                 switch (msg.what) {
-                    case UPDATE:
+                    case 1:
                         if (isUpdate) {
                             updatelist();
-                            swipeLayout.setRefreshing(false);
+                            mAdapter.notifyDataSetChanged();
+                            mListView.setLoadCompleted();
                         } else {
-                            swipeLayout.setRefreshing(false);
                             Toast.makeText(getActivity(), "更新失败,请等待加载完毕", Toast.LENGTH_SHORT).show();
                         }
                         break;
+
                     case 2:
                         if (msg.obj instanceof ArrayList) {
                             showListVideos.clear();
@@ -82,23 +82,24 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
                             updatelist();
                         }
                         break;
+
                     case 3:
                         if (msg.obj instanceof ArrayList) {
                             isUpdate = true;
                             showListVideos.clear();
                             showListVideos.addAll((ArrayList<Video>) msg.obj);
                         }
+
+                    default:
+                        break;
                 }
             }
         };
 
         View view = inflater.inflate(R.layout.fragment_local, container, false);
-
-        swipeLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_container);
-        listView = (ListView) view.findViewById(R.id.list_local_frag);
         localPath = (TextView) view.findViewById(R.id.local_path);
-        swipeLayout.setOnRefreshListener(this);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mListView = (LoadMoreListView) view.findViewById(R.id.list_local_frag);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Video v = showListVideos.get(position);
@@ -109,7 +110,7 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
                     currentFile = file;
                     localPath.setText(currentFile.getAbsolutePath());
                     Message msg = new Message();
-                    msg.what = UPDATE;
+                    msg.what = 1;
                     mHandler.sendMessageDelayed(msg, 500);
                 } else {
                     if (settings == null){
@@ -136,26 +137,45 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
                 }
             }
         });
+
+        mListView.setOnLoadMoreListener(new LoadMoreListView.OnLoadMoreListener() {
+            @Override
+            public void onloadMore() {
+                loadMore();
+            }
+        });
+
         getList.getFileList(showListVideos, Environment.getExternalStorageDirectory());
         currentFile = Environment.getExternalStorageDirectory();
         localPath.setText(currentFile.getAbsolutePath());
+
         return view;
+
+    }
+
+    private void loadMore() {
+        new Thread(){
+            @Override
+            public void run() {
+                super.run();
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                mHandler.obtainMessage(1).sendToTarget();
+            }
+        }.start();
     }
 
     public void updatelist() {
         mAdapter = new JieVideoListViewAdapter(getActivity(), showListVideos);
-        listView.setAdapter(mAdapter);
+        mListView.setAdapter(mAdapter);
     }
+
 
     public void setSettings( SharedPreferences set){
         settings = set;
-    }
-
-    @Override
-    public void onRefresh() {
-        Message msg = new Message();
-        msg.what = UPDATE;
-        mHandler.sendMessageDelayed(msg,3000);
     }
 
     public void onBackPressed(){
@@ -167,9 +187,9 @@ public class LocalFragment extends android.app.Fragment implements SwipeRefreshL
             currentFile = currentFile.getParentFile();
             localPath.setText(currentFile.getAbsolutePath());
             Message msg = new Message();
-            msg.what = UPDATE;
+            msg.what = 1;
             mHandler.sendMessageDelayed(msg,500);
         }
     }
-}
 
+}

@@ -19,7 +19,6 @@ public class GetList {
         mylist = new ArrayList<Video>();
         LocalFragment.mHandler.obtainMessage(3, mylist).sendToTarget();
 
-
     }
 
     public void getVideoFile(final ArrayList<Video> list, final File file) {// 获得视频文件
