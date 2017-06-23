@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,10 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ksyun.player.demo.R;
-import com.ksyun.player.demo.model.GetList;
 import com.ksyun.player.demo.ui.activity.player.FloatingVideoActivity;
 import com.ksyun.player.demo.ui.activity.player.MediaPlayerActivity;
 import com.ksyun.player.demo.ui.activity.player.TextureVideoActivity;
@@ -28,7 +25,9 @@ import com.ksyun.player.demo.util.Settings;
 import com.ksyun.player.demo.util.Video;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -37,82 +36,78 @@ import java.util.ArrayList;
 
 public class LocalFragment extends Fragment {
 
-    private ArrayList<Video> showListVideos;
+    private ArrayList<Video> showListVideos = new ArrayList<>();
     private TextView localPath;
     private LoadMoreListView mListView;
     private JieVideoListViewAdapter mAdapter;
-    private SharedPreferences settings;
-    public static Handler mHandler;
-    private GetList getList;
     private File currentFile;
-    private boolean isUpdate = false;
+    private File selectedFile;
+    private SharedPreferences settings;
+    int tempBatch = 0;
+    int tempIndex = 0;
 
-    public LocalFragment(){}
+    public LocalFragment() {
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+    private View mRootView;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
-        showListVideos = new ArrayList<Video>();
-        getList = new GetList();
-        mHandler = new Handler(){
+        if (mRootView == null) {
+            mRootView = inflater.inflate(R.layout.fragment_local, container, false);
+
+            init();
+
+        }
+
+        return mRootView;
+
+    }
+
+    private void init() {
+
+        localPath = (TextView) mRootView.findViewById(R.id.local_path);
+        mListView = (LoadMoreListView) mRootView.findViewById(R.id.list_local_frag);
+        mAdapter = new JieVideoListViewAdapter(getActivity(), showListVideos);
+        mListView.setAdapter(mAdapter);
+
+        mListView.setOnLoadMoreListener(new LoadMoreListView.OnLoadMoreListener() {
             @Override
-            public void handleMessage(Message msg) {
-                super.handleMessage(msg);
-                switch (msg.what) {
-                    case 1:
-                        if (isUpdate) {
-                            updatelist();
-                            mAdapter.notifyDataSetChanged();
-                            mListView.setLoadCompleted();
-                        } else {
-                            Toast.makeText(getActivity(), "更新失败,请等待加载完毕", Toast.LENGTH_SHORT).show();
-                        }
-                        break;
+            public void onloadMore() {
+                // 延迟500毫秒后再加载数据，否则因加载过快看不到"正在加载"的ProgressBar
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadMore(currentFile);
+                    }
+                }, 500);
 
-                    case 2:
-                        if (msg.obj instanceof ArrayList) {
-                            showListVideos.clear();
-                            showListVideos.addAll((ArrayList<Video>) msg.obj);
-                            updatelist();
-                        }
-                        break;
-
-                    case 3:
-                        if (msg.obj instanceof ArrayList) {
-                            isUpdate = true;
-                            showListVideos.clear();
-                            showListVideos.addAll((ArrayList<Video>) msg.obj);
-                        }
-
-                    default:
-                        break;
-                }
             }
-        };
+        });
 
-        View view = inflater.inflate(R.layout.fragment_local, container, false);
-        localPath = (TextView) view.findViewById(R.id.local_path);
-        mListView = (LoadMoreListView) view.findViewById(R.id.list_local_frag);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Video v = showListVideos.get(position);
+
                 File file = new File(v.getPath());
-                if (file.isDirectory()) {
+
+                if (file.isDirectory()){
+                    selectedFile = file;
+                    localPath.setText(selectedFile.getAbsolutePath());
                     showListVideos.clear();
-                    getList.getFileList(showListVideos, file);
-                    currentFile = file;
-                    localPath.setText(currentFile.getAbsolutePath());
-                    Message msg = new Message();
-                    msg.what = 1;
-                    mHandler.sendMessageDelayed(msg, 500);
-                } else {
+                    List fileList = doGetData(0, BATCH, selectedFile);
+                    showListVideos.addAll(fileList);
+                    mAdapter.notifyDataSetChanged();
+                }else{
                     if (settings == null){
                         Log.e("WSC", "find setting is null");
                     }
@@ -135,60 +130,151 @@ public class LocalFragment extends Fragment {
                         startActivity(intent);
                     }
                 }
+
             }
         });
 
-        mListView.setOnLoadMoreListener(new LoadMoreListView.OnLoadMoreListener() {
-            @Override
-            public void onloadMore() {
-                loadMore();
-            }
-        });
-
-        getList.getFileList(showListVideos, Environment.getExternalStorageDirectory());
         currentFile = Environment.getExternalStorageDirectory();
-        localPath.setText(currentFile.getAbsolutePath());
 
-        return view;
+        fetchNew(currentFile);
 
     }
 
-    private void loadMore() {
-        new Thread(){
+    // 批量，即每次最多加载多少条数据
+    private static final int BATCH = 15;
+    // 当前加载数据的索引
+    private int mCurrentIndex;
+
+    /**
+     * 下拉刷新数据
+     */
+    private void fetchNew(File file) {
+        mCurrentIndex = 0;
+
+        List<Video> batchList = doGetData(mCurrentIndex, BATCH, file);
+
+        showListVideos.addAll(batchList);
+
+        mAdapter.notifyDataSetChanged();
+
+    }
+
+    /**
+     * 上拉加载更多
+     */
+    private void loadMore(File file) {
+
+        mCurrentIndex = showListVideos.size();
+
+        List<Video> batchList = doGetData(mCurrentIndex, BATCH, file);
+
+        showListVideos.addAll(batchList);
+
+        mAdapter.notifyDataSetChanged();
+
+        mListView.setLoadCompleted();
+
+       /* if (batchList != null && batchList.size() < BATCH) {
+            mListView.setLoadMoreEnabled(false);
+        }*/
+    }
+
+    /**
+     * 模拟分页加载的算法
+     *
+     * @param index 从哪条数据开始加载
+     * @param batch 加载多少条数据
+     */
+    private List<Video> doGetData(final int index, final int batch, File file) {
+        tempIndex = 0;
+        tempBatch = 0;
+        final List<Video> batchList = new ArrayList<>();
+        file.listFiles(new FileFilter() {
+
             @Override
-            public void run() {
-                super.run();
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+            public boolean accept(File file) {
+                // 筛选出文件夹、视频文件
+                if (file.isDirectory() || isVideoFile(file)) {
+                    if (tempBatch < batch) {
+                        if (index == tempIndex) {
+                            Video v = new Video();
+                            v.setTitle(file.getName());
+                            v.setPath(file.getAbsolutePath());
+                            batchList.add(v);
+
+                            tempBatch++;
+                        } else {
+                            tempIndex++;
+                        }
+                    }
+
+                    return true;
                 }
-                mHandler.obtainMessage(1).sendToTarget();
+                return false;
             }
-        }.start();
+        });
+
+        return batchList;
     }
 
-    public void updatelist() {
-        mAdapter = new JieVideoListViewAdapter(getActivity(), showListVideos);
-        mListView.setAdapter(mAdapter);
-    }
+    /**
+     * 判断是否为视频文件
+     */
+    private boolean isVideoFile(File file) {
+        // sdCard找到视频名称
+        String name = new String(file.getName());
 
+        int i = name.lastIndexOf('.');
+        if (i != -1) {
+            name = name.substring(i);
+            if (name.equalsIgnoreCase(".mp4")
+                    || name.equalsIgnoreCase(".3gp")
+                    || name.equalsIgnoreCase(".wmv")
+                    || name.equalsIgnoreCase(".ts")
+                    || name.equalsIgnoreCase(".rmvb")
+                    || name.equalsIgnoreCase(".mov")
+                    || name.equalsIgnoreCase(".m4v")
+                    || name.equalsIgnoreCase(".avi")
+                    || name.equalsIgnoreCase(".m3u8")
+                    || name.equalsIgnoreCase(".3gpp")
+                    || name.equalsIgnoreCase(".3gpp2")
+                    || name.equalsIgnoreCase(".mkv")
+                    || name.equalsIgnoreCase(".flv")
+                    || name.equalsIgnoreCase(".divx")
+                    || name.equalsIgnoreCase(".f4v")
+                    || name.equalsIgnoreCase(".rm")
+                    || name.equalsIgnoreCase(".asf")
+                    || name.equalsIgnoreCase(".ram")
+                    || name.equalsIgnoreCase(".mpg")
+                    || name.equalsIgnoreCase(".v8")
+                    || name.equalsIgnoreCase(".swf")
+                    || name.equalsIgnoreCase(".m2v")
+                    || name.equalsIgnoreCase(".asx")
+                    || name.equalsIgnoreCase(".ra")
+                    || name.equalsIgnoreCase(".ndivx")
+                    || name.equalsIgnoreCase(".xvid")) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void setSettings( SharedPreferences set){
         settings = set;
     }
 
     public void onBackPressed(){
-        if(currentFile.getAbsolutePath().equals(Environment.getExternalStorageDirectory().getAbsolutePath())){
+        if(selectedFile.getAbsolutePath().equals(Environment.getExternalStorageDirectory().getAbsolutePath())){
             getActivity().finish();
         } else {
             showListVideos.clear();
-            getList.getFileList(showListVideos, currentFile.getParentFile());
-            currentFile = currentFile.getParentFile();
-            localPath.setText(currentFile.getAbsolutePath());
-            Message msg = new Message();
-            msg.what = 1;
-            mHandler.sendMessageDelayed(msg,500);
+            List list = doGetData(0, BATCH, selectedFile.getParentFile());
+            showListVideos.addAll(list);
+
+            selectedFile = selectedFile.getParentFile();
+            localPath.setText(selectedFile.getAbsolutePath());
+            loadMore(selectedFile);
+
         }
     }
 

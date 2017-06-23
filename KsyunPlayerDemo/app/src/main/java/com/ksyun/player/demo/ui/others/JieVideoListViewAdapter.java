@@ -14,28 +14,26 @@ import com.ksyun.player.demo.util.Video;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by liubohua on 16/7/12.
  */
 public class JieVideoListViewAdapter extends BaseAdapter {
 
-    private ArrayList<Video> listVideos = new ArrayList<Video>();
+    private ArrayList<Video> listVideos;
     private LayoutInflater mLayoutInflater;
     private MyVideoThumbLoader mVideoThumbLoader;
 
-    public JieVideoListViewAdapter(Context context, List<Video> listVideos){
+    public JieVideoListViewAdapter(Context context, ArrayList<Video> listVideos){
         mLayoutInflater = LayoutInflater.from(context);
-        this.listVideos.addAll(listVideos);
+        this.listVideos = listVideos;
         mVideoThumbLoader = new MyVideoThumbLoader();// 初始化缩略图载入方法
-
     }
 
 
     @Override
     public int getCount() {
-        return listVideos.size();
+        return listVideos != null ? listVideos.size() : 0;
     }
 
     @Override
