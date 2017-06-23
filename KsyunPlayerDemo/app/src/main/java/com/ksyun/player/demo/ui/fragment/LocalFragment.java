@@ -40,7 +40,6 @@ public class LocalFragment extends Fragment {
     private TextView localPath;
     private LoadMoreListView mListView;
     private JieVideoListViewAdapter mAdapter;
-    private File currentFile;
     private File selectedFile;
     private SharedPreferences settings;
     int tempBatch = 0;
@@ -85,7 +84,7 @@ public class LocalFragment extends Fragment {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        loadMore(currentFile);
+                        loadMore(selectedFile);
                     }
                 }, 500);
 
@@ -134,9 +133,8 @@ public class LocalFragment extends Fragment {
             }
         });
 
-        currentFile = Environment.getExternalStorageDirectory();
-
-        fetchNew(currentFile);
+        selectedFile = Environment.getExternalStorageDirectory();
+        fetchNew(selectedFile);
 
     }
 
