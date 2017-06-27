@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.media.session.PlaybackStateCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -15,7 +16,6 @@ import android.widget.Toast;
 
 import com.ksyun.player.demo.R;
 import com.ksyun.player.demo.ui.fragment.LocalFragment;
-import com.tencent.bugly.crashreport.CrashReport;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -28,8 +28,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        CrashReport.initCrashReport(getApplicationContext(), "900040861", true);
-
         setActionBarLayout(R.layout.media_actionbar,this);
 
         setDefaultFragment();
@@ -67,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FragmentTransaction transaction = fm.beginTransaction();
         localFragment = new LocalFragment();
         localFragment.setSettings(getSharedPreferences("SETTINGS", Context.MODE_PRIVATE));
+
         transaction.replace(R.id.contentFrame,localFragment);
         transaction.commit();
     }

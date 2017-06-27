@@ -23,6 +23,7 @@
     <dimen name="demo_size_50dp">50dp</dimen>
     <dimen name="demo_size_180dp">180dp</dimen>
     <dimen name="demo_size_320dp">320dp</dimen>
+    <dimen name="demo_size_5dp">5dp</dimen>
 
 
     <!-- Default screen margins, per the Android Design guidelines. -->
