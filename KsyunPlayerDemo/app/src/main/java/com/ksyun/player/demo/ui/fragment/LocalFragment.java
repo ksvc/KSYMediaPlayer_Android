@@ -1,11 +1,13 @@
 package com.ksyun.player.demo.ui.fragment;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -42,18 +44,14 @@ public class LocalFragment extends Fragment {
     private JieVideoListViewAdapter mAdapter;
     private File selectedFile;
     private SharedPreferences settings;
+    private View mRootView;
+    private Handler mHandler;
     int tempBatch = 0;
     int tempIndex = 0;
 
     public LocalFragment() {
+        mHandler = new Handler(Looper.getMainLooper());
     }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    private View mRootView;
 
     @Nullable
     @Override
@@ -63,7 +61,6 @@ public class LocalFragment extends Fragment {
             mRootView = inflater.inflate(R.layout.fragment_local, container, false);
 
             init();
-
         }
 
         return mRootView;
@@ -81,12 +78,13 @@ public class LocalFragment extends Fragment {
             @Override
             public void onloadMore() {
                 // 延迟500毫秒后再加载数据，否则因加载过快看不到"正在加载"的ProgressBar
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        loadMore(selectedFile);
-                    }
-                }, 500);
+                if (mHandler != null)
+                    mHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            loadMore(selectedFile);
+                        }
+                    }, 500);
 
             }
         });
@@ -108,8 +106,9 @@ public class LocalFragment extends Fragment {
                     mAdapter.notifyDataSetChanged();
                 }else{
                     if (settings == null){
-                        Log.e("WSC", "find setting is null");
+                        settings = getActivity().getSharedPreferences("SETTINGS", Context.MODE_PRIVATE);
                     }
+
                     String playerType = settings.getString("choose_type", Settings.LIVE);
                     if (playerType.equals(Settings.VOD)) {
                         Intent intent = new Intent(getActivity(), TextureVodActivity.class);
@@ -255,10 +254,6 @@ public class LocalFragment extends Fragment {
             }
         }
         return false;
-    }
-
-    public void setSettings( SharedPreferences set){
-        settings = set;
     }
 
     public void onBackPressed(){
