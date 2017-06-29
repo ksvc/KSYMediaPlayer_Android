@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ksyun.media.player.IMediaPlayer;
+import com.ksyun.media.player.KSYHardwareDecodeWhiteList;
 import com.ksyun.media.player.KSYMediaMeta;
 import com.ksyun.media.player.KSYMediaPlayer;
 import com.ksyun.media.player.KSYTextureView;
@@ -475,8 +476,11 @@ public class TextureVideoActivity extends Activity implements View.OnClickListen
 
         if (useHwCodec) {
             //硬解264&265
-            Log.e(TAG, "Hardware !!!!!!!!");
-            mVideoView.setDecodeMode(KSYMediaPlayer.KSYDecodeMode.KSY_DECODE_MODE_AUTO);
+            if (KSYHardwareDecodeWhiteList.getInstance().getCurrentStatus() == KSYHardwareDecodeWhiteList.KSY_STATUS_OK) {
+                if (KSYHardwareDecodeWhiteList.getInstance().supportHardwareDecodeH264()
+                        || KSYHardwareDecodeWhiteList.getInstance().supportHardwareDecodeH265())
+                mVideoView.setDecodeMode(KSYMediaPlayer.KSYDecodeMode.KSY_DECODE_MODE_AUTO);
+            }
         }
 
         try {
