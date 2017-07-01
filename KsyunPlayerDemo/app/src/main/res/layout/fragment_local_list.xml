@@ -1,0 +1,19 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/local_path_frag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="bbbb"
+        android:textSize="16sp"
+        android:textColor="@color/player_blue2"
+        android:layout_margin="12dp"/>
+
+    <ListView
+        android:id="@+id/local_frag_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

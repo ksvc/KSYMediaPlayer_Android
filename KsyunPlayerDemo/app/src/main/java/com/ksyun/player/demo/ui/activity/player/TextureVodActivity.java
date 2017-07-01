@@ -28,6 +28,7 @@ import com.ksyun.media.player.misc.KSYQosInfo;
 import com.ksyun.player.demo.R;
 import com.ksyun.player.demo.model.NetState;
 import com.ksyun.player.demo.model.Strings;
+import com.ksyun.player.demo.ui.fragment.ListFragment;
 import com.ksyun.player.demo.util.NetStateUtil;
 import com.ksyun.player.demo.util.ProgressTextView;
 import com.ksyun.player.demo.util.QosObject;
@@ -97,6 +98,7 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
     private RelativeLayout topPanel;
     private ImageView reload;
     private ImageView mPlayerVolume;
+    private ImageView mPlayerLocalList;
     private ImageView mPlayerRotate;
     private ImageView mPlayerScreen;
     private ImageView mPlayerScale;
@@ -137,6 +139,7 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
     private float deltaRatio;
     private double lastSpan;
     private boolean mTouching;
+
 
     private IMediaPlayer.OnPreparedListener mOnPreparedListener = new IMediaPlayer.OnPreparedListener() {
         @Override
@@ -341,6 +344,7 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
         mPlayerStartBtn = (ImageView) findViewById(R.id.player_start);
         mPlayerSeekbar = (SeekBar) findViewById(R.id.player_seekbar);
         mPlayerVolume = (ImageView) findViewById(R.id.player_volume);
+        mPlayerLocalList = (ImageView) findViewById(R.id.player_local_list);
         mPlayerRotate = (ImageView) findViewById(R.id.player_rotate);
         mPlayerScreen = (ImageView) findViewById(R.id.player_screen);
         mPlayerScale = (ImageView) findViewById(R.id.player_scale);
@@ -375,6 +379,7 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
         mPlayerRotate.setOnClickListener(this);
         mPlayerScreen.setOnClickListener(this);
         mPlayerScale.setOnClickListener(mVideoScaleButton);
+        mPlayerLocalList.setOnClickListener(this);
 
         mPlayerStartBtn.setOnClickListener(mStartBtnListener);
         mPlayerSeekbar.setOnSeekBarChangeListener(mSeekBarListener);
@@ -843,6 +848,11 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
                 if (bitmap != null) {
                     Toast.makeText(TextureVodActivity.this, "截图成功", Toast.LENGTH_SHORT).show();
                 }
+            }
+            break;
+            case R.id.player_local_list: {
+                ListFragment listFragment = new ListFragment();
+                listFragment.show(getFragmentManager(), "local_file_list_fragment");
             }
             break;
             default:
