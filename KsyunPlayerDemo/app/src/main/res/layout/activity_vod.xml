@@ -247,6 +247,15 @@
                 android:textColor="@color/sendbtn_allowclike_color" />
 
             <ImageView
+                android:id="@+id/player_local_list"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/player_scale"
+                android:src="@drawable/voice"
+                android:layout_centerVertical="true"/>
+
+            <ImageView
                 android:id="@+id/player_scale"
                 android:layout_width="35dp"
                 android:layout_height="35dp"

@@ -10,8 +10,6 @@
         android:text="@string/network"
         android:layout_marginLeft="10dp"
         android:layout_centerVertical="true" />
-
-
     <Button
         android:id="@+id/media_setting"
         android:layout_width="70dp"
@@ -27,7 +25,5 @@
         android:text="@string/history"
         android:layout_toLeftOf="@+id/media_setting"
         android:layout_centerVertical="true"/>
-
-
 
 </RelativeLayout>

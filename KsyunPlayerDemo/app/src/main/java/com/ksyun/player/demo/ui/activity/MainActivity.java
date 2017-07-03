@@ -5,7 +5,6 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.media.session.PlaybackStateCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -19,7 +18,9 @@ import com.ksyun.player.demo.ui.fragment.LocalFragment;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
     private LocalFragment localFragment;
+
     private Button media_net;
     private Button media_setting;
     private Button media_history;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             media_net = (Button)findViewById(R.id.media_network);
             media_history = (Button)findViewById(R.id.media_history);
             media_setting = (Button)findViewById(R.id.media_setting);
+
             media_net.setOnClickListener(this);
             media_setting.setOnClickListener(this);
             media_history.setOnClickListener(this);
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         localFragment = new LocalFragment();
 
         transaction.replace(R.id.contentFrame,localFragment);
+
         transaction.commit();
     }
 
