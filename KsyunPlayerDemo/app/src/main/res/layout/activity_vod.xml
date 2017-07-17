@@ -142,12 +142,43 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/player_top_panel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/demo_size_50dp"
+        android:visibility="invisible"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:background="@drawable/player_panel_background">
+
+        <Button
+            android:id="@+id/stream_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/demo_size_5dp"
+            android:text="@string/show_stream_info"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/player_timed_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_timed_text"
+            android:layout_toLeftOf="@+id/stream_info"
+            android:layout_marginRight="@dimen/demo_size_15dp"
+            android:gravity="center" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/rightPanel_player"
-        android:layout_width="80dp"
+        android:layout_width="@dimen/demo_size_50dp"
         android:layout_height="match_parent"
         android:layout_above="@+id/player_panel"
         android:layout_alignParentRight="true"
-        android:visibility="gone">
+        android:layout_below="@+id/player_top_panel"
+        android:gravity="center_horizontal"
+        android:visibility="invisible">
         <ImageView
             android:id="@+id/player_screen"
             android:layout_width="35dp"
@@ -155,7 +186,6 @@
             android:layout_above="@+id/player_rotate"
             android:layout_alignParentRight="true"
             android:layout_marginBottom="20dp"
-            android:layout_marginRight="20dp"
             android:background="@drawable/screen" />
 
         <ImageView
@@ -164,9 +194,7 @@
             android:layout_height="35dp"
             android:layout_above="@+id/player_audio_seekbar"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
             android:background="@drawable/rotate" />
-
 
         <com.ksyun.player.demo.util.ProgressTextView
             android:id="@+id/ptv_open_percentage"
@@ -198,12 +226,21 @@
 
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/timed_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:textSize="20sp"
+        android:textColor="@color/player_white" />
+
     <RelativeLayout
         android:id="@+id/player_panel"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        android:visibility="gone">
+        android:visibility="invisible">
 
         <SeekBar
             android:id="@+id/player_seekbar"

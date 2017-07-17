@@ -133,6 +133,7 @@ public class LocalFragment extends Fragment {
         });
 
         selectedFile = Environment.getExternalStorageDirectory();
+        localPath.setText(selectedFile.getAbsolutePath());
         fetchNew(selectedFile);
 
     }

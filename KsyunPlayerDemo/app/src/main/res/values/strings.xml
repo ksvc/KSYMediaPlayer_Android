@@ -40,7 +40,13 @@
     <string name="bfsize_text">BufferSize:</string>
     <string name="bfpreparetimeout_text">PrepareTimeout:</string>
     <string name="bfreadtimeout_text">ReadTimeout:</string>
-    <string name="cache_threshold_text">缓存阈值：</string>
-    <string name="timeout_threshold_text">超时阈值:</string>
+    <string name="cache_threshold_text">缓存阈值</string>
+    <string name="timeout_threshold_text">超时阈值</string>
     <string name="text_setting">设置</string>
+    <string name="add_timed_text">添加字幕</string>
+    <string name="show_stream_info">流信息</string>
+
+    <string name="stream_index">StreamIndex</string>
+    <string name="stream_type">StreamType</string>
+
 </resources>
