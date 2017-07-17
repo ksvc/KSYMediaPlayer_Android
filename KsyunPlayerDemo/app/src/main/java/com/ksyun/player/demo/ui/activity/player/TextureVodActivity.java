@@ -10,10 +10,12 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
@@ -25,10 +27,14 @@ import com.ksyun.media.player.KSYHardwareDecodeWhiteList;
 import com.ksyun.media.player.KSYMediaMeta;
 import com.ksyun.media.player.KSYMediaPlayer;
 import com.ksyun.media.player.KSYTextureView;
+import com.ksyun.media.player.misc.ITrackInfo;
 import com.ksyun.media.player.misc.KSYQosInfo;
+import com.ksyun.media.player.misc.KSYTrackInfo;
 import com.ksyun.player.demo.R;
 import com.ksyun.player.demo.model.NetState;
 import com.ksyun.player.demo.model.Strings;
+import com.ksyun.player.demo.ui.fragment.StreamInfoFragment;
+import com.ksyun.player.demo.ui.fragment.SubtitleExplorerFragment;
 import com.ksyun.player.demo.util.NetStateUtil;
 import com.ksyun.player.demo.util.ProgressTextView;
 import com.ksyun.player.demo.util.QosObject;
@@ -89,18 +95,26 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
     private TextView mSdkVersion;
     private TextView mDNSTime;
     private TextView mHttpConnectionTime;
+    private TextView mTimedText;
     //卡顿信息
     private TextView mBufferEmptyCnt;
     private TextView mBufferEmptyDuration;
     private TextView mDecodeFps;
     private TextView mOutputFps;
 
-    private RelativeLayout topPanel;
+    private RelativeLayout mPlayerRightPanel;
     private ImageView reload;
     private ImageView mPlayerVolume;
     private ImageView mPlayerRotate;
     private ImageView mPlayerScreen;
     private ImageView mPlayerScale;
+
+    private RelativeLayout mPlayerTopPanel;
+    private Button mShowStreamInfo;
+    private Button mAddTimedText;
+
+    private SubtitleExplorerFragment mSubtitleFrag;
+    private StreamInfoFragment mStreamInfoFrag;
 
     private boolean mPlayerPanelShow = false;
     private boolean mPause = false;
@@ -165,20 +179,28 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
             Bundle bundle = mVideoView.getMediaMeta();
             KSYMediaMeta meta = KSYMediaMeta.parse(bundle);
             if (meta != null) {
-                if (meta.mHttpConnectTime > 0) {
-                    double http_connection_time = Double.valueOf(meta.mHttpConnectTime);
-                    mHttpConnectionTime.setText("HTTP Connection Time: " + (int) http_connection_time);
+                if (meta.getConnectTime() > 0) {
+                    mHttpConnectionTime.setText("HTTP Connection Time: " + meta.getConnectTime());
                 }
 
-                int dns_time = meta.mAnalyzeDnsTime;
-                if (dns_time > 0) {
-                    mDNSTime.setText("DNS time: " + dns_time);
+                if (meta.getAnalyzeDnsTime() > 0) {
+                    mDNSTime.setText("DNS time: " + meta.getAnalyzeDnsTime());
                 }
             }
 
             mSdkVersion.setText("SDK version: " + mVideoView.getVersion());
-
             mVideoResolution.setText("Resolution:" + mVideoView.getVideoWidth() + "x" + mVideoView.getVideoHeight());
+
+            ITrackInfo[] infos = mVideoView.getTrackInfo();
+            for(ITrackInfo info : infos) {
+                switch(info.getTrackType()) {
+                    case ITrackInfo.MEDIA_TRACK_TYPE_TIMEDTEXT:
+                    case ITrackInfo.MEDIA_TRACK_TYPE_EXTERNAL_TIMEDTEXT:
+                        if (mTimedText != null)
+                            mTimedText.setVisibility(View.VISIBLE);
+                        break;
+                }
+            }
 
             mStartTime = System.currentTimeMillis();
             chooseDebug = settings.getString("choose_debug", "信息为空");
@@ -311,6 +333,14 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
         }
     };
 
+    private IMediaPlayer.OnTimedTextListener mOnTimedTextListener = new IMediaPlayer.OnTimedTextListener() {
+        @Override
+        public void onTimedText(IMediaPlayer mp, String text) {
+            if (mTimedText != null)
+                mTimedText.setText(text);
+        }
+    };
+
     private SeekBar.OnSeekBarChangeListener audioSeekbarListener = new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -326,6 +356,18 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
 
+        }
+    };
+
+    private SubtitleExplorerFragment.OnSubtitleSelectedListener mOnSubtitleSelectedListener = new SubtitleExplorerFragment.OnSubtitleSelectedListener() {
+        @Override
+        public void onSubtitleSelected(String path) {
+            if (!TextUtils.isEmpty(path)) {
+                if (mVideoView != null)
+                    mVideoView.addTimedTextSource(path);
+                if (mTimedText != null)
+                    mTimedText.setVisibility(View.VISIBLE);
+            }
         }
     };
 
@@ -361,10 +403,14 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
         mBufferEmptyDuration = (TextView) findViewById(R.id.player_buffer_empty_duration);
         mDecodeFps = (TextView) findViewById(R.id.player_decode_fps);
         mOutputFps = (TextView) findViewById(R.id.player_output_fps);
+        mTimedText = (TextView) findViewById(R.id.timed_text);
 
-        topPanel = (RelativeLayout) findViewById(R.id.rightPanel_player);
+        mPlayerTopPanel = (RelativeLayout) findViewById(R.id.player_top_panel);
+        mAddTimedText = (Button) findViewById(R.id.player_timed_text);
+        mShowStreamInfo = (Button) findViewById(R.id.stream_info);
+
+        mPlayerRightPanel = (RelativeLayout) findViewById(R.id.rightPanel_player);
         reload = (ImageView) findViewById(R.id.player_reload);
-        //mReplay = (Button) findViewById(R.id.btn_replay);
 
         mAudioSeekbar = (VerticalSeekBar) findViewById(R.id.player_audio_seekbar);
         mProgressTextView = (ProgressTextView) findViewById(R.id.ptv_open_percentage);
@@ -376,6 +422,8 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
         mPlayerRotate.setOnClickListener(this);
         mPlayerScreen.setOnClickListener(this);
         mPlayerScale.setOnClickListener(mVideoScaleButton);
+        mAddTimedText.setOnClickListener(this);
+        mShowStreamInfo.setOnClickListener(this);
 
         mPlayerStartBtn.setOnClickListener(mStartBtnListener);
         mPlayerSeekbar.setOnSeekBarChangeListener(mSeekBarListener);
@@ -402,7 +450,8 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
                             hideAudioBar();
                         }
                         mPlayerPanel.setVisibility(View.GONE);
-                        topPanel.setVisibility(View.GONE);
+                        mPlayerRightPanel.setVisibility(View.GONE);
+                        mPlayerTopPanel.setVisibility(View.INVISIBLE);
                         break;
                     case UPDATE_QOSMESS:
                         if (msg.obj instanceof QosObject) {
@@ -452,6 +501,7 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
         mVideoView.setOnErrorListener(mOnErrorListener);
         mVideoView.setOnSeekCompleteListener(mOnSeekCompletedListener);
         mVideoView.setOnMessageListener(mOnMessageListener);
+        mVideoView.setOnTimedTextListener(mOnTimedTextListener);
         mVideoView.setScreenOnWhilePlaying(true);
 
         settings = getSharedPreferences("SETTINGS", Context.MODE_PRIVATE);
@@ -590,14 +640,16 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
 
         if (mPlayerPanelShow) {
             mPlayerPanel.setVisibility(View.VISIBLE);
-            topPanel.setVisibility(View.VISIBLE);
+            mPlayerRightPanel.setVisibility(View.VISIBLE);
+            mPlayerTopPanel.setVisibility(View.VISIBLE);
             Toast.makeText(mContext, "可双指缩放画面,单指移动画面",Toast.LENGTH_SHORT).show();
             Message msg = new Message();
             msg.what = HIDDEN_SEEKBAR;
             mHandler.sendMessageDelayed(msg, 3000);
         } else {
             mPlayerPanel.setVisibility(View.GONE);
-            topPanel.setVisibility(View.GONE);
+            mPlayerRightPanel.setVisibility(View.GONE);
+            mPlayerTopPanel.setVisibility(View.INVISIBLE);
             mHandler.removeMessages(HIDDEN_SEEKBAR);
         }
     }
@@ -654,6 +706,21 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
                 mAudioBufferTime.setText("AudioBufferTime:" + info.audioBufferTimeLength + "(ms)");
             }
         }
+    }
+
+    private void showSubtitleExplorer() {
+        if (mSubtitleFrag == null)
+            mSubtitleFrag = new SubtitleExplorerFragment();
+        mSubtitleFrag.setOnSubtitleSelectedListener(mOnSubtitleSelectedListener);
+        mSubtitleFrag.show(getFragmentManager(), "subtitle_explorer");
+    }
+
+    private void showStreamInfo() {
+        if (mStreamInfoFrag == null)
+            mStreamInfoFrag = new StreamInfoFragment();
+        if (mVideoView != null)
+            mStreamInfoFrag.updateStreamInfo(mVideoView.getTrackInfo());
+        mStreamInfoFrag.show(getFragmentManager(), "stream_info");
     }
 
     private void videoPlayEnd() {
@@ -843,12 +910,18 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
             break;
             case R.id.player_screen: {
                 Bitmap bitmap = mVideoView.getScreenShot();
-                savebitmap(bitmap);
+                saveBitmap(bitmap);
                 if (bitmap != null) {
                     Toast.makeText(TextureVodActivity.this, "截图成功", Toast.LENGTH_SHORT).show();
                 }
             }
             break;
+            case R.id.player_timed_text:
+                showSubtitleExplorer();
+                break;
+            case R.id.stream_info:
+                showStreamInfo();
+                break;
             default:
                 break;
         }
@@ -868,8 +941,8 @@ public class TextureVodActivity extends Activity implements View.OnClickListener
         showAudioBar = true;
     }
 
-    public void savebitmap(Bitmap bitmap) {
-        File appDir = new File(Environment.getExternalStorageDirectory(), "com.ksy.recordlib.demo.demo");
+    public void saveBitmap(Bitmap bitmap) {
+        File appDir = new File(Environment.getExternalStorageDirectory(), getPackageName());
         if (!appDir.exists()) {
             appDir.mkdir();
         }
