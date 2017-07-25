@@ -149,7 +149,7 @@ $ git clone https://git.oschina.net/ksvc/KSYMediaPlayer_Android.git
 
 | 类型    | 描述|
 | :---: | :---:| 
-|SDK名称|KSYLive_android|
+|SDK名称|KSYMediaPlayer_android|
 | SDK版本 | v2.5.0|
 | 设备型号  | oppo r9s  |
 | OS版本  | Android 6.0.1 |
