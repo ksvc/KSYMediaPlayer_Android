@@ -52,15 +52,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-  <meta name="description" content="Javadoc API documentation for Project Name." />
+  <meta name="description" content="Javadoc API documentation." />
 
 <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
 <title>
 
   KSYMediaPlayer
 
-
-| Project Name
 
 </title>
 <link href="../../../../../assets/doclava-developer-docs.css" rel="stylesheet" type="text/css" />
@@ -91,8 +89,6 @@
 
 <div id="header">
     <div id="headerLeft">
-    
-      <span id="masthead-title">Project Name</span>
     
     </div>
     <div id="headerRight">
@@ -147,7 +143,11 @@
     <li class="selected api apilevel-">
   <a href="../../../../com/ksyun/media/player/package-summary.html">com.ksyun.media.player</a></li>
     <li class="api apilevel-">
+  <a href="../../../../com/ksyun/media/player/detector/package-summary.html">com.ksyun.media.player.detector</a></li>
+    <li class="api apilevel-">
   <a href="../../../../com/ksyun/media/player/misc/package-summary.html">com.ksyun.media.player.misc</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/ksyun/media/player/recorder/package-summary.html">com.ksyun.media.player.recorder</a></li>
               </ul><br/>
             </div> <!-- end packages -->
           </div> <!-- end resize-packages -->
@@ -167,20 +167,25 @@
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnMessageListener.html">IMediaPlayer.OnMessageListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnPreparedListener.html">IMediaPlayer.OnPreparedListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnSeekCompleteListener.html">IMediaPlayer.OnSeekCompleteListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnTimedTextListener.html">IMediaPlayer.OnTimedTextListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnVideoSizeChangedListener.html">IMediaPlayer.OnVideoSizeChangedListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnAudioPCMListener.html">KSYMediaPlayer.OnAudioPCMListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnVideoRawDataListener.html">KSYMediaPlayer.OnVideoRawDataListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnVideoTextureListener.html">KSYMediaPlayer.OnVideoTextureListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYNetworkDetector.OnNetworkDetectionEventListener.html">KSYNetworkDetector.OnNetworkDetectionEventListener</a></li>
       </ul>
     </li>
               
     <li><h2>Classes</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html">KSYHardwareDecodeWhiteList</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYLibraryManager.html">KSYLibraryManager</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html">KSYMediaMeta</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.KSYStreamMeta.html">KSYMediaMeta.KSYStreamMeta</a></li>
           <li class="selected api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html">KSYMediaPlayer</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.Builder.html">KSYMediaPlayer.Builder</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaRecorder.html">KSYMediaRecorder</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYNetworkDetector.html">KSYNetworkDetector</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYTextureView.html">KSYTextureView</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYVideoView.html">KSYVideoView</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/MediaInfo.html">MediaInfo</a></li>
@@ -193,6 +198,7 @@
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.KSYDecodeMode.html">KSYMediaPlayer.KSYDecodeMode</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.KSYDeinterlaceMode.html">KSYMediaPlayer.KSYDeinterlaceMode</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.KSYReloadMode.html">KSYMediaPlayer.KSYReloadMode</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYNetworkDetector.KSYDetectorPacketType.html">KSYNetworkDetector.KSYDetectorPacketType</a></li>
       </ul>
     </li>
               
@@ -386,8 +392,7 @@
         
         interface</td>
       <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnAudioPCMListener.html">KSYMediaPlayer.OnAudioPCMListener</a></td>
-      <td class="jd-descrcol" width="100%">原始音频数据的回调监听器
-&nbsp;</td>
+      <td class="jd-descrcol" width="100%">&nbsp;</td>
     </tr>
     
     
@@ -500,6 +505,20 @@
     
     <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#MEDIA_MESSAGE_INFO">MEDIA_MESSAGE_INFO</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#MEDIA_SET_VIDEO_SAR">MEDIA_SET_VIDEO_SAR</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#SDL_FCC_RV16">SDL_FCC_RV16</a></td>
         <td class="jd-descrcol" width="100%">原始视频输出格式为RGB565
 </td>
@@ -588,8 +607,10 @@
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#_prepareAsync()">_prepareAsync</a></span>()
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#addTimedTextSource(java.lang.String)">addTimedTextSource</a></span>(String path)
         
+        <div class="jd-descrdiv">设置外挂字幕的路径，播放器会打开并解码外挂字幕</div>
+  
   </td></tr>
 
 
@@ -658,13 +679,31 @@
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#deselectTrack(int)">deselectTrack</a></span>(int track)
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#deselectTrack(int)">deselectTrack</a></span>(int trackIndex)
         
+        <div class="jd-descrdiv">根据流索引关闭对应的流, 流索引可通过 <code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#getTrackInfo()">getTrackInfo()</a></code> 获取</div>
+  
   </td></tr>
 
 
 	 
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#enableFastPlayMode(boolean)">enableFastPlayMode</a></span>(boolean enable)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -680,7 +719,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -696,7 +735,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -712,7 +751,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -730,7 +769,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -748,7 +787,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -766,7 +805,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -782,7 +821,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -800,7 +839,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -811,6 +850,22 @@
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#getCurrentPts()">getCurrentPts</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            long
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#getCurrentVideoPts()">getCurrentVideoPts</a></span>()
         
   </td></tr>
 
@@ -996,7 +1051,7 @@
             float
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#getSpeed(float)">getSpeed</a></span>(float speed)
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#getSpeed()">getSpeed</a></span>()
         
         <div class="jd-descrdiv">获取当前播放速度,1.0f为正常播放速度</div>
   
@@ -1466,8 +1521,10 @@
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#selectTrack(int)">selectTrack</a></span>(int track)
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#selectTrack(int)">selectTrack</a></span>(int trackIndex)
         
+        <div class="jd-descrdiv">根据流索引开启对应的流, 流索引可通过 <code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#getTrackInfo()">getTrackInfo()</a></code> 获取</div>
+  
   </td></tr>
 
 
@@ -1733,8 +1790,6 @@
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setOnAudioPCMAvailableListener(com.ksyun.media.player.KSYMediaPlayer.OnAudioPCMListener)">setOnAudioPCMAvailableListener</a></span>(<a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnAudioPCMListener.html">KSYMediaPlayer.OnAudioPCMListener</a> listener)
         
-        <div class="jd-descrdiv">设置获取原始音频数据的监听器</div>
-  
   </td></tr>
 
 
@@ -1781,6 +1836,26 @@
             void
         </td>
         <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setPlayableRanges(long, long)">setPlayableRanges</a></span>(long startTime, long endTime)
+        
+        <div class="jd-descrdiv">由金山云引入, 设置可播放的范围，仅对点播有效
+ 调用此接口时, 需注意:
+ 1.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#setPlayerMute(int)">setPlayerMute</a></span>(int mute)
         
         <div class="jd-descrdiv">设置播放器是否禁音</div>
@@ -1789,7 +1864,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1807,7 +1882,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1826,7 +1901,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1844,7 +1919,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1863,7 +1938,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1881,7 +1956,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1900,7 +1975,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1918,7 +1993,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1936,7 +2011,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1954,7 +2029,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1972,7 +2047,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1988,7 +2063,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -2007,7 +2082,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -2026,7 +2101,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -2044,7 +2119,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -2065,6 +2140,31 @@
 </table>
 
 
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="promethods" class="jd-sumtable"><tr><th colspan="12">Protected Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#finalize()">finalize</a></span>()
+        
+  </td></tr>
+
+
+
+</table>
 
 
 
@@ -2456,6 +2556,86 @@
 
 
 
+<a id="MEDIA_MESSAGE_INFO"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+        static 
+        final 
+        int
+      </span>
+        MEDIA_MESSAGE_INFO
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                599
+                (0x00000257)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<a id="MEDIA_SET_VIDEO_SAR"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+        static 
+        final 
+        int
+      </span>
+        MEDIA_SET_VIDEO_SAR
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                10001
+                (0x00002711)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
 <a id="SDL_FCC_RV16"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -2712,7 +2892,7 @@
 </div>
 
 
-<a id="_prepareAsync()"></a>
+<a id="addTimedTextSource(java.lang.String)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2724,8 +2904,8 @@
          
         void
       </span>
-      <span class="sympad">_prepareAsync</span>
-      <span class="normal">()</span>
+      <span class="sympad">addTimedTextSource</span>
+      <span class="normal">(String path)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2737,13 +2917,14 @@
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>设置外挂字幕的路径，播放器会打开并解码外挂字幕</p></div>
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
         <tr>
-            <th>IllegalStateException</td>
-            <td></td>
+          <th>path</th>
+          <td>外挂字幕路径
+</td>
         </tr>
       </table>
   </div>
@@ -2868,7 +3049,38 @@
         void
       </span>
       <span class="sympad">deselectTrack</span>
-      <span class="normal">(int track)</span>
+      <span class="normal">(int trackIndex)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>根据流索引关闭对应的流, 流索引可通过 <code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#getTrackInfo()">getTrackInfo()</a></code> 获取</p></div>
+
+    </div>
+</div>
+
+
+<a id="enableFastPlayMode(boolean)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">enableFastPlayMode</span>
+      <span class="normal">(boolean enable)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3167,6 +3379,37 @@
         long
       </span>
       <span class="sympad">getCurrentPts</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="getCurrentVideoPts()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">getCurrentVideoPts</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -3520,7 +3763,7 @@
 </div>
 
 
-<a id="getSpeed(float)"></a>
+<a id="getSpeed()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -3533,7 +3776,7 @@
         float
       </span>
       <span class="sympad">getSpeed</span>
-      <span class="normal">(float speed)</span>
+      <span class="normal">()</span>
     </h4>
       <div class="api-level">
         <div>
@@ -4537,7 +4780,7 @@
         void
       </span>
       <span class="sympad">selectTrack</span>
-      <span class="normal">(int track)</span>
+      <span class="normal">(int trackIndex)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -4549,7 +4792,17 @@
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>根据流索引开启对应的流, 流索引可通过 <code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html#getTrackInfo()">getTrackInfo()</a></code> 获取</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>trackIndex</th>
+          <td>流索引
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -5295,7 +5548,7 @@
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>设置获取原始音频数据的监听器</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
 </div>
@@ -5358,6 +5611,55 @@
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="setPlayableRanges(long, long)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setPlayableRanges</span>
+      <span class="normal">(long startTime, long endTime)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>由金山云引入, 设置可播放的范围，仅对点播有效
+ 调用此接口时, 需注意:
+ 1. startTime和endTime中必有一值大于0
+ 2. 当endTime大于0时, 其值必须大于startTime
+ 当以上任一条件不满足时会有IllegalArgumentException抛出</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>startTime</th>
+          <td>起始播放时间点, 单位为毫秒(MS)</td>
+        </tr>
+        <tr>
+          <th>endTime</th>
+          <td>结束播放时间点, 单位为毫秒(MS)
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -6014,6 +6316,51 @@
 
 
 <!-- ========= METHOD DETAIL ======== -->
+
+<h2>Protected Methods</h2>
+
+
+
+<a id="finalize()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">finalize</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>Throwable</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 
 
 

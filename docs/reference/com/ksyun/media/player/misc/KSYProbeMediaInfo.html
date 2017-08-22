@@ -52,15 +52,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-  <meta name="description" content="Javadoc API documentation for Project Name." />
+  <meta name="description" content="Javadoc API documentation." />
 
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
 <title>
 
   KSYProbeMediaInfo
 
-
-| Project Name
 
 </title>
 <link href="../../../../../../assets/doclava-developer-docs.css" rel="stylesheet" type="text/css" />
@@ -91,8 +89,6 @@
 
 <div id="header">
     <div id="headerLeft">
-    
-      <span id="masthead-title">Project Name</span>
     
     </div>
     <div id="headerRight">
@@ -146,8 +142,12 @@
                 
     <li class="api apilevel-">
   <a href="../../../../../com/ksyun/media/player/package-summary.html">com.ksyun.media.player</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../com/ksyun/media/player/detector/package-summary.html">com.ksyun.media.player.detector</a></li>
     <li class="selected api apilevel-">
   <a href="../../../../../com/ksyun/media/player/misc/package-summary.html">com.ksyun.media.player.misc</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../com/ksyun/media/player/recorder/package-summary.html">com.ksyun.media.player.recorder</a></li>
               </ul><br/>
             </div> <!-- end packages -->
           </div> <!-- end resize-packages -->
@@ -158,6 +158,7 @@
     <li><h2>Classes</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../com/ksyun/media/player/misc/AndroidTrackInfo.html">AndroidTrackInfo</a></li>
+          <li class="api apilevel-"><a href="../../../../../com/ksyun/media/player/misc/KSYListSourceMgr.html">KSYListSourceMgr</a></li>
           <li class="selected api apilevel-"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html">KSYProbeMediaInfo</a></li>
           <li class="api apilevel-"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.KSYProbeMediaData.html">KSYProbeMediaInfo.KSYProbeMediaData</a></li>
           <li class="api apilevel-"><a href="../../../../../com/ksyun/media/player/misc/KSYQosInfo.html">KSYQosInfo</a></li>
@@ -492,7 +493,7 @@ Summary:
         <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#getAudioStreamCount()">getAudioStreamCount</a></span>()
         
         <div class="jd-descrdiv">获取多媒体文件中音频流的个数
- 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int)">probeMediaInfo(String, int)</a></code>之后调用</div>
+ 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int, java.util.Map<java.lang.String, java.lang.String>, boolean)">probeMediaInfo(String, int, Map, boolean)</a></code>之后调用</div>
   
   </td></tr>
 
@@ -511,7 +512,7 @@ Summary:
         <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#getAudioStreams()">getAudioStreams</a></span>()
         
         <div class="jd-descrdiv">获取多媒体文件中所有音频流的信息
- 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int)">probeMediaInfo(String, int)</a></code>之后调用</div>
+ 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int, java.util.Map<java.lang.String, java.lang.String>, boolean)">probeMediaInfo(String, int, Map, boolean)</a></code>之后调用</div>
   
   </td></tr>
 
@@ -530,7 +531,7 @@ Summary:
         <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#getMediaBitrate()">getMediaBitrate</a></span>()
         
         <div class="jd-descrdiv">获取多媒体文件的码率
- 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int)">probeMediaInfo(String, int)</a></code>之后调用</div>
+ 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int, java.util.Map<java.lang.String, java.lang.String>, boolean)">probeMediaInfo(String, int, Map, boolean)</a></code>之后调用</div>
   
   </td></tr>
 
@@ -543,13 +544,12 @@ Summary:
             
             
             
-            <a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.KSYMediaFormat.html">KSYProbeMediaInfo.KSYMediaFormat</a>
+            long
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#getMediaFormat()">getMediaFormat</a></span>()
+        <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#getMediaDuration()">getMediaDuration</a></span>()
         
-        <div class="jd-descrdiv">获取多文件文件的封装格式
- 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int)">probeMediaInfo(String, int)</a></code>之后调用</div>
+        <div class="jd-descrdiv">获取多媒体文件的时长</div>
   
   </td></tr>
 
@@ -562,13 +562,13 @@ Summary:
             
             
             
-            int
+            <a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.KSYMediaFormat.html">KSYProbeMediaInfo.KSYMediaFormat</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#getVideoStreamCount()">getVideoStreamCount</a></span>()
+        <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#getMediaFormat()">getMediaFormat</a></span>()
         
-        <div class="jd-descrdiv">获取多媒体文件中视频流的个数
- 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int)">probeMediaInfo(String, int)</a></code>之后调用</div>
+        <div class="jd-descrdiv">获取多媒体文件的封装格式
+ 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int, java.util.Map<java.lang.String, java.lang.String>, boolean)">probeMediaInfo(String, int, Map, boolean)</a></code>之后调用</div>
   
   </td></tr>
 
@@ -581,13 +581,54 @@ Summary:
             
             
             
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#getVideoStreamCount()">getVideoStreamCount</a></span>()
+        
+        <div class="jd-descrdiv">获取多媒体文件中视频流的个数
+ 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int, java.util.Map<java.lang.String, java.lang.String>, boolean)">probeMediaInfo(String, int, Map, boolean)</a></code>之后调用</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
             ArrayList&lt;<a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.KSYProbeMediaData.html">KSYProbeMediaInfo.KSYProbeMediaData</a>&gt;
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#getVideoStreams()">getVideoStreams</a></span>()
         
         <div class="jd-descrdiv">获取多媒体文件中所有视频流的信息
- 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int)">probeMediaInfo(String, int)</a></code>之后调用</div>
+ 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int, java.util.Map<java.lang.String, java.lang.String>, boolean)">probeMediaInfo(String, int, Map, boolean)</a></code>之后调用</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            Bitmap
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#getVideoThumbnailAtTime(java.lang.String, long, int, int)">getVideoThumbnailAtTime</a></span>(String url, long seekTime, int width, int height)
+        
+        <div class="jd-descrdiv">获取多媒体文件的缩略图
+ 如果输入的width与height均为0,则输出缩略图的宽高与原视频一致
+ 输入的width与height某一个大于0,则会以此为基础,对输出的缩略图做缩放
+ 输入的width与height均大于0,则输出缩略图宽高与输入值一致
+ 默认不使用精准截图</div>
   
   </td></tr>
 
@@ -603,7 +644,7 @@ Summary:
             Bitmap
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#getVideoThumbnailAtTime(java.lang.String, long, int, int)">getVideoThumbnailAtTime</a></span>(String url, long seekTime, int width, int height)
+        <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#getVideoThumbnailAtTime(java.lang.String, long, int, int, boolean)">getVideoThumbnailAtTime</a></span>(String url, long seekTime, int width, int height, boolean accurate)
         
         <div class="jd-descrdiv">获取多媒体文件的缩略图
  如果输入的width与height均为0,则输出缩略图的宽高与原视频一致
@@ -624,7 +665,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int)">probeMediaInfo</a></span>(String url, int timeout)
+        <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int, java.util.Map<java.lang.String, java.lang.String>, boolean)">probeMediaInfo</a></span>(String url, int timeout, Map&lt;String,&nbsp;String&gt; headers, boolean accelerate)
         
         <div class="jd-descrdiv">探测一个多媒体文件,获取其流信息</div>
   
@@ -673,10 +714,42 @@ From class
             
             
             
+            Object
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">clone</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad">equals</span>(Object arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">finalize</span>()
         
   </td></tr>
 
@@ -921,7 +994,7 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>获取多媒体文件中音频流的个数
- 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int)">probeMediaInfo(String, int)</a></code>之后调用</p></div>
+ 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int, java.util.Map<java.lang.String, java.lang.String>, boolean)">probeMediaInfo(String, int, Map, boolean)</a></code>之后调用</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>多媒体文件中音频流的个数
@@ -958,7 +1031,7 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>获取多媒体文件中所有音频流的信息
- 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int)">probeMediaInfo(String, int)</a></code>之后调用</p></div>
+ 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int, java.util.Map<java.lang.String, java.lang.String>, boolean)">probeMediaInfo(String, int, Map, boolean)</a></code>之后调用</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>多媒体文件中所有音频流的信息
@@ -995,10 +1068,46 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>获取多媒体文件的码率
- 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int)">probeMediaInfo(String, int)</a></code>之后调用</p></div>
+ 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int, java.util.Map<java.lang.String, java.lang.String>, boolean)">probeMediaInfo(String, int, Map, boolean)</a></code>之后调用</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>多媒体文件的码率
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="getMediaDuration()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        long
+      </span>
+      <span class="sympad">getMediaDuration</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>获取多媒体文件的时长</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>多媒体文件的时长
 </li></ul>
   </div>
 
@@ -1031,8 +1140,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>获取多文件文件的封装格式
- 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int)">probeMediaInfo(String, int)</a></code>之后调用</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>获取多媒体文件的封装格式
+ 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int, java.util.Map<java.lang.String, java.lang.String>, boolean)">probeMediaInfo(String, int, Map, boolean)</a></code>之后调用</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>多媒体文件的封装格式
@@ -1069,7 +1178,7 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>获取多媒体文件中视频流的个数
- 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int)">probeMediaInfo(String, int)</a></code>之后调用</p></div>
+ 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int, java.util.Map<java.lang.String, java.lang.String>, boolean)">probeMediaInfo(String, int, Map, boolean)</a></code>之后调用</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>多媒体文件中视频流的个数
@@ -1106,7 +1215,7 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>获取多媒体文件中所有视频流的信息
- 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int)">probeMediaInfo(String, int)</a></code>之后调用</p></div>
+ 必须在<code><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html#probeMediaInfo(java.lang.String, int, java.util.Map<java.lang.String, java.lang.String>, boolean)">probeMediaInfo(String, int, Map, boolean)</a></code>之后调用</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>多媒体文件中所有视频流信息
@@ -1145,7 +1254,8 @@ From class
   <div class="jd-tagdata jd-tagdescr"><p>获取多媒体文件的缩略图
  如果输入的width与height均为0,则输出缩略图的宽高与原视频一致
  输入的width与height某一个大于0,则会以此为基础,对输出的缩略图做缩放
- 输入的width与height均大于0,则输出缩略图宽高与输入值一致</p></div>
+ 输入的width与height均大于0,则输出缩略图宽高与输入值一致
+ 默认不使用精准截图</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -1177,7 +1287,71 @@ From class
 </div>
 
 
-<a id="probeMediaInfo(java.lang.String, int)"></a>
+<a id="getVideoThumbnailAtTime(java.lang.String, long, int, int, boolean)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Bitmap
+      </span>
+      <span class="sympad">getVideoThumbnailAtTime</span>
+      <span class="normal">(String url, long seekTime, int width, int height, boolean accurate)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>获取多媒体文件的缩略图
+ 如果输入的width与height均为0,则输出缩略图的宽高与原视频一致
+ 输入的width与height某一个大于0,则会以此为基础,对输出的缩略图做缩放
+ 输入的width与height均大于0,则输出缩略图宽高与输入值一致</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>url</th>
+          <td>多媒体文件的地址</td>
+        </tr>
+        <tr>
+          <th>seekTime</th>
+          <td>单位为毫秒,大于0时会先seek到相应的位置再截取缩略图</td>
+        </tr>
+        <tr>
+          <th>width</th>
+          <td>输出缩略图的宽</td>
+        </tr>
+        <tr>
+          <th>height</th>
+          <td>输出缩略图的高</td>
+        </tr>
+        <tr>
+          <th>accurate</th>
+          <td>是否精准截图</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>缩略图
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="probeMediaInfo(java.lang.String, int, java.util.Map<java.lang.String, java.lang.String>, boolean)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1190,7 +1364,7 @@ From class
         void
       </span>
       <span class="sympad">probeMediaInfo</span>
-      <span class="normal">(String url, int timeout)</span>
+      <span class="normal">(String url, int timeout, Map&lt;String,&nbsp;String&gt; headers, boolean accelerate)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1212,7 +1386,15 @@ From class
         </tr>
         <tr>
           <th>timeout</th>
-          <td>超时阈值
+          <td>超时阈值，单位为秒</td>
+        </tr>
+        <tr>
+          <th>headers</th>
+          <td>请求时需添加的header</td>
+        </tr>
+        <tr>
+          <th>accelerate</th>
+          <td>是否加速
 </td>
         </tr>
       </table>

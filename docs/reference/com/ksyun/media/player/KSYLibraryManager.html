@@ -52,15 +52,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-  <meta name="description" content="Javadoc API documentation for Project Name." />
+  <meta name="description" content="Javadoc API documentation." />
 
 <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
 <title>
 
   KSYLibraryManager
 
-
-| Project Name
 
 </title>
 <link href="../../../../../assets/doclava-developer-docs.css" rel="stylesheet" type="text/css" />
@@ -91,8 +89,6 @@
 
 <div id="header">
     <div id="headerLeft">
-    
-      <span id="masthead-title">Project Name</span>
     
     </div>
     <div id="headerRight">
@@ -147,7 +143,11 @@
     <li class="selected api apilevel-">
   <a href="../../../../com/ksyun/media/player/package-summary.html">com.ksyun.media.player</a></li>
     <li class="api apilevel-">
+  <a href="../../../../com/ksyun/media/player/detector/package-summary.html">com.ksyun.media.player.detector</a></li>
+    <li class="api apilevel-">
   <a href="../../../../com/ksyun/media/player/misc/package-summary.html">com.ksyun.media.player.misc</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/ksyun/media/player/recorder/package-summary.html">com.ksyun.media.player.recorder</a></li>
               </ul><br/>
             </div> <!-- end packages -->
           </div> <!-- end resize-packages -->
@@ -167,20 +167,25 @@
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnMessageListener.html">IMediaPlayer.OnMessageListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnPreparedListener.html">IMediaPlayer.OnPreparedListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnSeekCompleteListener.html">IMediaPlayer.OnSeekCompleteListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnTimedTextListener.html">IMediaPlayer.OnTimedTextListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnVideoSizeChangedListener.html">IMediaPlayer.OnVideoSizeChangedListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnAudioPCMListener.html">KSYMediaPlayer.OnAudioPCMListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnVideoRawDataListener.html">KSYMediaPlayer.OnVideoRawDataListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnVideoTextureListener.html">KSYMediaPlayer.OnVideoTextureListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYNetworkDetector.OnNetworkDetectionEventListener.html">KSYNetworkDetector.OnNetworkDetectionEventListener</a></li>
       </ul>
     </li>
               
     <li><h2>Classes</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html">KSYHardwareDecodeWhiteList</a></li>
           <li class="selected api apilevel-"><a href="../../../../com/ksyun/media/player/KSYLibraryManager.html">KSYLibraryManager</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html">KSYMediaMeta</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.KSYStreamMeta.html">KSYMediaMeta.KSYStreamMeta</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html">KSYMediaPlayer</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.Builder.html">KSYMediaPlayer.Builder</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaRecorder.html">KSYMediaRecorder</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYNetworkDetector.html">KSYNetworkDetector</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYTextureView.html">KSYTextureView</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYVideoView.html">KSYVideoView</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/MediaInfo.html">MediaInfo</a></li>
@@ -193,6 +198,7 @@
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.KSYDecodeMode.html">KSYMediaPlayer.KSYDecodeMode</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.KSYDeinterlaceMode.html">KSYMediaPlayer.KSYDeinterlaceMode</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.KSYReloadMode.html">KSYMediaPlayer.KSYReloadMode</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYNetworkDetector.KSYDetectorPacketType.html">KSYNetworkDetector.KSYDetectorPacketType</a></li>
       </ul>
     </li>
               
@@ -493,10 +499,42 @@ From class
             
             
             
+            Object
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">clone</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad">equals</span>(Object arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">finalize</span>()
         
   </td></tr>
 

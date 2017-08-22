@@ -52,15 +52,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-  <meta name="description" content="Javadoc API documentation for Project Name." />
+  <meta name="description" content="Javadoc API documentation." />
 
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../favicon.ico" />
 <title>
 
   KSYTrackInfo
 
-
-| Project Name
 
 </title>
 <link href="../../../../../../assets/doclava-developer-docs.css" rel="stylesheet" type="text/css" />
@@ -91,8 +89,6 @@
 
 <div id="header">
     <div id="headerLeft">
-    
-      <span id="masthead-title">Project Name</span>
     
     </div>
     <div id="headerRight">
@@ -146,8 +142,12 @@
                 
     <li class="api apilevel-">
   <a href="../../../../../com/ksyun/media/player/package-summary.html">com.ksyun.media.player</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../com/ksyun/media/player/detector/package-summary.html">com.ksyun.media.player.detector</a></li>
     <li class="selected api apilevel-">
   <a href="../../../../../com/ksyun/media/player/misc/package-summary.html">com.ksyun.media.player.misc</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../com/ksyun/media/player/recorder/package-summary.html">com.ksyun.media.player.recorder</a></li>
               </ul><br/>
             </div> <!-- end packages -->
           </div> <!-- end resize-packages -->
@@ -158,6 +158,7 @@
     <li><h2>Classes</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../com/ksyun/media/player/misc/AndroidTrackInfo.html">AndroidTrackInfo</a></li>
+          <li class="api apilevel-"><a href="../../../../../com/ksyun/media/player/misc/KSYListSourceMgr.html">KSYListSourceMgr</a></li>
           <li class="api apilevel-"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.html">KSYProbeMediaInfo</a></li>
           <li class="api apilevel-"><a href="../../../../../com/ksyun/media/player/misc/KSYProbeMediaInfo.KSYProbeMediaData.html">KSYProbeMediaInfo.KSYProbeMediaData</a></li>
           <li class="api apilevel-"><a href="../../../../../com/ksyun/media/player/misc/KSYQosInfo.html">KSYQosInfo</a></li>
@@ -371,33 +372,40 @@ Summary:
     
     <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
-        <td class="jd-linkcol"><a href="../../../../../com/ksyun/media/player/misc/KSYTrackInfo.html#MEDIA_TRACK_TYPE_METADATA">MEDIA_TRACK_TYPE_METADATA</a></td>
+        <td class="jd-linkcol"><a href="../../../../../com/ksyun/media/player/misc/KSYTrackInfo.html#MEDIA_TRACK_TYPE_EXTERNAL_TIMEDTEXT">MEDIA_TRACK_TYPE_EXTERNAL_TIMEDTEXT</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../../com/ksyun/media/player/misc/KSYTrackInfo.html#MEDIA_TRACK_TYPE_METADATA">MEDIA_TRACK_TYPE_METADATA</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../com/ksyun/media/player/misc/KSYTrackInfo.html#MEDIA_TRACK_TYPE_SUBTITLE">MEDIA_TRACK_TYPE_SUBTITLE</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../com/ksyun/media/player/misc/KSYTrackInfo.html#MEDIA_TRACK_TYPE_TIMEDTEXT">MEDIA_TRACK_TYPE_TIMEDTEXT</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../com/ksyun/media/player/misc/KSYTrackInfo.html#MEDIA_TRACK_TYPE_UNKNOWN">MEDIA_TRACK_TYPE_UNKNOWN</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../../com/ksyun/media/player/misc/KSYTrackInfo.html#MEDIA_TRACK_TYPE_VIDEO">MEDIA_TRACK_TYPE_VIDEO</a></td>
         <td class="jd-descrcol" width="100%"></td>
@@ -511,7 +519,39 @@ Summary:
             int
         </td>
         <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYTrackInfo.html#getTrackIndex()">getTrackIndex</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYTrackInfo.html#getTrackType()">getTrackType</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYTrackInfo.html#setMediaMeta(com.ksyun.media.player.KSYMediaMeta.KSYStreamMeta)">setMediaMeta</a></span>(<a href="../../../../../com/ksyun/media/player/KSYMediaMeta.KSYStreamMeta.html">KSYMediaMeta.KSYStreamMeta</a> streamMeta)
         
   </td></tr>
 
@@ -527,7 +567,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYTrackInfo.html#setMediaMeta(com.ksyun.media.player.KSYMediaMeta.KSYStreamMeta)">setMediaMeta</a></span>(<a href="../../../../../com/ksyun/media/player/KSYMediaMeta.KSYStreamMeta.html">KSYMediaMeta.KSYStreamMeta</a> streamMeta)
+        <span class="sympad"><a href="../../../../../com/ksyun/media/player/misc/KSYTrackInfo.html#setTrackIndex(int)">setTrackIndex</a></span>(int index)
         
   </td></tr>
 
@@ -606,10 +646,42 @@ From class
             
             
             
+            Object
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">clone</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad">equals</span>(Object arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">finalize</span>()
         
   </td></tr>
 
@@ -808,6 +880,46 @@ From class
             
                 2
                 (0x00000002)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<a id="MEDIA_TRACK_TYPE_EXTERNAL_TIMEDTEXT"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        MEDIA_TRACK_TYPE_EXTERNAL_TIMEDTEXT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                100
+                (0x00000064)
             
         </span>
         </div>
@@ -1168,6 +1280,37 @@ From class
 </div>
 
 
+<a id="getTrackIndex()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        int
+      </span>
+      <span class="sympad">getTrackIndex</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
 <a id="getTrackType()"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -1213,6 +1356,37 @@ From class
       </span>
       <span class="sympad">setMediaMeta</span>
       <span class="normal">(<a href="../../../../../com/ksyun/media/player/KSYMediaMeta.KSYStreamMeta.html">KSYMediaMeta.KSYStreamMeta</a> streamMeta)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="setTrackIndex(int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setTrackIndex</span>
+      <span class="normal">(int index)</span>
     </h4>
       <div class="api-level">
         <div>

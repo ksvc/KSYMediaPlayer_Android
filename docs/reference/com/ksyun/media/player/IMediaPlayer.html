@@ -52,15 +52,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-  <meta name="description" content="Javadoc API documentation for Project Name." />
+  <meta name="description" content="Javadoc API documentation." />
 
 <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
 <title>
 
   IMediaPlayer
 
-
-| Project Name
 
 </title>
 <link href="../../../../../assets/doclava-developer-docs.css" rel="stylesheet" type="text/css" />
@@ -91,8 +89,6 @@
 
 <div id="header">
     <div id="headerLeft">
-    
-      <span id="masthead-title">Project Name</span>
     
     </div>
     <div id="headerRight">
@@ -147,7 +143,11 @@
     <li class="selected api apilevel-">
   <a href="../../../../com/ksyun/media/player/package-summary.html">com.ksyun.media.player</a></li>
     <li class="api apilevel-">
+  <a href="../../../../com/ksyun/media/player/detector/package-summary.html">com.ksyun.media.player.detector</a></li>
+    <li class="api apilevel-">
   <a href="../../../../com/ksyun/media/player/misc/package-summary.html">com.ksyun.media.player.misc</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/ksyun/media/player/recorder/package-summary.html">com.ksyun.media.player.recorder</a></li>
               </ul><br/>
             </div> <!-- end packages -->
           </div> <!-- end resize-packages -->
@@ -167,20 +167,25 @@
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnMessageListener.html">IMediaPlayer.OnMessageListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnPreparedListener.html">IMediaPlayer.OnPreparedListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnSeekCompleteListener.html">IMediaPlayer.OnSeekCompleteListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnTimedTextListener.html">IMediaPlayer.OnTimedTextListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnVideoSizeChangedListener.html">IMediaPlayer.OnVideoSizeChangedListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnAudioPCMListener.html">KSYMediaPlayer.OnAudioPCMListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnVideoRawDataListener.html">KSYMediaPlayer.OnVideoRawDataListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnVideoTextureListener.html">KSYMediaPlayer.OnVideoTextureListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYNetworkDetector.OnNetworkDetectionEventListener.html">KSYNetworkDetector.OnNetworkDetectionEventListener</a></li>
       </ul>
     </li>
               
     <li><h2>Classes</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html">KSYHardwareDecodeWhiteList</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYLibraryManager.html">KSYLibraryManager</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html">KSYMediaMeta</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.KSYStreamMeta.html">KSYMediaMeta.KSYStreamMeta</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html">KSYMediaPlayer</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.Builder.html">KSYMediaPlayer.Builder</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaRecorder.html">KSYMediaRecorder</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYNetworkDetector.html">KSYNetworkDetector</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYTextureView.html">KSYTextureView</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYVideoView.html">KSYVideoView</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/MediaInfo.html">MediaInfo</a></li>
@@ -193,6 +198,7 @@
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.KSYDecodeMode.html">KSYMediaPlayer.KSYDecodeMode</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.KSYDeinterlaceMode.html">KSYMediaPlayer.KSYDeinterlaceMode</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.KSYReloadMode.html">KSYMediaPlayer.KSYReloadMode</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYNetworkDetector.KSYDetectorPacketType.html">KSYNetworkDetector.KSYDetectorPacketType</a></li>
       </ul>
     </li>
               
@@ -435,6 +441,19 @@
          
         
         interface</td>
+      <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnTimedTextListener.html">IMediaPlayer.OnTimedTextListener</a></td>
+      <td class="jd-descrcol" width="100%">字幕监听器
+&nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+      <td class="jd-typecol">
+        
+         
+         
+        
+        interface</td>
       <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnVideoSizeChangedListener.html">IMediaPlayer.OnVideoSizeChangedListener</a></td>
       <td class="jd-descrcol" width="100%">视频的宽高发生变化时会有相应的回调
 &nbsp;</td>
@@ -518,243 +537,250 @@
     
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_ERROR_INVALID_URL">MEDIA_ERROR_INVALID_URL</a></td>
+        <td class="jd-descrcol" width="100%">播放地址无效,只在多URL播放时出现 </td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_ERROR_IO">MEDIA_ERROR_IO</a></td>
         <td class="jd-descrcol" width="100%">Input/Output相关错误,一般是网络超时 </td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_ERROR_MALFORMED">MEDIA_ERROR_MALFORMED</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_ERROR_NOT_VALID_FOR_PROGRESSIVE_PLAYBACK">MEDIA_ERROR_NOT_VALID_FOR_PROGRESSIVE_PLAYBACK</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_ERROR_OTHER_ERROR_CODE">MEDIA_ERROR_OTHER_ERROR_CODE</a></td>
         <td class="jd-descrcol" width="100%">http请求返回4xx </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_ERROR_SERVER_DIED">MEDIA_ERROR_SERVER_DIED</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_ERROR_SERVER_EXCEPTION">MEDIA_ERROR_SERVER_EXCEPTION</a></td>
         <td class="jd-descrcol" width="100%">http请求返回5xx </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_ERROR_TARGET_NOT_FOUND">MEDIA_ERROR_TARGET_NOT_FOUND</a></td>
         <td class="jd-descrcol" width="100%">http请求返回404 </td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_ERROR_TIMED_OUT">MEDIA_ERROR_TIMED_OUT</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_ERROR_UNAUTHORIZED_CLIENT">MEDIA_ERROR_UNAUTHORIZED_CLIENT</a></td>
         <td class="jd-descrcol" width="100%">http请求返回401 </td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_ERROR_UNKNOWN">MEDIA_ERROR_UNKNOWN</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_ERROR_UNSUPPORTED">MEDIA_ERROR_UNSUPPORTED</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_ERROR_UNSUPPORT_AUDIO_CODEC">MEDIA_ERROR_UNSUPPORT_AUDIO_CODEC</a></td>
         <td class="jd-descrcol" width="100%">不支持的音频编码类型 </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_ERROR_UNSUPPORT_PROTOCOL">MEDIA_ERROR_UNSUPPORT_PROTOCOL</a></td>
         <td class="jd-descrcol" width="100%">不支持的流媒体协议 </td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_ERROR_UNSUPPORT_VIDEO_CODEC">MEDIA_ERROR_UNSUPPORT_VIDEO_CODEC</a></td>
         <td class="jd-descrcol" width="100%">不支持的视频编码类型 </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_ERROR_VIDEO_DECODE_FAILED">MEDIA_ERROR_VIDEO_DECODE_FAILED</a></td>
         <td class="jd-descrcol" width="100%">视频解码失败 </td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_AUDIO_RENDERING_START">MEDIA_INFO_AUDIO_RENDERING_START</a></td>
         <td class="jd-descrcol" width="100%">音频开始播放 </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_BAD_INTERLEAVING">MEDIA_INFO_BAD_INTERLEAVING</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_BUFFERING_END">MEDIA_INFO_BUFFERING_END</a></td>
         <td class="jd-descrcol" width="100%">播放器缓存结束,开始播放音视频 </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_BUFFERING_START">MEDIA_INFO_BUFFERING_START</a></td>
         <td class="jd-descrcol" width="100%">开始缓存数据,可认为是一次卡顿 </td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_HARDWARE_DECODE">MEDIA_INFO_HARDWARE_DECODE</a></td>
         <td class="jd-descrcol" width="100%">播放器使用硬解 </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_METADATA_UPDATE">MEDIA_INFO_METADATA_UPDATE</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_NETWORK_BANDWIDTH">MEDIA_INFO_NETWORK_BANDWIDTH</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_NOT_SEEKABLE">MEDIA_INFO_NOT_SEEKABLE</a></td>
         <td class="jd-descrcol" width="100%">该多媒体文件不可快进/快退 </td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_RELOADED">MEDIA_INFO_RELOADED</a></td>
         <td class="jd-descrcol" width="100%">reload成功 </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_SOFTWARE_DECODE">MEDIA_INFO_SOFTWARE_DECODE</a></td>
         <td class="jd-descrcol" width="100%">播放器使用软解 </td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_SPEED_LOW">MEDIA_INFO_SPEED_LOW</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_STARTED_AS_NEXT">MEDIA_INFO_STARTED_AS_NEXT</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_SUBTITLE_TIMED_OUT">MEDIA_INFO_SUBTITLE_TIMED_OUT</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_SUGGEST_RELOAD">MEDIA_INFO_SUGGEST_RELOAD</a></td>
         <td class="jd-descrcol" width="100%">建议使用者调用reload接口 </td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_TIMED_TEXT_ERROR">MEDIA_INFO_TIMED_TEXT_ERROR</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_UNKNOWN">MEDIA_INFO_UNKNOWN</a></td>
         <td class="jd-descrcol" width="100%">未定义的消息 </td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_UNSUPPORTED_SUBTITLE">MEDIA_INFO_UNSUPPORTED_SUBTITLE</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_VIDEO_RENDERING_START">MEDIA_INFO_VIDEO_RENDERING_START</a></td>
         <td class="jd-descrcol" width="100%">视频开始渲染 </td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_VIDEO_ROTATION_CHANGED">MEDIA_INFO_VIDEO_ROTATION_CHANGED</a></td>
         <td class="jd-descrcol" width="100%">视频方向发生变化 </td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#MEDIA_INFO_VIDEO_TRACK_LAGGING">MEDIA_INFO_VIDEO_TRACK_LAGGING</a></td>
         <td class="jd-descrcol" width="100%">视频复杂，解码器效率不足 </td>
@@ -782,6 +808,38 @@
 <!-- ========== METHOD SUMMARY =========== -->
 <table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
 
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#addTimedTextSource(java.lang.String)">addTimedTextSource</a></span>(String path)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#deselectTrack(int)">deselectTrack</a></span>(int track)
+        
+  </td></tr>
 
 
 	 
@@ -1083,13 +1141,29 @@
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#setAudioStreamType(int)">setAudioStreamType</a></span>(int streamtype)
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#selectTrack(int)">selectTrack</a></span>(int track)
         
   </td></tr>
 
 
 	 
     <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#setAudioStreamType(int)">setAudioStreamType</a></span>(int streamtype)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1105,7 +1179,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1121,7 +1195,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1137,7 +1211,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1153,7 +1227,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1169,7 +1243,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1185,7 +1259,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1201,7 +1275,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1217,7 +1291,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1233,7 +1307,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1249,7 +1323,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1265,7 +1339,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1281,7 +1355,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1297,7 +1371,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1313,7 +1387,7 @@
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1329,7 +1403,7 @@
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             abstract
             
@@ -1340,6 +1414,22 @@
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#setOnSeekCompleteListener(com.ksyun.media.player.IMediaPlayer.OnSeekCompleteListener)">setOnSeekCompleteListener</a></span>(<a href="../../../../com/ksyun/media/player/IMediaPlayer.OnSeekCompleteListener.html">IMediaPlayer.OnSeekCompleteListener</a> listener)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html#setOnTimedTextListener(com.ksyun.media.player.IMediaPlayer.OnTimedTextListener)">setOnTimedTextListener</a></span>(<a href="../../../../com/ksyun/media/player/IMediaPlayer.OnTimedTextListener.html">IMediaPlayer.OnTimedTextListener</a> listener)
         
   </td></tr>
 
@@ -1802,6 +1892,46 @@
             
                 -10011
                 (0xffffd8e5)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<a id="MEDIA_ERROR_INVALID_URL"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        MEDIA_ERROR_INVALID_URL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>播放地址无效,只在多URL播放时出现 </p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                -10019
+                (0xffffd8dd)
             
         </span>
         </div>
@@ -3231,6 +3361,68 @@
 
 
 
+<a id="addTimedTextSource(java.lang.String)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">addTimedTextSource</span>
+      <span class="normal">(String path)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="deselectTrack(int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">deselectTrack</span>
+      <span class="normal">(int track)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
 <a id="getAudioSessionId()"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -3811,6 +4003,37 @@
         </tr>
       </table>
   </div>
+
+    </div>
+</div>
+
+
+<a id="selectTrack(int)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">selectTrack</span>
+      <span class="normal">(int track)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
 </div>
@@ -4406,6 +4629,37 @@
       </span>
       <span class="sympad">setOnSeekCompleteListener</span>
       <span class="normal">(<a href="../../../../com/ksyun/media/player/IMediaPlayer.OnSeekCompleteListener.html">IMediaPlayer.OnSeekCompleteListener</a> listener)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="setOnTimedTextListener(com.ksyun.media.player.IMediaPlayer.OnTimedTextListener)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">setOnTimedTextListener</span>
+      <span class="normal">(<a href="../../../../com/ksyun/media/player/IMediaPlayer.OnTimedTextListener.html">IMediaPlayer.OnTimedTextListener</a> listener)</span>
     </h4>
       <div class="api-level">
         <div>
