@@ -52,15 +52,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-  <meta name="description" content="Javadoc API documentation for Project Name." />
+  <meta name="description" content="Javadoc API documentation." />
 
 <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
 <title>
 
   KSYMediaMeta
 
-
-| Project Name
 
 </title>
 <link href="../../../../../assets/doclava-developer-docs.css" rel="stylesheet" type="text/css" />
@@ -91,8 +89,6 @@
 
 <div id="header">
     <div id="headerLeft">
-    
-      <span id="masthead-title">Project Name</span>
     
     </div>
     <div id="headerRight">
@@ -147,7 +143,11 @@
     <li class="selected api apilevel-">
   <a href="../../../../com/ksyun/media/player/package-summary.html">com.ksyun.media.player</a></li>
     <li class="api apilevel-">
+  <a href="../../../../com/ksyun/media/player/detector/package-summary.html">com.ksyun.media.player.detector</a></li>
+    <li class="api apilevel-">
   <a href="../../../../com/ksyun/media/player/misc/package-summary.html">com.ksyun.media.player.misc</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../com/ksyun/media/player/recorder/package-summary.html">com.ksyun.media.player.recorder</a></li>
               </ul><br/>
             </div> <!-- end packages -->
           </div> <!-- end resize-packages -->
@@ -167,20 +167,25 @@
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnMessageListener.html">IMediaPlayer.OnMessageListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnPreparedListener.html">IMediaPlayer.OnPreparedListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnSeekCompleteListener.html">IMediaPlayer.OnSeekCompleteListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnTimedTextListener.html">IMediaPlayer.OnTimedTextListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnVideoSizeChangedListener.html">IMediaPlayer.OnVideoSizeChangedListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnAudioPCMListener.html">KSYMediaPlayer.OnAudioPCMListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnVideoRawDataListener.html">KSYMediaPlayer.OnVideoRawDataListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnVideoTextureListener.html">KSYMediaPlayer.OnVideoTextureListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYNetworkDetector.OnNetworkDetectionEventListener.html">KSYNetworkDetector.OnNetworkDetectionEventListener</a></li>
       </ul>
     </li>
               
     <li><h2>Classes</h2>
       <ul>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html">KSYHardwareDecodeWhiteList</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYLibraryManager.html">KSYLibraryManager</a></li>
           <li class="selected api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html">KSYMediaMeta</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.KSYStreamMeta.html">KSYMediaMeta.KSYStreamMeta</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html">KSYMediaPlayer</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.Builder.html">KSYMediaPlayer.Builder</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaRecorder.html">KSYMediaRecorder</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYNetworkDetector.html">KSYNetworkDetector</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYTextureView.html">KSYTextureView</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYVideoView.html">KSYVideoView</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/MediaInfo.html">MediaInfo</a></li>
@@ -193,6 +198,7 @@
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.KSYDecodeMode.html">KSYMediaPlayer.KSYDecodeMode</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.KSYDeinterlaceMode.html">KSYMediaPlayer.KSYDeinterlaceMode</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.KSYReloadMode.html">KSYMediaPlayer.KSYReloadMode</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYNetworkDetector.KSYDetectorPacketType.html">KSYNetworkDetector.KSYDetectorPacketType</a></li>
       </ul>
     </li>
               
@@ -776,299 +782,334 @@ Summary:
     
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
-        <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_AUDIO_STREAM">IJKM_KEY_AUDIO_STREAM</a></td>
+        <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_AUDIO_CODEC">IJKM_KEY_AUDIO_CODEC</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class=" api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_AUDIO_STREAM">IJKM_KEY_AUDIO_STREAM</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_BITRATE">IJKM_KEY_BITRATE</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_CHANNEL_LAYOUT">IJKM_KEY_CHANNEL_LAYOUT</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_CODEC_LEVEL">IJKM_KEY_CODEC_LEVEL</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_CODEC_LONG_NAME">IJKM_KEY_CODEC_LONG_NAME</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_CODEC_NAME">IJKM_KEY_CODEC_NAME</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_CODEC_PIXEL_FORMAT">IJKM_KEY_CODEC_PIXEL_FORMAT</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_CODEC_PROFILE">IJKM_KEY_CODEC_PROFILE</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_DURATION_US">IJKM_KEY_DURATION_US</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_FORMAT">IJKM_KEY_FORMAT</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_FPS_DEN">IJKM_KEY_FPS_DEN</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_FPS_NUM">IJKM_KEY_FPS_NUM</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_HEIGHT">IJKM_KEY_HEIGHT</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_HTTP_ANALYZE_DNS">IJKM_KEY_HTTP_ANALYZE_DNS</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_HTTP_CODE">IJKM_KEY_HTTP_CODE</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_HTTP_CONNECT_TIME">IJKM_KEY_HTTP_CONNECT_TIME</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_HTTP_CONTENT_LENGHT">IJKM_KEY_HTTP_CONTENT_LENGHT</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_HTTP_CONTENT_RANGE">IJKM_KEY_HTTP_CONTENT_RANGE</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_HTTP_FIRST_DATA_TIME">IJKM_KEY_HTTP_FIRST_DATA_TIME</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_HTTP_REDIRECT">IJKM_KEY_HTTP_REDIRECT</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_HTTP_X_CACHE">IJKM_KEY_HTTP_X_CACHE</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_INFO_STREAM_TYPE">IJKM_KEY_INFO_STREAM_TYPE</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_LANGUAGE">IJKM_KEY_LANGUAGE</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_OPEN_STREAM_COST">IJKM_KEY_OPEN_STREAM_COST</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_PARSER_INFO_COST">IJKM_KEY_PARSER_INFO_COST</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_PARSER_INFO_STATUS">IJKM_KEY_PARSER_INFO_STATUS</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_PREPARE_COST_TIME">IJKM_KEY_PREPARE_COST_TIME</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_PREPARE_READ_BYTES">IJKM_KEY_PREPARE_READ_BYTES</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_SAMPLE_RATE">IJKM_KEY_SAMPLE_RATE</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_SAR_DEN">IJKM_KEY_SAR_DEN</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_SAR_NUM">IJKM_KEY_SAR_NUM</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_START_US">IJKM_KEY_START_US</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_STREAMID">IJKM_KEY_STREAMID</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_STREAMS">IJKM_KEY_STREAMS</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_STREAM_INDEX">IJKM_KEY_STREAM_INDEX</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_SUBTITLE_STREAM">IJKM_KEY_SUBTITLE_STREAM</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_TBR_DEN">IJKM_KEY_TBR_DEN</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_TBR_NUM">IJKM_KEY_TBR_NUM</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_TYPE">IJKM_KEY_TYPE</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_VIDEO_CODEC">IJKM_KEY_VIDEO_CODEC</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_VIDEO_STREAM">IJKM_KEY_VIDEO_STREAM</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_KEY_WIDTH">IJKM_KEY_WIDTH</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_VAL_TYPE__AUDIO">IJKM_VAL_TYPE__AUDIO</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_VAL_TYPE__EXTERNAL_TIMED_TEXT">IJKM_VAL_TYPE__EXTERNAL_TIMED_TEXT</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
     <tr class=" api apilevel-" >
+        <td class="jd-typecol">String</td>
+        <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_VAL_TYPE__SUBTITLE">IJKM_VAL_TYPE__SUBTITLE</a></td>
+        <td class="jd-descrcol" width="100%"></td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_VAL_TYPE__UNKNOWN">IJKM_VAL_TYPE__UNKNOWN</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">String</td>
         <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#IJKM_VAL_TYPE__VIDEO">IJKM_VAL_TYPE__VIDEO</a></td>
         <td class="jd-descrcol" width="100%"></td>
@@ -1094,13 +1135,24 @@ Summary:
           public
           
           
+          String</td>
+          <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#mACodec">mACodec</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol">
+          public
+          
+          
           int</td>
           <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#mAnalyzeDnsTime">mAnalyzeDnsTime</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1111,7 +1163,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1122,7 +1174,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1133,7 +1185,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1144,7 +1196,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1155,7 +1207,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1166,7 +1218,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1177,7 +1229,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1188,7 +1240,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1199,7 +1251,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1210,7 +1262,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1221,7 +1273,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1232,7 +1284,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1243,7 +1295,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1254,7 +1306,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1265,7 +1317,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1276,7 +1328,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1287,7 +1339,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1298,7 +1350,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1309,7 +1361,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1320,7 +1372,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1331,7 +1383,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol">
           public
           
@@ -1409,6 +1461,22 @@ Summary:
             
             
             
+            String
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html#getAudioCodec()">getAudioCodec</a></span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
             int
         </td>
         <td class="jd-linkcol" width="100%">
@@ -1418,7 +1486,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1434,7 +1502,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1450,7 +1518,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1466,7 +1534,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1482,7 +1550,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1498,7 +1566,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1514,7 +1582,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1530,7 +1598,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1546,7 +1614,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1562,7 +1630,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1578,7 +1646,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1594,7 +1662,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1610,7 +1678,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1626,7 +1694,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1642,7 +1710,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1658,7 +1726,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1674,7 +1742,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1731,10 +1799,42 @@ From class
             
             
             
+            Object
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">clone</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
         <span class="sympad">equals</span>(Object arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">finalize</span>()
         
   </td></tr>
 
@@ -3982,6 +4082,45 @@ From class
 
 
 
+<a id="IJKM_KEY_AUDIO_CODEC"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        String
+      </span>
+        IJKM_KEY_AUDIO_CODEC
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "acodec"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
 <a id="IJKM_KEY_AUDIO_STREAM"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -5308,6 +5447,84 @@ From class
 
 
 
+<a id="IJKM_KEY_STREAM_INDEX"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        String
+      </span>
+        IJKM_KEY_STREAM_INDEX
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "stream_index"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<a id="IJKM_KEY_SUBTITLE_STREAM"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        String
+      </span>
+        IJKM_KEY_SUBTITLE_STREAM
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "subtitle"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
 <a id="IJKM_KEY_TBR_DEN"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -5581,6 +5798,84 @@ From class
 
 
 
+<a id="IJKM_VAL_TYPE__EXTERNAL_TIMED_TEXT"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        String
+      </span>
+        IJKM_VAL_TYPE__EXTERNAL_TIMED_TEXT
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "external_timed_text"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<a id="IJKM_VAL_TYPE__SUBTITLE"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        String
+      </span>
+        IJKM_VAL_TYPE__SUBTITLE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                "subtitle"
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
 <a id="IJKM_VAL_TYPE__UNKNOWN"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -5666,6 +5961,36 @@ From class
 <!-- ========= FIELD DETAIL ======== -->
 <h2>Fields</h2>
 
+
+
+
+<a id="mACodec"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        String
+      </span>
+        mACodec
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
 
 
 
@@ -6427,6 +6752,37 @@ From class
         int
       </span>
       <span class="sympad">getAnalyzeDnsTime</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="getAudioCodec()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">getAudioCodec</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">

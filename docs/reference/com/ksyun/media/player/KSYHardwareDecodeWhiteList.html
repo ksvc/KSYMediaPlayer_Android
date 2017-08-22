@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
 <title>
 
-  IMediaController.MediaPlayerControl
+  KSYHardwareDecodeWhiteList
 
 
 </title>
@@ -157,7 +157,7 @@
     <li><h2>Interfaces</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaController.html">IMediaController</a></li>
-          <li class="selected api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html">IMediaController.MediaPlayerControl</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html">IMediaController.MediaPlayerControl</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.html">IMediaPlayer</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnBufferingUpdateListener.html">IMediaPlayer.OnBufferingUpdateListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnCompletionListener.html">IMediaPlayer.OnCompletionListener</a></li>
@@ -178,7 +178,7 @@
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html">KSYHardwareDecodeWhiteList</a></li>
+          <li class="selected api apilevel-"><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html">KSYHardwareDecodeWhiteList</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYLibraryManager.html">KSYLibraryManager</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.html">KSYMediaMeta</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaMeta.KSYStreamMeta.html">KSYMediaMeta.KSYStreamMeta</a></li>
@@ -240,6 +240,13 @@
 
 
 
+  
+   
+  
+  
+  
+  
+
 
 <div class="sum-details-links">
 
@@ -250,16 +257,21 @@ Summary:
 
 
 
-
-
-
-
-
-
-  <a href="#pubmethods">Methods</a>
+  <a href="#constants">Constants</a>
   
 
 
+
+
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
 
 &#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
 
@@ -279,13 +291,19 @@ Summary:
 
 <div id="jd-header">
     public
-    static 
+     
      
     
-    interface
-<h1>IMediaController.MediaPlayerControl</h1>
+    class
+<h1>KSYHardwareDecodeWhiteList</h1>
 
 
+
+  
+    extends Object<br/>
+  
+  
+  
 
   
   
@@ -302,7 +320,15 @@ Summary:
 
     <tr>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">com.ksyun.media.player.IMediaController.MediaPlayerControl</td>
+        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+         	
+        <td colspan="1" class="jd-inheritance-class-cell">com.ksyun.media.player.KSYHardwareDecodeWhiteList</td>
     </tr>
     
 
@@ -313,48 +339,13 @@ Summary:
 
 
 
-<table class="jd-sumtable jd-sumtable-subclasses"><tr><td colspan="12" style="border:none;margin:0;padding:0;">
-
-  <a href="#" onclick="return toggleInherited(this, null)" id="subclasses-indirect" class="jd-expando-trigger closed"
-          ><img id="subclasses-indirect-trigger"
-          src="../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>Known Indirect Subclasses
-
-  <div id="subclasses-indirect">
-      <div id="subclasses-indirect-list"
-              class="jd-inheritedlinks"
-              
-              >
-          
-            
-              <a href="../../../../com/ksyun/media/player/KSYTextureView.html">KSYTextureView</a>,
-            
-              <a href="../../../../com/ksyun/media/player/KSYVideoView.html">KSYVideoView</a>
-            
-          
-      </div>
-      <div id="subclasses-indirect-summary"
-              style="display: none;"
-              >
-  <table class="jd-sumtable-expando">
-        <tr class="alt-color api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYTextureView.html">KSYTextureView</a></td>
-              <td class="jd-descrcol" width="100%">金山云提供的播放控件,对TextureView和KSYMediaPlayer进行封装,接口定义与KSYMediaPlayer保持一直,支持控件<code><a href="../../../../com/ksyun/media/player/IMediaController.html">IMediaController</a></code>,具体接口定义可参见<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html">KSYMediaPlayer</a></code>
-&nbsp;</td>
-          </tr>
-        <tr class=" api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYVideoView.html">KSYVideoView</a></td>
-              <td class="jd-descrcol" width="100%">金山云提供的播放控件,对SurfaceView和KSYMediaPlayer进行封装,接口定义与KSYMediaPlayer保持一直,支持控件<code><a href="../../../../com/ksyun/media/player/IMediaController.html">IMediaController</a></code>,具体接口定义可参见<code><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.html">KSYMediaPlayer</a></code>
-&nbsp;</td>
-          </tr>
-  </table>
-      </div>
-  </div>
-</td></tr></table>
-
 
 <div class="jd-descr">
 
+
+<h2>Class Overview</h2>
+<p>金山云提供的Android硬解白名单功能
+</p>
 
 
 
@@ -394,6 +385,47 @@ Summary:
 
 
 
+<!-- =========== ENUM CONSTANT SUMMARY =========== -->
+<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
+
+
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html#KSY_STATUS_CONNECTING">KSY_STATUS_CONNECTING</a></td>
+        <td class="jd-descrcol" width="100%">白名单模块在请求金山云的服务器, 属于初始化过程中
+</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html#KSY_STATUS_FAIL">KSY_STATUS_FAIL</a></td>
+        <td class="jd-descrcol" width="100%">白名单模块请求金山云服务器失败, 此时白名单不可用
+</td>
+    </tr>
+    
+    
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html#KSY_STATUS_IDLE">KSY_STATUS_IDLE</a></td>
+        <td class="jd-descrcol" width="100%">白名单模块还未初始化
+</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">int</td>
+        <td class="jd-linkcol"><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html#KSY_STATUS_OK">KSY_STATUS_OK</a></td>
+        <td class="jd-descrcol" width="100%">白名单模块初始化已经完成
+</td>
+    </tr>
+    
+    
+
+</table>
+
+
 
 
 
@@ -416,55 +448,7 @@ Summary:
 	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
-            abstract
             
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#canPause()">canPause</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            abstract
-            
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#canSeekBackward()">canSeekBackward</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            abstract
-            
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#canSeekForward()">canSeekForward</a></span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            abstract
             
             
             
@@ -472,39 +456,26 @@ Summary:
             int
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#getBufferPercentage()">getBufferPercentage</a></span>()
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html#getCurrentStatus()">getCurrentStatus</a></span>()
         
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            abstract
-            
-            
-            
-            
-            long
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#getCurrentPosition()">getCurrentPosition</a></span>()
-        
+        <div class="jd-descrdiv">获取当前状态, 当此接口返回值为 <code><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html#KSY_STATUS_OK">KSY_STATUS_OK</a></code> 时方可调用
+ <code><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html#supportHardwareDecodeH264()">supportHardwareDecodeH264()</a></code>与 <code><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html#supportHardwareDecodeH265()">supportHardwareDecodeH265()</a></code></div>
+  
   </td></tr>
 
 
 	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol">
-            abstract
             
             
             
+            static
             
-            long
+            <a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html">KSYHardwareDecodeWhiteList</a>
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#getDuration()">getDuration</a></span>()
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html#getInstance()">getInstance</a></span>()
         
   </td></tr>
 
@@ -512,7 +483,25 @@ Summary:
 	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
-            abstract
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html#init(Context)">init</a></span>(Context context)
+        
+        <div class="jd-descrdiv">Android硬解白名单初始化, 输入参数不可为null, 否则会有 IllegalArgumentException 抛出</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
             
             
             
@@ -520,56 +509,28 @@ Summary:
             boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#isPlaying()">isPlaying</a></span>()
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html#supportHardwareDecodeH264()">supportHardwareDecodeH264</a></span>()
         
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            abstract
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#pause()">pause</a></span>()
-        
+        <div class="jd-descrdiv">当前机型是否支持硬解H.264/AVC 编码的视频</div>
+  
   </td></tr>
 
 
 	 
     <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
-            abstract
             
             
             
             
-            void
+            
+            boolean
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#seekTo(long)">seekTo</a></span>(long pos)
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html#supportHardwareDecodeH265()">supportHardwareDecodeH265</a></span>()
         
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            abstract
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaController.MediaPlayerControl.html#start()">start</a></span>()
-        
+        <div class="jd-descrdiv">当前机型是否支持硬解H.265/HEVC 编码的视频</div>
+  
   </td></tr>
 
 
@@ -580,6 +541,216 @@ Summary:
 
 
 
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Object
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            Object
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">clone</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            boolean
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">equals</span>(Object arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">finalize</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            Class&lt;?&gt;
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">getClass</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            int
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">hashCode</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">notify</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">notifyAll</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            String
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">toString</span>()
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">wait</span>(long arg0, int arg1)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">wait</span>(long arg0)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            final
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad">wait</span>()
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
 
 
 </div><!-- jd-descr (summary) -->
@@ -602,6 +773,177 @@ Summary:
 <!-- Constants -->
 
 
+<!-- ========= ENUM CONSTANTS DETAIL ======== -->
+<h2>Constants</h2>
+
+
+
+
+<a id="KSY_STATUS_CONNECTING"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        KSY_STATUS_CONNECTING
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>白名单模块在请求金山云的服务器, 属于初始化过程中
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                11
+                (0x0000000b)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<a id="KSY_STATUS_FAIL"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        KSY_STATUS_FAIL
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>白名单模块请求金山云服务器失败, 此时白名单不可用
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                13
+                (0x0000000d)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<a id="KSY_STATUS_IDLE"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        KSY_STATUS_IDLE
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>白名单模块还未初始化
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                10
+                (0x0000000a)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+<a id="KSY_STATUS_OK"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+        final 
+        int
+      </span>
+        KSY_STATUS_OK
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>白名单模块初始化已经完成
+</p></div>
+
+    
+        <div class="jd-tagdata">
+        <span class="jd-tagtitle">Constant Value: </span>
+        <span>
+            
+                12
+                (0x0000000c)
+            
+        </span>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
 <!-- Fields -->
 
 
@@ -621,7 +963,7 @@ Summary:
 
 
 
-<a id="canPause()"></a>
+<a id="getCurrentStatus()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -629,104 +971,11 @@ Summary:
         public 
          
          
-        abstract 
          
-        boolean
-      </span>
-      <span class="sympad">canPause</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="canSeekBackward()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-        abstract 
-         
-        boolean
-      </span>
-      <span class="sympad">canSeekBackward</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="canSeekForward()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-        abstract 
-         
-        boolean
-      </span>
-      <span class="sympad">canSeekForward</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="getBufferPercentage()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-        abstract 
          
         int
       </span>
-      <span class="sympad">getBufferPercentage</span>
+      <span class="sympad">getCurrentStatus</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -739,25 +988,31 @@ Summary:
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>获取当前状态, 当此接口返回值为 <code><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html#KSY_STATUS_OK">KSY_STATUS_OK</a></code> 时方可调用
+ <code><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html#supportHardwareDecodeH264()">supportHardwareDecodeH264()</a></code>与 <code><a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html#supportHardwareDecodeH265()">supportHardwareDecodeH265()</a></code></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>当前状态
+</li></ul>
+  </div>
 
     </div>
 </div>
 
 
-<a id="getCurrentPosition()"></a>
+<a id="getInstance()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         public 
+        static 
          
          
-        abstract 
          
-        long
+        <a href="../../../../com/ksyun/media/player/KSYHardwareDecodeWhiteList.html">KSYHardwareDecodeWhiteList</a>
       </span>
-      <span class="sympad">getCurrentPosition</span>
+      <span class="sympad">getInstance</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -776,7 +1031,7 @@ Summary:
 </div>
 
 
-<a id="getDuration()"></a>
+<a id="init(Context)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -784,12 +1039,12 @@ Summary:
         public 
          
          
-        abstract 
          
-        long
+         
+        void
       </span>
-      <span class="sympad">getDuration</span>
-      <span class="normal">()</span>
+      <span class="sympad">init</span>
+      <span class="normal">(Context context)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -801,13 +1056,23 @@ Summary:
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Android硬解白名单初始化, 输入参数不可为null, 否则会有 IllegalArgumentException 抛出</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>context</th>
+          <td>ApplicationContext
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
 
 
-<a id="isPlaying()"></a>
+<a id="supportHardwareDecodeH264()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -815,11 +1080,11 @@ Summary:
         public 
          
          
-        abstract 
+         
          
         boolean
       </span>
-      <span class="sympad">isPlaying</span>
+      <span class="sympad">supportHardwareDecodeH264</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -832,13 +1097,18 @@ Summary:
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>当前机型是否支持硬解H.264/AVC 编码的视频</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>返回值为true时为支持，反之则否
+</li></ul>
+  </div>
 
     </div>
 </div>
 
 
-<a id="pause()"></a>
+<a id="supportHardwareDecodeH265()"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -846,11 +1116,11 @@ Summary:
         public 
          
          
-        abstract 
          
-        void
+         
+        boolean
       </span>
-      <span class="sympad">pause</span>
+      <span class="sympad">supportHardwareDecodeH265</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -863,69 +1133,12 @@ Summary:
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="seekTo(long)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-        abstract 
-         
-        void
-      </span>
-      <span class="sympad">seekTo</span>
-      <span class="normal">(long pos)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="start()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-        abstract 
-         
-        void
-      </span>
-      <span class="sympad">start</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>当前机型是否支持硬解H.265/HEVC 编码的视频</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>返回值为true时为支持，反之则否
+</li></ul>
+  </div>
 
     </div>
 </div>

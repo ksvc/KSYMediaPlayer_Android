@@ -57,7 +57,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
 <title>
 
-  IMediaPlayer.OnMessageListener
+  KSYNetworkDetector.OnNetworkDetectionEventListener
 
 
 </title>
@@ -164,7 +164,7 @@
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnErrorListener.html">IMediaPlayer.OnErrorListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnInfoListener.html">IMediaPlayer.OnInfoListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnLogEventListener.html">IMediaPlayer.OnLogEventListener</a></li>
-          <li class="selected api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnMessageListener.html">IMediaPlayer.OnMessageListener</a></li>
+          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnMessageListener.html">IMediaPlayer.OnMessageListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnPreparedListener.html">IMediaPlayer.OnPreparedListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnSeekCompleteListener.html">IMediaPlayer.OnSeekCompleteListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnTimedTextListener.html">IMediaPlayer.OnTimedTextListener</a></li>
@@ -172,7 +172,7 @@
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnAudioPCMListener.html">KSYMediaPlayer.OnAudioPCMListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnVideoRawDataListener.html">KSYMediaPlayer.OnVideoRawDataListener</a></li>
           <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYMediaPlayer.OnVideoTextureListener.html">KSYMediaPlayer.OnVideoTextureListener</a></li>
-          <li class="api apilevel-"><a href="../../../../com/ksyun/media/player/KSYNetworkDetector.OnNetworkDetectionEventListener.html">KSYNetworkDetector.OnNetworkDetectionEventListener</a></li>
+          <li class="selected api apilevel-"><a href="../../../../com/ksyun/media/player/KSYNetworkDetector.OnNetworkDetectionEventListener.html">KSYNetworkDetector.OnNetworkDetectionEventListener</a></li>
       </ul>
     </li>
               
@@ -264,7 +264,7 @@
      
     
     interface
-<h1>IMediaPlayer.OnMessageListener</h1>
+<h1>KSYNetworkDetector.OnNetworkDetectionEventListener</h1>
 
 
 
@@ -283,7 +283,7 @@
 
     <tr>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">com.ksyun.media.player.IMediaPlayer.OnMessageListener</td>
+        <td colspan="1" class="jd-inheritance-class-cell">com.ksyun.media.player.KSYNetworkDetector.OnNetworkDetectionEventListener</td>
     </tr>
     
 
@@ -297,10 +297,6 @@
 
 <div class="jd-descr">
 
-
-<h2>Class Overview</h2>
-<p>金山云提供给的消息通道监听器,可设置此监听器获取主播端通过消息通道发送的信息
-</p>
 
 
 
@@ -370,7 +366,7 @@
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/ksyun/media/player/IMediaPlayer.OnMessageListener.html#onMessage(com.ksyun.media.player.IMediaPlayer, java.lang.String, java.lang.String, double)">onMessage</a></span>(<a href="../../../../com/ksyun/media/player/IMediaPlayer.html">IMediaPlayer</a> mp, String name, String info, double number)
+        <span class="sympad"><a href="../../../../com/ksyun/media/player/KSYNetworkDetector.OnNetworkDetectionEventListener.html#onNetworkDetectInfo(int, int, double)">onNetworkDetectInfo</a></span>(int what, int extra, double value)
         
   </td></tr>
 
@@ -423,7 +419,7 @@
 
 
 
-<a id="onMessage(com.ksyun.media.player.IMediaPlayer, java.lang.String, java.lang.String, double)"></a>
+<a id="onNetworkDetectInfo(int, int, double)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -435,8 +431,8 @@
          
         void
       </span>
-      <span class="sympad">onMessage</span>
-      <span class="normal">(<a href="../../../../com/ksyun/media/player/IMediaPlayer.html">IMediaPlayer</a> mp, String name, String info, double number)</span>
+      <span class="sympad">onNetworkDetectInfo</span>
+      <span class="normal">(int what, int extra, double value)</span>
     </h4>
       <div class="api-level">
         <div>
