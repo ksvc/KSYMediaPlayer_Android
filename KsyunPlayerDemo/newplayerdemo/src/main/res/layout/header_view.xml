@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+   <TextView
+       android:id="@+id/video_name"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="11dp"
+       android:layout_marginBottom="-4dp"
+       android:text="正在播放的视频"
+       android:textColor="@color/white"
+       android:textSize="16sp"/>
+</LinearLayout>

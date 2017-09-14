@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/KsyunPlayerDemo.iml" filepath="$PROJECT_DIR$/KsyunPlayerDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/newplayerdemo/newplayerdemo.iml" filepath="$PROJECT_DIR$/newplayerdemo/newplayerdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oldplayerdemo/oldplayerdemo.iml" filepath="$PROJECT_DIR$/oldplayerdemo/oldplayerdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/playerlib/playerlib.iml" filepath="$PROJECT_DIR$/playerlib/playerlib.iml" />
     </modules>
   </component>

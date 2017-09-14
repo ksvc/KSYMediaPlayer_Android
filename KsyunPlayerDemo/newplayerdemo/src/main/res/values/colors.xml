@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="btn_start_app">#ff2e4e</color>
+    <color name="content_background">#18181d</color>
+    <color name="title_background">#08080b</color>
+    <color name="viewfinder_frame">#ff000000</color>
+    <color name="viewfinder_laser">#ffff0000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#b0000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="controller_pannel">#5518181D</color>
+    <color name="progress_color">#ff2e4e</color>
+    <color name="setting_text">#7e7e89</color>
+    <color name="setting_divider">#313137</color>
+    <color name="panel_bg_start">#661D1E24</color>
+    <color name="panel_bg_end">#CC1D1E24</color>
+    <color name="panel_bg_middle">#991D1E24</color>
+    <color name="text_color_normal">#FFFFFF</color>
+    <color name="text_color_selected">#FF2E4E</color>
+    <!--老版本中定义的颜色-->
+    <color name="bg_color_2">#ffe8e8e8</color>
+    <color name="recorder_bg_new">#00000000</color>
+    <color name="transparent">#00ffffff</color><!--透明白色 -->
+
+    <color name="TextColorComLike">#668a3d</color>
+    <color name="TextColorUserAccount">#006a92</color>
+    <color name="follow_fans_num">#616060</color>
+    <color name="gridView_bg">#F5F5F5</color>
+
+
+    <color name="common_background">#f5f5f5</color>
+    <color name="link_color">#006a92</color>
+    <color name="sendbtn_allowclike_color">#ffffff</color>
+    <color name="sendbtn_color">#999999</color>
+
+    <color name="orange">#ffa500</color><!--橙色 -->
+
+
+    <color name="transparent1">#7fffffff</color><!--透明白色 -->
+    <color name="g_more_dlg_bg">#e5353942</color>
+    <color name="addMore_bg_color">#F0F0F0</color>
+    <color name="load_more_button_blue">#336666</color>
+    <color name="divider_color">#77AFB6B5</color>
+
+    <!-- 背景色 -->
+    <color name="at_message_unread">#f7f3ec</color>
+    <color name="at_message_readed">#f8f8f7</color>
+    <color name="recommand_guide_head">#99000000</color>
+
+    <!-- 文字颜色 -->
+    <color name="font_color_white">#ffffff</color>
+    <color name="font_color_3">#333333</color>
+    <color name="font_color_blue">#336666</color>
+    <color name="font_color_1">#2589c3</color>
+    <color name="font_color_2">#666666</color>
+    <color name="font_color_4">#0f0f0f</color>
+    <color name="font_color_5">#ffffff</color>
+    <color name="font_color_6">#f0f0f0</color>
+    <color name="font_color_7">#888888</color>
+    <color name="font_color_8">#2589c3</color>
+    <color name="font_color_9">#a3a3a3</color>
+    <color name="font_color_10">#373737</color>
+    <color name="font_color_11">#aaaaaa</color>
+    <color name="font_color_12">#d7d7d7</color>
+    <color name="font_color_13">#999999</color>
+    <color name="font_color_14">#e0e0e0</color>
+    <color name="font_color_15">#edecec</color>
+    <color name="font_color_16">#eb942b</color>
+    <color name="font_color_17">#3d3d3d</color>
+    <color name="font_color_18">#0098a3</color>
+    <color name="font_color_19">#f1a330</color>
+    <color name="font_color_20">#f87e31</color>
+    <color name="font_color_21">#00919c</color>
+    <color name="font_color_22">#e1e1e1</color>
+    <color name="font_color_23">#0099AA</color>
+    <color name="font_color_24">#2c2c2c</color>
+    <color name="font_color_25">#FF75C751</color>
+    <color name="font_color_26">#626262</color>
+    <color name="font_color_27">#44BBCC</color>
+    <color name="font_color_28">#e85932</color>
+    <color name="font_color_29">#4499aa</color>
+    <color name="font_color_30">#bbbbbb</color>
+    <color name="font_color_31">#00bbbb</color>
+    <color name="font_color_32">#80ffffff</color>
+    <color name="font_color_33">#ff00bbbb</color>
+    <color name="font_color_34">#2c758d</color>
+    <color name="font_color_35">#368ca8</color>
+    <color name="font_color_36">#22cccc</color>
+    <color name="font_color_37">#081d29</color>
+    <color name="font_color_38">#1d5270</color>
+    <color name="font_color_39">#fbfbfb</color>
+    <color name="font_color_40">#737b8c</color>
+    <color name="font_color_41">#ae4ce6</color>
+    <color name="font_color_42">#4facf3</color>
+    <color name="font_color_43">#bebebe</color>
+    <color name="font_color_44">#f2a93f</color>
+
+    <color name="trans_parent">#00000000</color>
+
+    <color name="colorblack">#000000</color>
+
+    <color name="player_black">#000000</color>
+    <color name="player_white">#FFFFFF</color>
+    <color name="player_panel">#696969</color>
+    <color name="player_red">#FF0033</color>
+    <color name="player_blue">#333399</color>
+    <color name="player_green">#99CC33</color>
+    <color name="player_grey">#CCCCCC</color>
+    <color name="player_yellow">#FFCC00</color>
+    <color name="player_purple">#996699</color>
+    <color name="player_blue2">#0099cc</color>
+
+
+    <color name="bg_color">#EDEDED</color>
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="help_button_view">#ffcccccc</color>
+    <color name="help_view">#ff404040</color>
+    <color name="possible_result_points1">#c0ffff00</color>
+    <color name="result_image_border">#ffffffff</color>
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c000ff00</color>
+    <color name="result_text">#ffffffff</color>
+    <color name="result_view1">#b0000000</color>
+    <color name="sbc_header_text">#ff808080</color>
+    <color name="sbc_header_view">#ffffffff</color>
+    <color name="sbc_list_item">#fffff0e0</color>
+    <color name="sbc_layout_view">#ffffffff</color>
+    <color name="sbc_page_number_text">#ff000000</color>
+    <color name="sbc_snippet_text">#ff4b4b4b</color>
+    <color name="share_text">#ff000000</color>
+    <color name="share_view">#ffffffff</color>
+    <color name="status_view">#50000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="viewfinder_frame1">#ff000000</color>
+    <color name="viewfinder_laser1">#ffff0000</color>
+    <color name="viewfinder_mask1">#60000000</color>
+    <color name="header">#58567D</color>
+    <color name="player_panel_background_color">#80000000</color>
+</resources>

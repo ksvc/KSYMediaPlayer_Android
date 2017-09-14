@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/vod_main_title"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/title_background">
+
+        <ImageView
+            android:id="@+id/setting_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="18dp"
+            android:clickable="true"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/set_setting"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/content_background"
+        android:orientation="vertical"
+        android:paddingLeft="20dp">
+
+        <LinearLayout
+            android:id="@+id/decode_layout"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/settings_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/set_hwc" />
+
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/choose_codec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="33dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/use_sw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:button="@drawable/radio_button"
+                    android:checked="true"
+                    android:paddingLeft="12dp"
+                    android:text="@string/set_soft"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/use_hw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="36dp"
+                    android:button="@drawable/radio_button"
+                    android:paddingLeft="12dp"
+                    android:text="@string/set_hard"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/setting_divider" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp">
+
+            <TextView
+                android:id="@+id/buffer"
+                style="@style/settings_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp"
+                android:text="@string/cache_threshold_text" />
+
+            <TextView
+                android:id="@+id/bftime"
+                style="@style/settings_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@+id/buffer"
+                android:text="@string/bftime_text" />
+
+            <EditText
+                android:id="@+id/bftime_edit"
+                style="@style/settings_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@+id/bftime"
+                android:inputType="number"
+                android:minEms="3"
+                android:singleLine="true"
+                android:theme="@style/edittext_hint" />
+
+            <TextView
+                style="@style/settings_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@+id/bftime_edit"
+                android:text="S" />
+            <TextView
+                android:id="@+id/bfsize"
+                style="@style/settings_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/bftime"
+                android:layout_below="@+id/bftime"
+                android:layout_marginTop="22dp"
+                android:text="@string/bfsize_text" />
+            <EditText
+                android:id="@+id/bfsize_edit"
+                style="@style/settings_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bftime_edit"
+                android:layout_toRightOf="@+id/bfsize"
+                android:layout_alignLeft="@id/bftime_edit"
+                android:layout_marginTop="2dp"
+                android:theme="@style/edittext_hint"
+                android:inputType="number"
+                android:minEms="3"
+                android:singleLine="true" />
+            <TextView
+                style="@style/settings_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bftime"
+                android:layout_marginTop="22dp"
+                android:layout_alignBottom="@+id/bfsize_edit"
+                android:layout_toRightOf="@+id/bfsize_edit"
+                android:text="M" />
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/setting_divider" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp">
+
+            <TextView
+                android:id="@+id/threshold"
+                style="@style/settings_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="16dp"
+                android:text="@string/timeout_threshold_text" />
+
+            <TextView
+                android:id="@+id/bfpreparetimeout"
+                style="@style/settings_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@+id/threshold"
+                android:text="@string/bfpreparetimeout_text" />
+
+            <EditText
+                android:id="@+id/bfpreparetimeout_edit"
+                style="@style/settings_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@+id/bfpreparetimeout"
+                android:inputType="number"
+                android:minEms="3"
+                android:singleLine="true"
+                android:theme="@style/edittext_hint" />
+
+            <TextView
+                style="@style/settings_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@+id/bfpreparetimeout_edit"
+                android:text="S" />
+            <TextView
+                android:id="@+id/bfreadtimeout"
+                style="@style/settings_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/bfpreparetimeout"
+                android:layout_below="@+id/bfpreparetimeout"
+                android:layout_marginTop="22dp"
+                android:text="@string/bfreadtimeout_text" />
+            <EditText
+                android:id="@+id/bfreadtimeout_edit"
+                style="@style/settings_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bfpreparetimeout_edit"
+                android:layout_toRightOf="@+id/bfreadtimeout"
+                android:layout_alignLeft="@id/bfpreparetimeout_edit"
+                android:layout_marginTop="2dp"
+                android:theme="@style/edittext_hint"
+                android:inputType="number"
+                android:minEms="3"
+                android:singleLine="true" />
+            <TextView
+                style="@style/settings_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bfpreparetimeout"
+                android:layout_marginTop="22dp"
+                android:layout_toRightOf="@+id/bfreadtimeout_edit"
+                android:text="S" />
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/setting_divider" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp">
+            <TextView
+                style="@style/settings_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/looping" />
+            <ImageView
+                android:id="@+id/setting_looping"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="22dp"
+                android:clickable="true"
+                android:src="@mipmap/close"/>
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/setting_divider" />
+        <Button
+            android:id="@+id/confirm_config"
+            android:layout_width="200dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/btn_start_app"
+            android:layout_marginRight="10dp"
+            style="@style/settings_type"
+            android:text="@string/confirm"/>
+    </LinearLayout>
+
+</LinearLayout>
+

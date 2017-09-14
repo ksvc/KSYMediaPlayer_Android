@@ -1,1 +1,1 @@
-include ':app', ':playerlib'
+include ':oldplayerdemo', ':playerlib', ':app', ':newplayerdemo'

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/player_black">
+
+    <com.ksyun.media.player.KSYTextureView
+        android:id="@+id/texture_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        tools:targetApi="ice_cream_sandwich" />
+
+    <TextView
+        android:id="@+id/loading_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/player_yellow"/>
+
+    <RelativeLayout
+        android:id="@+id/player_qos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/player_cpu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/player_mem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_cpu"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/player_re"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_mem"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/player_br"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_re"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/player_video_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_br"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp"/>
+
+        <TextView
+            android:id="@+id/player_audio_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_video_time"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/player_ip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_audio_time"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/player_sdk_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_ip"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/player_dns_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_sdk_version"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp"/>
+
+        <TextView
+            android:id="@+id/player_http_connection_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_dns_time"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/player_buffer_empty_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_http_connection_time"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/player_buffer_empty_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_buffer_empty_count"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/player_decode_fps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_buffer_empty_duration"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/player_output_fps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/player_decode_fps"
+            android:textColor="@color/player_yellow"
+            android:textSize="10dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rightPanel_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:visibility="gone">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/player_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:visibility="visible">
+        <ImageView
+            android:id="@+id/player_screen"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_above="@+id/player_rotate"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/screen" />
+
+        <ImageView
+            android:id="@+id/player_rotate"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_above="@+id/player_reload"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/rotate" />
+
+        <ImageView
+            android:id="@+id/player_reload"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_above="@+id/player_audio_layout"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/live_reload" />
+
+        <RelativeLayout
+            android:id="@+id/player_audio_layout"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/player_volume"
+            android:layout_alignParentRight="true">
+
+            <com.ksyun.player.old.util.ProgressTextView
+                android:id="@+id/ptv_open_percentage"
+                android:layout_width="40dp"
+                android:layout_height="160dp"
+                android:layout_toLeftOf="@+id/player_audio_seekbar"
+                android:visibility="invisible"
+                custom:ptv_textColor="#99CC33"
+                custom:ptv_textSize="10sp"
+                custom:ptv_thumHeight="8dp"
+                custom:ptv_thumWidth="12dp" />
+
+            <com.ksyun.player.old.util.VerticalSeekBar
+                android:id="@+id/player_audio_seekbar"
+                android:layout_width="wrap_content"
+                android:layout_height="160dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="10dp"
+                android:max="200"
+                android:maxHeight="2.0dp"
+                android:minHeight="2.0dp"
+                android:paddingBottom="0dp"
+                android:paddingTop="0dp"
+                android:progressDrawable="@drawable/player_seekbar"
+                android:thumb="@drawable/player_seekbar_selector"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/player_start"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:background="@drawable/ksy_playing_btn" />
+
+
+        <ImageView
+            android:id="@+id/player_mirror"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/player_scale"
+            android:background="@drawable/mirror" />
+
+        <ImageView
+            android:id="@+id/player_scale"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toLeftOf="@+id/player_volume"
+            android:src="@drawable/scale" />
+
+        <ImageView
+            android:id="@+id/player_volume"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/voice" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
