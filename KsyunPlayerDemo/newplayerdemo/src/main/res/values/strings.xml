@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">NewAppModule</string>
+    <string name="vod">点播</string>
+    <string name="live">直播</string>
+    <string name="load_more">正在加载更多</string>
+    <string name="looping">循环播放</string>
+    <string name="confirm">确认配置</string>
+    <string name="qrcode">"二维码"</string>
+    <!--老版本中String-->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="net_search">查找视频信息</string>
+
+    <string name="set_setting">设置</string>
+
+
+    <string name="net_scan">扫一扫</string>
+
+    <string name="set_hwc">解码方式:</string>
+    <string name="set_hard">硬解</string>
+    <string name="set_soft">软解</string>
+    <string name="start_vedio">播放</string>
+
+    <string name="debugoff">Debug关</string>
+    <string name="debugon">Debug开</string>
+    <string name="debugchange">Debubg开关</string>
+    <string name="set_ksytexture">KSYTexture</string>
+
+    <string name="live_type">播放:</string>
+    <string name="type_vod">点播</string>
+    <string name="type_live">直播</string>
+    <string name="type_floating">悬浮窗播放</string>
+    <string name="type_media_player">系统播放器</string>
+    <string name="bftime_text">BufferTime:</string>
+    <string name="bfsize_text">BufferSize:</string>
+    <string name="bfpreparetimeout_text">PrepareTimeout:</string>
+    <string name="bfreadtimeout_text">ReadTimeout:</string>
+    <string name="cache_threshold_text">缓存阈值</string>
+    <string name="timeout_threshold_text">超时阈值</string>
+    <string name="text_setting">设置</string>
+    <string name="add_timed_text">添加字幕</string>
+    <string name="show_stream_info">流信息</string>
+
+    <string name="stream_index">StreamIndex</string>
+    <string name="stream_type">StreamType</string>
+</resources>

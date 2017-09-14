@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 按下状态-->
+    <item android:drawable="@drawable/player_seekbar_thumb" android:state_pressed="true" />
+
+    <!-- 有焦点状态 -->
+    <item android:drawable="@drawable/player_seekbar_thumb" android:state_focused="true" />
+
+    <!-- 普通状态 -->
+    <item android:drawable="@drawable/player_seekbar_thumb" />
+</selector>
