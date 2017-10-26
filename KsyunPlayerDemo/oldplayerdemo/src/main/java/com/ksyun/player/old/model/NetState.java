@@ -22,12 +22,12 @@ public class NetState {
         NetworkInfo wifiNetworkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
         NetworkInfo dataNetworkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-       if (wifiNetworkInfo.isConnected() && !dataNetworkInfo.isConnected()) {
+        if (wifiNetworkInfo != null && wifiNetworkInfo.isConnected()) {
             return NETWORK_WIFI;
-        } else if (!wifiNetworkInfo.isConnected() && dataNetworkInfo.isConnected()) {
-            return NETWORK_MOBILE;
-        } else {
-            return NETWORK_NONE;
         }
+        if (dataNetworkInfo != null && dataNetworkInfo.isConnected()) {
+            return NETWORK_MOBILE;
+        }
+        return NETWORK_NONE;
     }
 }
