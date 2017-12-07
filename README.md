@@ -2,6 +2,9 @@
 
 [ ![Download](https://api.bintray.com/packages/ksvc/ksyplayer/libksyplayer-armv7a/images/download.svg) ](https://bintray.com/ksvc/ksyplayer/libksyplayer-armv7a/_latestVersion)
 
+<pre>Source Type:<b> Binary SDK</b>
+Charge Type:<b> free of charge</b></pre>
+
 ## 阅读对象
 本文档面向所有使用[金山云播放SDK][libksyplayer]的开发、测试人员等, 要求读者具有一定的Android编程开发经验，并且要求读者具备阅读[wiki][wiki]的习惯。
 
