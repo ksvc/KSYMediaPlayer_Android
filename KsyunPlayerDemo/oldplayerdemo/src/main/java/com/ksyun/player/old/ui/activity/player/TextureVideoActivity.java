@@ -306,8 +306,8 @@ public class TextureVideoActivity extends Activity implements View.OnClickListen
 
     private IMediaPlayer.OnMessageListener mOnMessageListener = new IMediaPlayer.OnMessageListener() {
         @Override
-        public void onMessage(IMediaPlayer iMediaPlayer, String name, String info, double number) {
-            Log.e(TAG, "name:" + name + ",info:" + info + ",number:" + number);
+        public void onMessage(IMediaPlayer iMediaPlayer, Bundle bundle) {
+            Log.e(TAG, "name:" + bundle.toString());
         }
     };
 
