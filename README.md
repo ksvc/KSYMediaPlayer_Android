@@ -163,12 +163,7 @@ $ git clone https://git.oschina.net/ksvc/KSYMediaPlayer_Android.git
 | 额外附件   | 文本形式控制台log、crash报告、其他辅助信息（界面截屏或录像等） |
 
 ### 6.2 联系方式
-- 主页：[金山云](http://www.ksyun.com/)
-- 邮箱：<sujia@kingsoft.com>
-- QQ讨论群：
-  - 574179720 [视频云技术交流群]
-  - 620036233 [视频云Android技术交流]
-  - 以上两个加一个QQ群即可   
+- 主页：[金山云](http://www.ksyun.com/) 
 - Issues：<https://github.com/ksvc/KSYMediaPlayer_Android/issues>
 
 <a href="http://www.ksyun.com/"><img src="https://raw.githubusercontent.com/wiki/ksvc/KSYLive_Android/images/logo.png" border="0" alt="金山云计算" /></a>
