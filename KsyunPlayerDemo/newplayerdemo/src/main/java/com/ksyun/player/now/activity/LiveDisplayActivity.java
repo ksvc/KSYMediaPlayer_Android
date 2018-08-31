@@ -662,8 +662,10 @@ public class LiveDisplayActivity extends AppCompatActivity implements Handler.Ca
         super.onPause();
         if(toFloatingWindow){
             video.removeView(FloatingPlayer.getInstance().getKSYTextureView());
-            FloatingPlayer.getInstance().getKSYTextureView().setOnTouchListener(null);
-            FloatingPlayer.getInstance().getKSYTextureView().setVideoScalingMode(KSYMediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING);
+            if(FloatingPlayer.getInstance().getKSYTextureView() != null) {
+                FloatingPlayer.getInstance().getKSYTextureView().setOnTouchListener(null);
+                FloatingPlayer.getInstance().getKSYTextureView().setVideoScalingMode(KSYMediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING);
+            }
         }else{
             FloatingPlayer.getInstance().getKSYTextureView().pause();
         }
